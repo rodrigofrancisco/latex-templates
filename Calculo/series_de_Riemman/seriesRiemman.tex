@@ -1,0 +1,91 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}%Es similar latin1--->Es decir permite usar caracteres de la lengua española
+\usepackage{amsmath}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\parindent 0ex
+\setlength{\parskip}{1em}
+\begin{document}
+
+\title{Sumas de Riemann}
+\author{Francisco Pablo, Rodrigo}
+%\maketitle
+\begin{large}\textbf{La integral- Riemanniana}\end{large}
+
+Las sumas de Riemann o  sumas riemannianas son un método que permite calcular el área bajo la curva de una función $y=f(x)$  en un intervalo $[a,b]$ conocido. El método consiste en particionar(dividir) al intervalo $n$ veces con el objetivo de formar pequeños rectángulos que queden por debajo (por arriba o por en medio de la función propuesta).  
+
+%Insertar GRAFICA
+\begin{large}Definición:\end{large}
+Una partición o red de intervalo $[a,b]$ es un conjunto finito de puntos denotada por:
+$$P=P([a,b])=\{Xi\}_{i=0}^n\equiv\{a=x_o<x_1<x_2< \cdots <x_{n-1}<x_n=b\}$$
+que divide al intervalo $[a,b]$ en $n$ subintervalos.\\
+Cada subintervalo tiene la forma $[x_{i-1},x_i]$ \\
+La longitud del intervalo es  $\Delta x_k=x_i-x_{i-1}$ , equivalente a escribir $\Delta x_k=(b-a)/n$ \\
+De manera amplia las particiones del intervalo $[a,b]$ son:\\
+\begin{align*}
+x_0&=a\\
+x_1&=x_0+1(b-a)/n\\
+x_2&=x_0+2(b-a)/n\\
+x_3&=x_0+3(b-a)/n\\
+\vdots\\
+x_n&=x_0+n(b-a)/n=a+(b-a)=b
+\end{align*}
+En general se escribe $x_k=x_0+k(b-a)/n$ y representa la base de cualquier rectángulo que se halle bajo la funcion $f(x)$\\
+$f(x_k)$ representa la altura del cualquier rectángulo.
+
+El área de cada rectángulo debajo de la curva es:\\
+\begin{align*}
+A_1&=f(x_0)\Delta x_1\\
+A_2&=f(x_1)\Delta x_2\\
+A_3&=f(x_2)\Delta x_3\\
+\vdots\\
+A_n&=f(x_{n-1})\Delta x_n\\
+\end{align*}
+Por lo que se puede obtener una aproximación del área bajo la curva de la siguiente manera:
+\begin{align*}
+\displaystyle\sum_{k=1}^nA_k&=A_1+A_2+A_3+\cdots +A_n\\
+\displaystyle\sum_{k=1}^nA_k&=f(x_0)\Delta x_1+f(x_1)\Delta x_2+f(x_2)\Delta x_3+\cdots +f(x_{n-1})\Delta x_n\\
+\displaystyle\sum_{k=1}^nA_k&=\sum_{k=1}^nf(x_{k-1})\Delta x_k  %&\mbox{(1)}
+\end{align*}
+
+Recordando que hay tres maneras de aproximar el area bajo la curva se tiene:
+\begin{align}
+\underline{S}(f,P)=\displaystyle\sum_{k=1}^nA_k&=\sum_{k=1}^nf(x_{k-1})\Delta x_k  &\mbox{Suma inferior}\\
+\overline{S}(f,P)=\displaystyle\sum_{k=1}^nA_k&=\sum_{k=1}^nf(x_{k})\Delta x_k  &\mbox{Suma superior}\\
+S(f,P)=\displaystyle\sum_{k=1}^nA_k&=\sum_{k=1}^nf(\overline{x}_{k})\Delta x_k  &\mbox{Suma promedio}
+\end{align}
+Donde:\newline
+\mbox{\hspace{1cm}f es una función}\\
+\mbox{\hspace{1cm}P es la partición del intervalo}\\
+\mbox{\hspace{1cm}$\overline{x}$ es un punto medio entre un subintervalo de la forma $ [x_{i-1},x_i]$}
+%GRAFICA DE LAS TRES SUMAS
+
+Para hacer que cualquiera de las tres expresiones dejen de ser una aproximación hacemos que $n$ tienda a infinito y paralelamente que  $\Delta x_k$  tienda a cero.
+$$A=\lim_{\substack{n \rightarrow \infty,\\\Delta x_k \rightarrow 0}} \left( \sum_{n=1}^n f(\overline{x}_k)\Delta x_k\right)$$
+Donde A es el aŕea exacta bajo la curva comprendida en el intervalo $[a,b]$. 
+
+En notación de Cauchy se tiene:
+$$\int \limits_a^b f(x)\,dx=\lim_{\substack{n \rightarrow \infty,\\\Delta x_k \rightarrow 0}} \left( \sum_{n=1}^n f(\overline{x}_k)\Delta x_k\right) \mbox{;\hspace{1.0cm} } \Delta x_k=(b-a)/n$$
+Donde:\\
+\mbox{\hspace{1cm}$a$ es el límite inferior del intervalo de integración.}\\
+\mbox{\hspace{1cm}$b$  es el límite superior del intervalo de integración.}\\
+\mbox{\hspace{1cm}$f(x)$ es el integrando.}\\
+\mbox{\hspace{1cm}$dx$ es la diferencial de la variable de integración.}
+
+Asi mismo, es verdad que:\\
+$$\sum_{n=1}^n f(x_{k-1})\Delta x_k<\int \limits_a^b f(x)\,dx< \sum_{n=1}^n f(x_k)\Delta x_k$$
+\begin{center}\rule{15 cm}{0.1mm}\end{center}
+\begin{large}\textbf{Propiedades de la integral- Riemanniana}\end{large}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

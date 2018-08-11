@@ -46,9 +46,18 @@ Como ejemplo ubiquemos el punto $P(3,-2)$, recuerda que este punto tiene la form
 
 * El punto donde se intersecten las líneas punteadas es el punto $P$
 
-#### Ejemplo 1
+#### Ejercicios
 
-Ubicar los siguientes puntos en el plano cartesiano $A(1,3), \;B(-2,4),\;C(-1,-2),\;D(5,-3),E(1,0),\;F(0,1),\;G(0,-1),\;H(-1,0)$
+Ubicar los siguientes puntos en el plano cartesiano 
+
+* $A(1,3)$ 
+* $B(-2,4)$
+* $C(-1,-2)$
+* $D(5,-3)$
+* $E(1,0)$
+* $F(0,1)$
+* $G(0,-1)$
+* $H(-1,0)$
 
 ### Distancia entre dos puntos
 
@@ -125,6 +134,34 @@ Lo mismo sucesde si se desea calcula la longitud de un segmento que es **paralel
 $$
 d(p_1,p_2)=|y_2-y_1|
 $$
+
+#### Ejercicios
+
+1. ¿Cuál es la distancia que existen entre los puntos $P_1(-5)$ y $P_2(7)$ ?
+
+2. Hallar la distancia del punto $A(1,-3)$ al punto $B(4,-2)$.
+
+3. Hallar $d(BA)$ si $A(1,2)$ y $B(10,0)$.
+
+4. Encontrar la distancia entre los punto $P(0,-8)$ y $Q(3,-8)$.
+
+5. Encuentra la distancia entre los siguientes pares de puntos. 
+
+   a. $A(-1,0)$, $B(0,9)$
+
+   b. $P(7,-7)$, $Q(12,-1)$
+
+   c. $E(3,-4)$, $R(2,-8)$
+
+6. Calcular $d(AB)$ si $A(\sqrt{2},3)$ y $B(\frac{1}{3},-1)$
+
+7. Calcular $d(AB)$ si $A(-2\sqrt{2},-3)$ y $B(\frac{\sqrt{2}}{3},6)$
+
+8. Calcula el perímetro del siguiente triángulo, de vértices $A(-1,3)$, $B(7,-8)$ y $C(-2,2)$
+
+9. Calcula el perímetro del siguiente triángulo, de vértices $A(1,-3)$, $B(5,0)$ y $C(6,9)$
+
+10. Los extremos del diámetro de una circunferencia son $R(1,-2)$ y $Q(7,9)$. Calcule el perímetro y área de dicha circunferencia.
 
 ### Coordenadas de un punto que divide a un segmento de acuerdo con una razón dada 
 
@@ -214,6 +251,11 @@ $$
 \mbox{Ahora, podemos calcular las coordenadas } x \mbox{ y } y \mbox{ cuyo cálculo se le deja al lector.}
 $$
 
+#### Ejercicios
+
+1. ¿Cuál es la razón que divide el segmento de recta con extremos $P_1(-3,-6)$ y $P_2(-1,7)$ en el punto $P(10,4)$?
+2. Determina el punto $P(x,y)$ que divide al segmento $\overline{P_1P_2}$ en una razón $r=\frac{2}{3}$, si $P_1(3,-5)$ y $P_2(-1,-4)$.
+
 ### Área de un polígono 
 
 Existen varios métodos para encontrar el área de un polígono, a continuación se expone el método por triángulación.
@@ -255,6 +297,10 @@ A_t = \frac{1}{2}
 \end{align}
 $$
 
+#### Ejercicios
+
+1. Hallar el área del polígono de vértices $A(1,1)$, $B(2,-3)$, $C(-3,-3)$, $D(-4-1)$ y $E(-2,1)$.
+
 ### Conceptos de básicos de la línea recta
 
 Antes de iniciar formalmente con el estudio de la recta es importante aprender algunos conceptos que nos  permitirán dar una definición de lo que es un recta.
@@ -291,7 +337,35 @@ $$
 
 #### Casos posibles de la pendiente (m)
 
-//Falta
+- Cuando la pendiente es positiva
+
+  ![img10](./img/img10.png)
+
+- Cuando la pendiente es negativa
+
+  ![img11](./img/img11.png)
+
+- Cuando la pendiente es cero
+
+  ![img13](./img/img13.png)
+
+- Cuando la pendiente no existe
+
+  ![img12](./img/img12.png)
+
+##### Ejemplo
+
+Hallar la pendiente del segmento de recta $\overline{P_1P_2}$  si $P_1(1,3)$ y $P_2(7,-8)$.
+
+*Solución*
+$$
+m= \dfrac{-8-3}{7-1}=\dfrac{-11}{6}\\
+\therefore \fbox{$m_{\overline{P_1P_2}} = \dfrac{-11}{6}$}
+$$
+
+#### Ejercicios
+
+
 
 ### Ángulo entre dos rectas
 

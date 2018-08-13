@@ -445,7 +445,7 @@ Hallar el lugar geométrico de todos los puntos que se encuentran a $6$ unidades
 
 La recta se define como el lugar geométrico de un punto $p(x,y)$ que se mueve de tal manera que la pendiente entre dos o más posiciones permanece constante. 
 
-`Insertar imagen `
+![img16](./img/img16.gif){https://oa.ugto.mx/oa/oa-enmsir-0000001/2_formas_de_la_ecuacin_de_la_recta.html}
 
 En otras palabras, si se definen dos puntos fijos A y B que pertenecen a un recta $\ell$ y se calculan las pendiente de los segmentos $\overline{AP}$ y $\overline{PB}$  se llega a la siguiente conclusión
 $$
@@ -498,6 +498,21 @@ $$
 \therefore \fbox{$y = mx+b$}  \hspace{2cm}\cdots(3)
 $$
 
+##### Ejemplo
+
+Hallar la ecuación de la recta que pasa por los puntos $A(2,3)$ y $B(1,-5)$ y expresarla en su forma punto-pendiente.
+
+*Solución*
+$$
+\begin{align}
+\mbox{Con (1), se tiene que }\\
+y-3 &= \left(\dfrac{-5-3}{1-2}\right)(x-2) \\
+y-3 &= \left(-8\right)(x-2) \\
+y-3 &= -8x+16  \\
+y &= -8x+19
+\end{align}
+$$
+
 #### Forma general
 
 La forma general de la recta se refiere a una ecuación de primer grado que tiene la forma
@@ -510,13 +525,47 @@ $$
 
 //falta
 
+##### Ejemplo
+
+Halla la ecuación de la recta que pasa por el punto $P(7,1)$ y cuya pendiente es de $m=\frac{1}{2}$. Expresar dicha ecuación en su forma general.
+
+*Solución*
+$$
+\begin{align}
+\mbox{Con (4), se tiene que }\\
+y-1 &= \left(\dfrac{1}{2}\right)(x-7) \\
+2(y-3) &= \left(1\right)(x-2) \\
+2y-6 &= x-2 \\
+\mbox{En su forma general ...} \\
+2y-6-x+2 &= 0 \\
+\fbox{$2y-x-4 = 0 $}\\
+\end{align}
+$$
+
 ### Distancia de un punto $p(x_1,y_1)$ a una recta $Ax+By+C = 0 $
 
 Es posible calcula la distancia de un punto $p$ a una recta $\ell : Ax+By+C =0$ a través de la siguiente expresión
 $$
 \fbox{$d(p,\ell) = \dfrac{|Ax_1+By_1+C|}{\sqrt{A^2+B^2}}$} \hspace{2cm}\cdots(1)
 $$
-**Recuerde que con *(1)* obtendremos la longitud de un segmento de recta trazado a partir del punto $p$ y cuyo extremo es un punto que se encuentra en $\ell$ . Dicho segmento es siempre perpendicular a la recta por tratarse de un distancia.**
+**Recuerde que con *(1)* obtendremos la longitud de un segmento de recta trazado a partir del punto $p$ y cuyo extremo es un punto que se encuentra en $\ell$ . Dicho segmento es siempre perpendicular a la recta por tratarse de un distancia. En la siguiente figura se expresa lo anteriormente dicho.**
+
+![img14](./img/img14.png)
+
+#### Ejemplo
+
+Hallar la distancia de desde la recta $\ell: 3x+y=0$ al punto $A(-2,-3)$.
+
+*Solución*
+$$
+\mbox{Con (1)}\\[0.5cm]
+\begin{align}
+d(A,\ell) &= \dfrac{|3(-2)+1(-3)|}{\sqrt{3^2+1^2}} \\
+d(A,\ell) &= \dfrac{|-9|}{\sqrt{10}} \\
+\end{align} \\
+\fbox{$d(A,\ell) = \dfrac{9}{\sqrt{10}}$}
+$$
+
 
 ### Ecuación de las bicectrices de un ángulo entre dos rectas
 
@@ -538,7 +587,7 @@ i.e.
 $$
 d(F,P) = d(P,\ell)
 $$
-`Imagen de la parabola`
+![img15](./img/img15.png)
 
 ### Elementos de la parábola
 
@@ -560,15 +609,24 @@ EE' \;\bot\; DD' \\
 p = |\overline{AV}| = |\overline{VF}| \\
 \overline{LR} = 4p
 $$
-El lado recto es una cuerda focal perpendicaul al eje de simetría  y mide que tan ancha es la parábola desde el foco.
+El lado recto es una cuerda focal perpendicular al eje de simetría  y mide que tan ancha es la parábola desde el foco.
 
 ### Casos de la parábola
 
-`imagen de parábolas horizontales y verticales`
+Existen básicamente cuatro casos en que podríamos encontrar la gráfica de un parábola.
+
+![img17](./img/img17.png){https://iguerrero.wordpress.com/2009/10/20/topicos-de-geometria-analitica-30/}
+
+
+
+1. Cuando la parábola es vertical y es positiva
+2. Cuando la parábola es vertical y es negativa
+3. Cuando la parábola es horizontal y es positiva
+4. Cuando la parábola es horizontal y es negativa
 
 ### Ecuaciones de la parábola 
 
-#### Ecuación canónica (standar, ordinaria o cartesiana) de la parábola
+#### Ecuación canónica (estándar, ordinaria o cartesiana) de la parábola
 
 ##### Parábola Horizontal Positiva  o negativa con Vértice en el Origen (PHP/N-VO)
 

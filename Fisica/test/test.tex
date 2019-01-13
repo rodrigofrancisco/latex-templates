@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage[most]{tcolorbox}
+\newtcolorbox{mybox}[2][]{%
+  attach boxed title to top center
+               = {yshift=-8pt},
+  colback      = blue!5!white,
+  colframe     = blue!75!black,
+  fonttitle    = \bfseries,
+  colbacktitle = blue!85!black,
+  title        = #2,#1,
+  enhanced,
+}
+\begin{document}
+\begin{mybox}[colback=white]{Title}
+This is my box.
+\end{mybox}
+\end{document}

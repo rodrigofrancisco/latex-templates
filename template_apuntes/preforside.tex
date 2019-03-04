@@ -1,0 +1,27 @@
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{epigraph}
+
+\renewcommand\epigraphflush{flushright}
+\renewcommand\epigraphsize{\normalsize}
+\setlength\epigraphwidth{0.7\textwidth}
+
+\DeclareFixedFont{\titlefont}{T1}{ppl}{}{}{0.5in}
+
+\makeatletter                       
+\def\printauthor{%                  
+    {\large \@author}}
+\let\printtitle\@title
+\makeatother
+
+
+\newcommand\titlepagedecoration{%
+\begin{tikzpicture}[remember picture,overlay,shorten >= -10pt]
+\draw[opacity=0.025,white, fill=apuntes] (-15,20) circle (100pt);
+\draw[opacity=0.05,white, fill=apuntes] (2,15) circle (75pt);
+\draw[opacity=0.075,white, fill=apuntes] (-5,7) circle (100pt);
+\draw[opacity=0.1,white, fill=apuntes] (-15,3) circle (125pt);
+\draw[opacity=0.125,white, fill=apuntes] (3,-4) circle (150pt);
+\end{tikzpicture}%
+}
+

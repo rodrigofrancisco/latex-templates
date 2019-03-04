@@ -1,0 +1,214 @@
+%-------------------------------------------------------------------------------------------
+%								Exam page configuration
+%-------------------------------------------------------------------------------------------
+\ProvidesPackage{miconfiguracion}
+
+%PREAMBULO{
+	%/**
+	%	This sections imports all the packages needed 
+	%	to give a good layout for a examen	
+	%*/
+	
+	% Configure the margin page
+	\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+	%This configures header and footer
+	\usepackage{fancyhdr}
+	
+	% This package are for multicol and list layout
+	\usepackage{multicol}
+	\usepackage{enumitem}
+	
+	% provide text formating such as centiring
+	\usepackage[document]{ragged2e}
+	
+	% Package to draw a watermark as background
+	%\usepackage{draftwatermark}
+
+	% background page image
+	\usepackage[pages=all]{background}
+	
+	% Configure the langue and the correct codification for that language
+	\usepackage[utf8]{inputenc}
+	\usepackage[spanish]{babel}
+	
+	% Use this packages for math stuff
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+	
+	% This package allow us to insert pictures and figures
+	\usepackage{graphicx}
+	
+	
+	% Getting close to TeX, simulating for and if control secuences.
+	\usepackage{forloop}
+	\usepackage{ifthen}	
+	
+	% I don't remember what is packages are for, but I promise to figure it out :c
+	\usepackage{textcomp}
+	\usepackage{xparse}
+%}
+
+%MACROS DEFINITION {
+	%/**
+	%	This sections presentes the definition of
+	%	environments and commands created for the exam
+	%*/
+	
+	\backgroundsetup{
+		scale=1,
+		color=black,
+		opacity=0.4,
+		angle=0,
+		contents={%
+		  \includegraphics[scale=0.5]{img/logo}
+		}%
+	}	
+	
+	
+	%ENVIROMENNTS DEF {
+	
+		% I don't really know what does this environment do
+		% but I promise to check it,just don't delete it.
+		\newenvironment{hangingpar}[1]{\begin{list}
+	     	{}
+	        {
+	        	\setlength{\itemindent}{-#1}%%'
+		        \setlength{\leftmargin}{#1}%%'
+		        \setlength{\itemsep}{0pt}%%'
+	    	    \setlength{\parsep}{\parskip}%%'
+	        	\setlength{\topsep}{\parskip}%%'
+	        }
+	    	\setlength{\parindent}{-#1}%%
+	    	\item[]
+		}{\end{list}}			
+	%}
+	%COMMANDS DEF {
+		% MARCA DE AGUA 	
+		%\newcommand{\marcaagua}{
+			%\SetWatermarkText{\textsc{Ludomatics}} 
+		%	\SetWatermarkText{\includegraphics[scale=0.20]{../../logo}} 
+		%		\SetWatermarkScale{3} 
+		%		\SetWatermarkColor[rgb]{.80,.80,.80}			
+		%		\SetWatermarkAngle{0}
+		%}
+		
+		%TITULO DEL DOCUMENTO (EXAMEN)
+		\newcommand{\makemytitle}[2]{
+			\begin{center}
+				\textbf{ \huge{#1} \\[2mm] 
+				\Large{#2}}	
+			\end{center}
+		}
+		
+		%DATOS DEL ALUMNO
+		\newcommand{\datosalu}{
+			\begin{flushleft}	
+				\textbf{Nombre: }
+				\line(1,0){326} 
+				\textbf{Aciertos: }
+				\line(1,0){40}\\  
+			\end{flushleft}	
+		}	
+		
+		% This configures the  headear and the footer
+		\newcommand{\configPage}{
+
+			\pagestyle{fancy} 
+
+			\fancyhead{} %First you must leave empty the hearder, in order to modify it.
+			\fancyhead[L]{\slshape\MakeUppercase{Curso de ingreso al nivel superior \the\year}}
+			\fancyhead[R]{\today}
+
+
+			\fancyfoot{} %First you must leave empty the footer, in order to modify it.
+			\fancyfoot[C]{
+				\textcopyright\,
+				\the\year\,
+				LUDOMATICS\,
+				\MakeUppercase{All right reserved}
+			}
+			\fancyfoot[R]{\thepage}
+		}
+		
+		\newcommand{\startin}[1]{
+			\newcounter{num}
+			\setcounter{num}{#1}
+		}
+		
+		\startin{1}
+		
+		% THE QUESTIONS macro definition is this
+		%/** the sintaxis is the following
+		%		\pregunta{[text]}{[image path | 'null' if you don't have any images]}
+		%		i.e. args are:
+		%			1 is equivalent to the question
+		%			2 is equivalent to the image
+		% 		Some useful examples
+		%			* \pregunta{what's my name?}{null}
+		%			* \pregunta{In the picture, who am I?}{img/pic1}		
+		\newcommand{\pregunta}[2]{
+			\justify\textbf{\thenum. #1}
+			\ifthenelse{ \equal{#2}{null} }{ %if(args[2] == null)
+				% Here is empty
+			} %else
+			{
+				\begin{center}
+					\includegraphics[width=5cm]{#2}
+				\end{center}
+			}
+			\stepcounter{num}
+		}
+		
+		\newcounter{op}
+		\setcounter{op}{1}
+		\makeatletter
+
+		\newcommand{\opciones}[2][texto]{ 
+			\par\vspace*{2mm}
+			\ifthenelse{ \equal{#1}{imagen}  }{ %if(args[2]==imagen)  
+				\textbf{\Alph{op}.} \\%linebreak
+				\includegraphics[width=4cm]{#2}\\ 
+				\stepcounter{op} 
+				\checknextarg[imagen]
+			}{%else		  	 
+		  		\begin{hangingpar}
+		  			{1em}\textbf{\Alph{op}.}\,#2
+		  		\end{hangingpar}
+		  		\par\vspace*{2mm}
+		  		\stepcounter{op} 
+		  		\checknextarg
+		  	}
+		}
+		\newcommand{\checknextarg}[1][texto]{
+			\@ifnextchar\bgroup{
+				\gobblenextarg[#1]
+			}{ %else
+				\setcounter{op}{1} 
+			}
+		}
+		
+		\newcommand{\gobblenextarg}[2][texto]{
+			\ifthenelse{ \equal{#1}{imagen} }{
+				\textbf{\Alph{op}.}\\
+				\includegraphics[width=4cm]{#2}\\
+				\stepcounter{op}
+				\@ifnextchar\bgroup{
+					\gobblenextarg[imagen]
+				}{
+					\setcounter{op}{1} 
+					}
+			}{
+				\begin{hangingpar}
+					{1em}\textbf{\Alph{op}.}\,#2
+				\end{hangingpar}
+				\par\vspace*{2mm}
+				\stepcounter{op} 
+				\@ifnextchar\bgroup{
+					\gobblenextarg
+				}{
+					\setcounter{op}{1} 
+				}
+			}
+		}
+%}

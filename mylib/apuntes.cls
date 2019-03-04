@@ -13,9 +13,28 @@
 
 \RequirePackage{fancyhdr}
 
+%%%%%%%%%% Display the month with letters %%%%%%
+\newcommand{\MONTH}{%
+  \ifcase\the\month
+  \or enero% 1
+  \or febrero% 2
+  \or marzo% 3
+  \or abril% 4
+  \or mayo% 5
+  \or junio% 6
+  \or julio% 7
+  \or agosto% 8
+  \or septiembre% 9
+  \or octubre% 10
+  \or noviembre% 11
+  \or diciembre% 12
+  \fi}
+
+
 %%%%%%%%%%%% Catching some variables %%%%%%%%%%%
 
 \newcommand{\org}[1]{\renewcommand{\org}{#1}}
+\newcommand{\context}[1]{\renewcommand{\context}{#1}}
 \newcommand{\resumen}[1]{\renewcommand{\resumen}{#1}}
 \newcommand{\mytitle}[1]{\renewcommand{\mytitle}{#1}}
 \newcommand{\myauthor}[1]{\renewcommand{\myauthor}{#1}}
@@ -27,8 +46,9 @@
 \fancyhf{}
 \fancyhead[L]{\footnotesize \org} %encabezado izquierda
 \fancyhead[R]{\footnotesize \nouppercase{\leftmark}}   % dereecha
+\fancyfoot[L]{\footnotesize \context}
 \fancyfoot[R]{\footnotesize \thepage}  % Pie derecha
-\fancyfoot[C]{\footnotesize Última revision \the\year}  %izquierda
+\fancyfoot[C]{\footnotesize Última revision \MONTH\,de\,\the\year}  %izquierda
 \renewcommand{\footrulewidth}{0.4pt}
 
 %%%%%%%%%% Decorar background %%%%%%%%%%%%%%

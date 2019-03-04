@@ -1,4 +1,4 @@
-\LoadClass[a4paper]{article}
+\LoadClass[12pt,a4paper]{article}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[spanish]{babel} 
 \RequirePackage{graphicx} 
@@ -34,10 +34,10 @@
     \begin{center}
     \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
     \begin{minipage}{0.48\textwidth} \begin{flushleft}
-    \includegraphics[width=3cm]{img/escudofi_negro.jpg}
+    \includegraphics[width=3cm]{img/logos/escudofi_negro.jpg}
     \end{flushleft}\end{minipage}
     \begin{minipage}{0.48\textwidth} \begin{flushright}
-    \includegraphics[width=3cm]{img/unam-10x10.jpg}
+    \includegraphics[width=3cm]{img/logos/unam-10x10.jpg}
     \end{flushright}\end{minipage}
     \vspace*{-1.5cm}
     

@@ -1,4 +1,4 @@
-\LoadClass[a4paper]{article}
+\LoadClass[a4paper,12pt]{article}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[spanish]{babel} 
 \RequirePackage{graphicx} 
@@ -35,7 +35,7 @@
         \Large{\textsc{\subject} (grupo: \group)}  \\[0.2cm]
         { \Large \bfseries \mytitle}\\[0.2cm]   
         \large{\students} \\[0.2cm]
-        \today
+        \deliverDate
     \end{center}
 
 %%%%%%%%%%%%%%%%%%%% TERMINA PORTADA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

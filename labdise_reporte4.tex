@@ -16,8 +16,8 @@
 
 \coverPage
 
-\tableofcontents
-\newpage
+%\tableofcontents
+%\newpage
 
 \section{Objetivos}
 
@@ -42,7 +42,7 @@ Por otra parte, la manipulación de funciones booleana puede llegar a ser muy co
 
 
 
-%\includegraphics[width=8cm]{img/labdise_practica3/image9}
+%\includegraphics[width=8cm]{img/labdise_pract4/r4_img0}
 
 \newpage
 \section{Previo}
@@ -50,36 +50,40 @@ Por otra parte, la manipulación de funciones booleana puede llegar a ser muy co
 \newpage
 \section{Desarrollo}
 
-Para el desarrollo de esta práctica construimos la funcion booleana $\funx$ en un diagrama esquemático de \textit{Xilinx} como se muestra acontinuación.\\
+Para realizar un circuito elevador de 3 bits al cuadrado recurrimos al diseño lógico de Xilinx utilizando la sección de código que a mi parecer es más sencillo que arrastrar los componentes, finalemente el código quedó de la siguiente manera.\\
 
-%\includegraphics[width=15cm]{img/labdise_practica3/image10}\\
+\includegraphics[width=15cm]{img/labdise_pract4/r4_img1}\\
 
-Luego debemos sintetizar nuestro programa para asegurarnos de que no haya errores y que las salidas sean efectivamente las que esperamos para lo cual recurrimos a la ventana que nos muestra un tren de pulsos como se observa a continuación.\\
+Comprobamos que el circuito estuviera bien y para ello realizamos la simulación y probamos para diferentes valores como puede verse a continuación.\\
 
-%\includegraphics[width=15cm]{img/labdise_practica3/image4}\\
+\includegraphics[width=15cm]{img/labdise_pract4/r4_img2}\\
 
-Una vez que nuestro diseño fue realizado correctamente procedemos a descargar el programa en la FPGA, para ello debemos indicarle al programa que queremos utilizar un \textit{Area Constraints} y en la ventana que se abrirá ligaremos los pines que vamos a usar del la FPGA con nuestro diseño.\\
+\includegraphics[width=15cm]{img/labdise_pract4/r4_img3}\\
 
-%\includegraphics[width=15cm]{img/labdise_practica3/image7}\\
+\includegraphics[width=15cm]{img/labdise_pract4/r4_img4}\\
 
-Finalmente para cargar el diseño a la FPGA, en nuestro caso utilizaremos la \textit{Basys o Spartan3E} para lo cual abriremos un programa llamado \textit{ADEPT} \\
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare neque vel nibh tempus efficitur. Nunc mollis blandit purus, posuere sagittis justo porta eget.\\
 
-%\includegraphics[width=15cm]{img/labdise_practica3/image5}\\
+%\includegraphics[width=15cm]{img/labdise_pract4/r4_img3}\\
 
-Conectamos la FPGA a nuestra computadora y verificamos que el programa la reconozca. \\
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare neque vel nibh tempus efficitur. Nunc mollis blandit purus, posuere sagittis justo porta eget. \\
 
-Finalmente debemos buscar el archivo que le cargaremos, dicho archivo fue producido por nuestro programa Xilinx y tiene extensión .bit. Una vez que lo encontremos los seleccionamos y cargamos dicho programa a la tarjeta.\\
+%\includegraphics[width=15cm]{img/labdise_pract4/r4_img4}\\
 
-%\includegraphics[width=15cm]{img/labdise_practica3/image1}\\
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare neque vel nibh tempus efficitur. Nunc mollis blandit purus, posuere sagittis justo porta eget. \\
 
-Ahora tenemos nuestro primer programa cargado en la FPGA y puede verse como tiene dos LEDS encendidos que también podrían estar apagados de acuerdo a la configuración de los switches de abajo.\\
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare neque vel nibh tempus efficitur. Nunc mollis blandit purus, posuere sagittis justo porta eget..\\
 
-%\includegraphics[width=15cm]{img/labdise_practica3/funciona}\\
+%\includegraphics[width=15cm]{img/labdise_pract4/r4_img5}\\
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare neque vel nibh tempus efficitur. Nunc mollis blandit purus, posuere sagittis justo porta eget..\\
+
+%\includegraphics[width=15cm]{img/labdise_pract4/r4_img6}\\
 
 \section{Conclusiones}
 
-Tener una FPGA hace que solo nos preocupemos por el desarrollo de nuestro circuito ya que si no la tuvieramos tendríamos que tener algunos circuitos integrados (compuertas AND y OR), alambre, botones, LEDs y alguna que otra resistencia. Además de que el tiempo de armado sería como alrededor de dos o tres horas, en cambio con la tajeta que ya tiene todo integrado nos tardadamos como media hora y eso considerando que somos usuarios que apenas estan aprendiendo a usarla.\\
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare neque vel nibh tempus efficitur. Nunc mollis blandit purus, posuere sagittis justo porta eget.\\
 
-Finalmente esta práctica ayudo a entender de manera más puntual como es que funciona el Algebra de Boole y su relación con la electrónica. Al inicio de la práctica ya sabíamos hacer álgebra de Boole sin embargo no entendiamos del todo bien como aplicarla, después de la práctica nos damos cuenta de su importancia en el mundo electrónico.
+Vestibulum fermentum bibendum velit, ut imperdiet elit lobortis nec. Maecenas id finibus est. Fusce sed nunc ut tellus pharetra accumsan. In venenatis quis arcu sed pretium. Donec convallis tempus vehicula. Nunc id libero vitae tortor dapibus efficitur quis at elit. Nullam eu purus egestas mauris commodo suscipit. Mauris ac turpis non nulla tempus lobortis. Pellentesque posuere vitae nisi nec vestibulum. Donec vulputate ullamcorper eros, eu mattis lorem fringilla vel. Duis at gravida leo. Sed pellentesque interdum nulla. Aenean rhoncus sagittis dignissim. Morbi viverra eleifend dolor. Aliquam finibus sem felis, non imperdiet velit laoreet sed.
 
 \end{document}

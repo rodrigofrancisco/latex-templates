@@ -30,7 +30,6 @@
   \or diciembre% 12
   \fi}
 
-
 %%%%%%%%%%%% Catching some variables %%%%%%%%%%%
 
 \newcommand{\org}[1]{\renewcommand{\org}{#1}}

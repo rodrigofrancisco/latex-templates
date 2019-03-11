@@ -5,14 +5,13 @@
 \author{rodrigofranciscopablo }
 
 \subject{Laboratorio de Diseño Digital}
-\mytitle{Reporte de práctica 4}
-\mysubTitle{Circuito elevador de Bits al cuadrado}
+\mytitle{Reporte de práctica 5}
+\mysubTitle{Minimización de funciones por mapas de Karnahugh}
 \students{Francisco Pablo \textsc{Rodrigo}}
 \teacher{M.I. Guevara Rodríguez \textsc{Ma. del Socorro}}
 \group{6}
-\deliverDate{11 de marzo de 2019}
+\deliverDate{18 de marzo de 2019}
 
-\newcommand{\funx}{x_1(a,b,c,d) = [a \cdot \overline{b}(c+b \cdot d) + \overline{a} \cdot \overline{b} ]c}
 
 \begin{document}
 
@@ -29,22 +28,24 @@ El alumno diseñará circuitos combinacionales.
 
 \subsection{Particular}
 
-El alumno analizará, diseñará e implementará multifunciones algebraicas utilizando distintas formas
-de optimización.
+El alumno analizará, diseñará e implementará multifunciones, con funciones no especificadas,
+optimizando las funciones por medio de mapas de karnahugh.
 
 \section{Introducción}
 
-Los circuitos combinacionales son, como su nombre lo sugiere, circuitos cuya salida depende solamente de la “combinación” de sus entradas en el momento que se está realizando la medición en la salida.
-Los circuitos de lógica combinacional son hechos a partir de las compuertas básicas compuerta AND, compuerta OR, compuerta NOT. También pueden ser construidos con compuertas NAND, compuertas NOR, compuerta XOR, que son una combinación de las tres compuertas básicas.
-La operación de los circuitos combinacionales se entienden escribiendo las ecuaciones booleanas y sus tablas de verdad.
+Un mapa de Karnaugh (también conocido como tabla de Karnaugh o diagrama de Veitch, abreviado como Mapa-K o Mapa-KV) es un diagrama utilizado para la simplificación de funciones algebraicas Booleanas. El mapa de Karnaugh fue inventado en 1953 por Maurice Karnaugh, un físico y matemático de los laboratorios Bell.
 
-Todos los circuitos combinacionales pueden representarse empleando álgebra de Boole a partir de su función lógica, generando de forma matemática el funcionamiento del sistema combinacional. De este modo, cada señal de entrada es una variable de la ecuación lógica de salida. \\
+El mapa de Karnaugh consiste en una representación bidimensional de la tabla de verdad de la función a simplificar. Puesto que la tabla de verdad de una función de N variables posee 2N filas, el mapa K correspondiente debe poseer también 2N cuadrados. Las variables de la expresión son ordenadas en función de su peso y siguiendo el código Gray, de manera que sólo una de las variables varía entre celdas adyacentes. 
 
-Por otra parte, la manipulación de funciones booleana puede llegar a ser muy compleja por lo cual se hace necesario el concepto de minimización. La minimización es básicamente la simplificación de una función, obteniendo una expresión que contenga menos términos o menos variables que la función original.  Esto se refleja en la obtención de circuito mas económicos por tener un menor numero de compuertas.
+El mapa de Karnaugh se va completando colocando los unos “1” en la celda apropiada, ayudados por la tabla de verdad. Esta agrupación
+es conocida como minitérminos o minterms y como expresión booleana viene a ser una suma de productos. Usualmente no se escriben los ceros
+“0” en la tabla, ya que solo se agrupan los unos “1”.
 
-
-
-%\includegraphics[width=8cm]{img/labdise_pract4/r4_img0}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=8cm]{img/labdise_pract5/mapa-kv}
+	\caption{Mapa de Karnaugh para una función de tres variables.}
+\end{figure}
 
 \newpage
 \section{Previo}
@@ -87,23 +88,6 @@ Luego de que la fase de simulación fue exitosa pasamos nuestro diseño a la \te
 
 En la siguiente imagen se puede apreciar a nuestro dieño en funcionamiento. Utilizamos los primeros 6 LEDs y los primeros 3 switches.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=15cm]{img/labdise_pract4/r4_img5}
-	\caption{Puede verse que aquí estamos elevando 7 al cuadrado y el resultado es 49.}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=15cm]{img/labdise_pract4/r4_img6}
-	\caption{Puede verse que aquí estamos elevando 36 al cuadrado y el resultado es 36.}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=15cm]{img/labdise_pract4/r4_img7}
-	\caption{Puede verse que aquí estamos elevando 5 al cuadrado y el resultado es 25.}
-\end{figure}
 
 \section{Conclusiones}
 

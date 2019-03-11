@@ -85,7 +85,7 @@
     %\end{flushleft}
     %%%
      		\flushleft{\Large Grupo: \group	}\\																		%%%
-    \vspace{2cm} 
+    \vspace{1cm} 
     
     \begin{minipage}{1\textwidth}		
     \vspace{-0.6cm}											%%%

@@ -1,0 +1,427 @@
+\documentclass{mylib/reporte}
+\decimalpoint
+\usepackage{float}
+\usepackage{amsmath,amsfonts,mathtools,amssymb}
+
+\title{Reporte}
+\author{rodrigofranciscopablo }
+
+\subject{Fundamentos de Estadística}
+\mytitle{Tarea 5}
+\mysubTitle{Cálculo de Probabilidades}
+\students{Francisco Pablo \textsc{Rodrigo}}
+\teacher{MC. Pineda Norman \textsc{Amanda Lolita}}
+\group{3}
+\deliverDate{11 de marzo de 2019}
+
+\newcommand{\insertImage}[3]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=#3cm]{#1}
+		\caption{#2}
+	\end{figure}
+}
+
+\begin{document}
+
+\coverPage
+
+\tableofcontents
+\newpage
+
+\section{Desarrollo}
+
+Calcular las siguientes probabilidades en tabla (imprimir pantalla y poner en el
+desarrollo la propiedad de simetría o de complemento cuando la hayan usado), en la
+aplicación Probability Distributions o página de Matt Bognar (imprimir pantalla) y con R
+(imprimir pantalla). 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Distribución normal estándar}
+
+\subsubsection{$P( Z < 1.5 ) =$}
+
+	\textbf{Procedimiento}
+
+	$P( Z < 1.5 ) = \Phi (Z) = 0.9332$
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_1a}{Probabilidad usando tablas}{5}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_1b}{Probabilidad usando la aplicación}{7}
+
+	\textbf{Usando R}
+
+	\insertImage{img/estad_t5/dne_1c}{Probabilidad usando R}{6}
+
+\subsubsection{$P( Z < -3.59 ) =$}
+
+	\textbf{Procedimiento}
+
+	$P( Z < -3.59 ) = \Phi (-Z) = 0.0002$
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_2a}{Probabilidad usando tablas}{5}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_2b}{Probabilidad usando la aplicación}{7}
+
+	\textbf{Usando R}
+
+	\insertImage{img/estad_t5/dne_2c}{Probabilidad usando R}{6}
+
+\subsubsection{$P( Z > -0.5 ) =$}
+
+	\textbf{Procedimiento}
+
+	Por propiedad de simetria tenemos que 
+
+	$P( Z > -0.5 ) = P( Z < 0.5 ) = \Phi (Z) = 0.6915$
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_3a}{Probabilidad usando tablas}{5}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_3b}{Probabilidad usando la aplicación}{7}
+
+	\textbf{Usando R}
+
+	\insertImage{img/estad_t5/dne_3c}{Probabilidad usando R}{6}
+
+\subsubsection{$P( Z > Z_0 ) = 0.25$}
+
+	\textbf{Procedimiento}
+
+	Por propiedad de simetria tenemos que 
+
+	$P( Z > Z_0 ) = 0.25 = P(Z < -Z_0) = \Phi (-Z)$
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_4a}{Probabilidad usando tablas}{5}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_4b}{Probabilidad usando la aplicación}{7}
+
+	\textbf{Usando R}
+
+\insertImage{img/estad_t5/dne_4c}{Probabilidad usando R}{6}
+
+\subsubsection{$P( -2.5 < Z < -0.3 ) = $}
+
+	\textbf{Procedimiento}
+
+
+	$P( -2.5 < Z < -0.3 ) = P( Z < -0.3 ) - P(Z < -2.5 ) = \Phi (-0.3) - \Phi (-2.5)  = 0.3759$
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_5a}{Probabilidad 1 usando tablas}{5}
+
+	\insertImage{img/estad_t5/dne_5aa}{Probabilidad 2 usando tablas}{5}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_5b}{Probabilidad 1 usando la aplicación}{7}
+
+	\insertImage{img/estad_t5/dne_5bb}{Probabilidad 2 usando la aplicación}{7}
+
+	\textbf{Usando R}
+
+	\insertImage{img/estad_t5/dne_5c}{Probabilidad usando R}{10}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Teorema central del límite}
+
+\subsubsection{Problema 6}
+La duración de la enfermedad de Alzheimer desde el principio de los síntomas
+hasta el fallecimiento del paciente varía de 3 a 20 años; el promedio es 8 años
+con una desviación estándar de 4 años. El administrador de un gran centro
+médico selecciona al azar 30 registros de pacientes de Alzheimer ya fallecidos y
+anota la duración promedio. Encuentre la probabilidad de que la duración
+promedio de esa muestra esté entre 7 y 9 años.
+
+	\textbf{Solución}
+
+		$P(7 < \overline{X} < 9) = P \left( \dfrac{7-8}{\frac{4}{\sqrt{30}}} < Z < \dfrac{9-8}{\frac{4}{\sqrt{30}}} \right)$
+
+		$ P(7 < \overline{X} < 9) = P(-1.3693 < Z < 1.3693	 )$
+
+		$P(7 < \overline{X} < 9) = D(Z) = 0.8262$
+
+	\textbf{Usando tablas}
+
+		\insertImage{img/estad_t5/dne_6a}{Probabilidad usando tablas}{5}
+
+	\textbf{Usando Probability Distributions}
+
+		Para este caso debemos obtener el complemento, es decir:
+
+		$P(7 < \overline{X} < 9) = 1- 0.1709 = 0.8262$
+
+		\insertImage{img/estad_t5/dne_6b}{Probabilidad usando la aplicación}{7}
+
+	\textbf{Usando R}
+
+		\insertImage{img/estad_t5/dne_6c}{Probabilidad usando R}{10}
+
+\subsubsection{Problema 7}
+Una empresa metalúrgica produce rodamientos con un diámetro que tiene una
+distribución normal, con media 3.0005 pulgadas y desviación estándar de
+0.0010 pulgadas. Las especificaciones requieren que los diámetros estén en el
+intervalo $3.000 \pm 0.0020$ pulgadas. Los cojinetes cuyos diámetros quedan fuera
+de ese intervalo se rechazan. ¿Qué fracción de la producción total no será
+rechazada?
+
+	\textbf{Solución}
+
+		$P(\dfrac{2.998-3.000}{0.0010} < \dfrac{\overline{X}-\mu}{\sigma} < \dfrac{3.0020-3.000}{0.0010})$\\[1mm]
+
+		$P(-2< Z < 2) = D(2) = 0.0025 $\\[1mm]
+
+	\textbf{Usando tablas}
+		\insertImage{img/estad_t5/dne_7a}{Probabilidad usando tablas}{5}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Distribución Ji-cuadrada}
+
+\subsubsection{$P( X_{16} < k) = 0.95 $}
+
+	$k = 26.2962$
+
+	\textbf{Procedimiento}
+
+	$P( X_{16} < k) = 0.95 = 1 - P( X_{16} > k) $
+
+	$\rightarrow P( X_{16} > k) = 0.05$
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_8a}{Probabilidad usando tablas}{10}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_8b}{Probabilidad usando la aplicación}{7}
+
+	\textbf{Usando R}
+
+	%\insertImage{img/estad_t5/dne_8c}{Probabilidad usando R}{10}
+
+\subsubsection{$P( X_{25} > k) = 0.005 $}
+
+	$k = 46.9280$
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_9a}{Probabilidad usando tablas}{10}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_9b}{Probabilidad usando la aplicación}{7}
+
+	\textbf{Usando R}
+
+	\insertImage{img/estad_t5/dne_9c}{Probabilidad usando R}{10}
+
+\subsubsection{$P( X_{29} > 47.9147) = $}
+
+	$P( X_{29} > 47.9147) = 0.015$
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_10a}{Probabilidad usando tablas}{10}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_10b}{Probabilidad usando la aplicación}{7}
+
+	\textbf{Usando R}
+
+	\insertImage{img/estad_t5/dne_10c}{Probabilidad usando R}{10}
+
+
+\subsubsection{$P( X_{21} > 8.0336) = $}
+
+	$P( X_{21} > 8.0336) = 0.995$
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_11a}{Probabilidad usando tablas}{5}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_11b}{Probabilidad usando la aplicación}{7}
+
+	\textbf{Usando R}
+
+	\insertImage{img/estad_t5/dne_11c}{Probabilidad usando R}{10}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Distribución T-student}
+
+\subsubsection{$P(T_{7} < k ) = 0.9$}
+
+	\textbf{Procedimiento}
+
+	$P(T_{7} < k ) = 0.9$
+
+	$\rightarrow P(T_{7} > k) = 0.1$
+
+	$k = 1.4149$
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_12a}{Probabilidad usando tablas}{10}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_12b}{Probabilidad usando la aplicación}{7}
+
+	\textbf{Usando R}
+
+	%\insertImage{img/estad_t5/dne_10c}{Probabilidad usando R}{10}
+
+\subsubsection{$P(T_{14} > k ) = 0.05$}
+
+	$k=1.76$
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_13a}{Probabilidad usando tablas}{10}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_13b}{Probabilidad usando la aplicación}{7}
+
+	\textbf{Usando R}
+
+	%\insertImage{img/estad_t5/dne_10c}{Probabilidad usando R}{10}
+
+% 13
+\subsubsection{$P(T_{18} > 3.298 ) = $}
+
+	$P(T_{18} > 3.298 ) = 0.0020$
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_14a}{Probabilidad usando tablas}{5}	
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_14b}{Probabilidad usando la aplicación}{7}
+
+
+% 14
+\subsubsection{$P(T_{6} < -4.317 ) = $}
+
+	\textbf{Procedimiento}
+
+	$P(T_{6} < -4.317 ) = P(T_{6} > 4.317 )$
+
+	$P(T_{6} > 4.317 ) = 0.0025$
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_15a}{Probabilidad usando tablas}{10}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_15b}{Probabilidad usando la aplicación}{7}
+
+\subsubsection{$P(T_{6} < 4.317 ) = $}
+
+	\textbf{Procedimiento}
+
+	$P(T_{6} < 4.317 ) = 1- P(T_{6} > 4.317)$
+
+	$\rightarrow P(T_{6} > 4.317) = 0.0025$
+
+	$\therefore P(T_{6} < 4.317) = 1- 0.0025 = 0.9975$
+
+	\textbf{Usando tablas}
+
+	Hay que tener cuidado ya que en las tablas encontraremos el complemento.
+
+	\insertImage{img/estad_t5/dne_16a}{Probabilidad usando tablas}{10}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_16b}{Probabilidad usando la aplicación}{7}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Distribución F}
+
+\subsubsection{$P(X(10,15) < k) = 0.025 = \alpha $}
+
+	$k = 3.52$
+ 	
+ 	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_17a}{Probabilidad usando tablas}{10}
+
+\subsubsection{$P(X(10,15) < 4.424) =  $}
+
+	$P(X(10,15) < 4.424) = 1 - 1 / P(X(15,10) <4.424) =1- 0.005 = 0.995$	
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_17a}{Probabilidad usando tablas}{10}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_17b}{Probabilidad usando la aplicación}{7}
+
+\subsubsection{$P(X(19,6) > k) = 0.01 = \alpha $}
+
+	$P(X(19,6) > k) = 0.01 = 1 - P(X(6,19) < k) $
+
+	$k = 7.42$
+ 	
+ 	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_18a}{Probabilidad usando tablas}{10}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_18b}{Probabilidad usando la aplicación}{7}
+
+
+\subsubsection{$P(X(12,10) < 4.471) =  $}
+
+	El valor más aproximado a 4.471 es 4.296
+
+	$P(X(12,10) < 4.471) =  0.01$
+
+	\textbf{Usando tablas}
+
+	\insertImage{img/estad_t5/dne_19a}{Probabilidad usando tablas}{10}
+
+	\textbf{Usando Probability Distributions}
+
+	\insertImage{img/estad_t5/dne_19b}{Probabilidad usando la aplicación}{7}
+
+\section{Conclusiones}
+
+	El cálculo de probabilidades requiere de un gran dominio de los conceptos ya que de otra manera obtenedremos la probabilidad equivocada. Ahora bien, también es importante que sepamos manejar la herramienta que estemos usando para manejar probabilidades, por ejemplo, las tablas, una aplicación o un lenguaje de programación como R.
+
+\section{Bibliografía}
+
+\begin{itemize}
+	\item http://unbarquero.blogspot.com/2009/05/r-distribucion-t-student.html
+	\item https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html
+	\item Manuel F.B. et all. Prácticas de Estadística en R. Universidad de Santiago de Compostela.
+
+\end{itemize}
+
+
+\end{document}

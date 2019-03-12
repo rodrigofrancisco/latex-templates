@@ -1,4 +1,4 @@
-\LoadClass[a4paper]{article}
+\LoadClass[a4paper,12pt]{article}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[spanish]{babel} 
 \RequirePackage{graphicx} 

@@ -8,9 +8,17 @@
 \students{Francisco Pablo \textsc{Rodrigo}}
 \teacher{M.I. Guevara Rodríguez \textsc{Ma. del Socorro}}
 \group{8}
-\deliverDate{11 de marzo de 2019}
+\deliverDate{20 de marzo de 2019}
 
-\newcommand{\funx}{x_1(a,b,c,d) = [a \cdot \overline{b}(c+b \cdot d) + \overline{a} \cdot \overline{b} ]c}
+\usepackage{float}
+\usepackage{tabu}
+\newcommand{\insertImage}[3]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=#3cm]{#1}
+		\caption{#2}
+	\end{figure}
+}
 
 \begin{document}
 
@@ -23,67 +31,97 @@
 
 \subsection{General}
 
-El alumno diseñará circuitos combinacionales.
+Analizar y diseñar circuitos electrónicos que contienen diodos semiconductores.
 
 \subsection{Particular}
 
-El alumno analizará, diseñará e implementará multifunciones algebraicas utilizando distintas formas
-de optimización.
+Analizar, diseñar, simular e implementar circuitos rectificadores de media onda y onda completa utilizando diodos de
+propósito general.
 
 \section{Introducción}
 
-Los circuitos combinacionales son, como su nombre lo sugiere, circuitos cuya salida depende solamente de la “combinación” de sus entradas en el momento que se está realizando la medición en la salida.
-Los circuitos de lógica combinacional son hechos a partir de las compuertas básicas compuerta AND, compuerta OR, compuerta NOT. También pueden ser construidos con compuertas NAND, compuertas NOR, compuerta XOR, que son una combinación de las tres compuertas básicas.
-La operación de los circuitos combinacionales se entienden escribiendo las ecuaciones booleanas y sus tablas de verdad.
+Un rectificador es el dispositivo electrónico que permite convertir la corriente alterna en corriente continua. Esto se realiza utilizando diodos rectificadores, ya sean semiconductores de estado sólido, válvulas al vacío o válvulas gaseosas como las de vapor de mercurio (actualmente en desuso).
 
-Todos los circuitos combinacionales pueden representarse empleando álgebra de Boole a partir de su función lógica, generando de forma matemática el funcionamiento del sistema combinacional. De este modo, cada señal de entrada es una variable de la ecuación lógica de salida. \\
+Dependiendo de las características de la alimentación en corriente alterna que emplean, se les clasifica en monofásicos, cuando están alimentados por una fase de la red eléctrica, o trifásicos cuando se alimentan por tres fases.
 
-Por otra parte, la manipulación de funciones booleana puede llegar a ser muy compleja por lo cual se hace necesario el concepto de minimización. La minimización es básicamente la simplificación de una función, obteniendo una expresión que contenga menos términos o menos variables que la función original.  Esto se refleja en la obtención de circuito mas económicos por tener un menor numero de compuertas.
+Atendiendo al tipo de rectificación, pueden ser de media onda, cuando solo se utiliza uno de los semiciclos de la corriente, o de onda completa, donde ambos semiciclos son aprovechados.
 
+El tipo más básico de rectificador es el rectificador monofásico de media onda, constituido por un único diodo entre la fuente de alimentación alterna y la carga.
 
+\subsection{Rectificador de media onda}
 
-%\includegraphics[width=8cm]{img/labdise_pract4/r4_img0}
+Este es el circuito más simple que puede convertir corriente alterna en corriente continua. Este rectificador lo podemos ver representado en la siguiente figura:
+
+\insertImage{img/labdisp_pract4/hwr}{Rectificador de media onda}{8}
+	
+Durante el semiciclo positivo de la tensión del primario, el bobinado secundario tiene una media onda positiva de tensión entre sus extremos. Este aspecto supone que el diodo se encuentra en polarización directa. Sin embargo durante el semiciclo negativo de la tensión en el primario, el arrollamiento secundario presenta una onda sinusoidal negativa. Por tanto, el diodo se encuentra polarizado en inversa.
+
+\subsection{Rectificador de onda completa}
+
+Un rectificador de onda completa es un circuito empleado para convertir una señal de corriente alterna de entrada (Vi) en corriente de salida (Vo) pulsante. A diferencia del rectificador de media onda, en este caso, la parte negativa de la señal se convierte en positiva o bien la parte positiva de la señal se convertirá en negativa, según se necesite una señal positiva o negativa de corriente continua.
+
+\insertImage{img/labdisp_pract4/fwr}{Rectificador de onda completa}{8}
+
 
 \newpage
 \section{Previo}
 
+\textbf{Diseña un circuito rectificador de media onda y uno de onda completa}
+
+Datos
+\begin{itemize}
+	\item $R_L = 1k\Omega$
+\end{itemize}
+
+\subsection{Circuito rectificador de media onda}
+
+	\insertImage{img/labdisp_pract4/hwrc}{Rectificador de media onda}{12}
+	\begin{center}
+	\begin{tabu} to 0.8\textwidth { | X[c] | X[c] | X[c] | X[c] | }
+		 \hline
+		 C & $V_{CD}$ & $V_{out}Rizo$ & $F_{out}Rizo$ \\
+		 \hline
+		 $1 \mu F$ & 0 & 0 & 60 Hz \\
+		 \hline
+		 $10 \mu F$ & 0 & 0 & 60 Hz \\
+		 \hline
+		 $100 \mu F$ & 0 & 0 & 60 Hz \\
+		 \hline
+		 $1000 \mu F$ & 0 & 0 & 60 Hz \\
+		 \hline
+	\end{tabu}
+	\end{center}
+
+	\insertImage{img/labdisp_pract4/ej1_1uf}{Circuito con capacitor de $1\mu F$}{12}
+
+
+\subsection{Circuito rectificador de onda completa}
+
+	\insertImage{img/labdisp_pract4/fwrc}{Rectificador de onda completa}{12}
+	\begin{center}
+	\begin{tabu} to 0.8\textwidth { | X[c] | X[c] | X[c] | X[c] | }
+		 \hline
+		 C & $V_{CD}$ & $V_{out}Rizo$ & $F_{out}Rizo$ \\
+		 \hline
+		 $1 \mu F$ & 0 & 0 & 60 Hz \\
+		 \hline
+		 $10 \mu F$ & 0 & 0 & 60 Hz \\
+		 \hline
+		 $100 \mu F$ & 0 & 0 & 60 Hz \\
+		 \hline
+		 $1000 \mu F$ & 0 & 0 & 60 Hz \\
+		 \hline
+	\end{tabu}
+	\end{center}
+
+	\insertImage{img/labdisp_pract4/ej2_1uf}{Circuito con capacitor de $1\mu F$}{12}
+
+
 \newpage
 \section{Desarrollo}
 
-Para realizar un circuito elevador de 3 bits al cuadrado recurrimos al diseño lógico de Xilinx utilizando la sección de código que a mi parecer es más sencillo que arrastrar los componentes, finalemente el código quedó de la siguiente manera.\\
-
-\includegraphics[width=15cm]{img/labdise_pract4/r4_img1}\\
-
-Comprobamos que el circuito estuviera bien y para ello realizamos la simulación y probamos para diferentes valores como puede verse a continuación.\\
-
-\includegraphics[width=15cm]{img/labdise_pract4/r4_img2}\\
-
-\includegraphics[width=15cm]{img/labdise_pract4/r4_img3}\\
-
-\includegraphics[width=15cm]{img/labdise_pract4/r4_img4}\\
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare neque vel nibh tempus efficitur. Nunc mollis blandit purus, posuere sagittis justo porta eget.\\
-
-%\includegraphics[width=15cm]{img/labdise_pract4/r4_img3}\\
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare neque vel nibh tempus efficitur. Nunc mollis blandit purus, posuere sagittis justo porta eget. \\
-
-%\includegraphics[width=15cm]{img/labdise_pract4/r4_img4}\\
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare neque vel nibh tempus efficitur. Nunc mollis blandit purus, posuere sagittis justo porta eget. \\
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare neque vel nibh tempus efficitur. Nunc mollis blandit purus, posuere sagittis justo porta eget..\\
-
-%\includegraphics[width=15cm]{img/labdise_pract4/r4_img5}\\
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare neque vel nibh tempus efficitur. Nunc mollis blandit purus, posuere sagittis justo porta eget..\\
-
-%\includegraphics[width=15cm]{img/labdise_pract4/r4_img6}\\
 
 \section{Conclusiones}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare neque vel nibh tempus efficitur. Nunc mollis blandit purus, posuere sagittis justo porta eget.\\
-
-Vestibulum fermentum bibendum velit, ut imperdiet elit lobortis nec. Maecenas id finibus est. Fusce sed nunc ut tellus pharetra accumsan. In venenatis quis arcu sed pretium. Donec convallis tempus vehicula. Nunc id libero vitae tortor dapibus efficitur quis at elit. Nullam eu purus egestas mauris commodo suscipit. Mauris ac turpis non nulla tempus lobortis. Pellentesque posuere vitae nisi nec vestibulum. Donec vulputate ullamcorper eros, eu mattis lorem fringilla vel. Duis at gravida leo. Sed pellentesque interdum nulla. Aenean rhoncus sagittis dignissim. Morbi viverra eleifend dolor. Aliquam finibus sem felis, non imperdiet velit laoreet sed.
 
 \end{document}

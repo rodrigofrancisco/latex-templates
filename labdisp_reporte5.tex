@@ -1,0 +1,80 @@
+\documentclass{mylib/reporteConCalif}
+\title{Reporte}
+\author{rodrigofranciscopablo }
+
+\subject{Laboratorio de Dispositivos y circuitos electrónicos}
+\mytitle{Reporte de práctica 5}
+\mysubTitle{Circuitos recortador y multiplicador de tensión}
+\students{Francisco Pablo \textsc{Rodrigo}}
+\teacher{M.I. Guevara Rodríguez \textsc{Ma. del Socorro}}
+\group{8}
+\deliverDate{27 de marzo de 2019}
+
+\usepackage{float}
+\usepackage{tabu}
+\newcommand{\insertImage}[3]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=#3cm]{#1}
+		\caption{#2}
+	\end{figure}
+}
+
+\begin{document}
+
+\coverPage
+
+%\tableofcontents
+%\newpage
+
+\section{Objetivos}
+
+\subsection{General}
+
+Analizar y diseñar circuitos electrónicos que contienen diodos semiconductores.
+
+\subsection{Particular}
+
+Analizar, diseñar, simular e implementar circuitos recortador, sujetador y multiplicador de tensión utilizando diodos
+de propósito general.
+
+\section{Introducción}
+
+\subsection{Circuito recortador}
+
+Un limitador o recortador es un circuito que, mediante el uso de resistencias y diodos, permite eliminar tensiones que no nos interesen para que no lleguen a un determinado punto de un circuito. Mediante un limitador podemos conseguir que a un determinado circuito le lleguen únicamente tensiones positivas o solamente negativas.
+
+Estos tipos de circuitos utilizan dispositivos de una o más uniones PN como elementos de conmutación. Se diseñan con el objetivo de recortar o eliminar una parte de la señal que se le introduce en sus terminales de entrada y permita que pase el resto de la forma de onda sin distorsión o con la menor distorsión posible. Para realizar esta función de recortar, los recortadores hacen uso de la variación brusca que experimenta la impedancia entre los terminales de los diodos y transistores al pasar de un estado a otro, de ahí que sean los elementos básicos en dichos circuitos. 
+
+\insertImage{img/labdisp_pract5/recpos}{Circuito recortador}{8}
+	
+\subsection{Circuito sujetador}
+
+Estos circuitos basan su funcionamiento en la acción del diodo, pero al contrario que los limitadores no modificarán la forma de onda de la entrada, es decir su voltaje o tipo de corriente eléctrica, sino que le añaden a ésta un determinado nivel de corriente continua. Esto puede ser necesario cuando las variaciones de corriente alterna deben producirse en torno a un nivel concreto de corriente continua.
+
+\insertImage{img/labdisp_pract5/suj}{Rectificador de onda completa}{8}
+
+\section{Circuito Multiplicador}
+
+Un Multiplicador de tensión es un circuito eléctrico que convierte tensión desde una fuente de corriente alterna a otra de corriente continua de mayor voltaje mediante etapas de diodos y condensadores.
+
+\insertImage{img/labdisp_pract5/mult}{Rectificador de onda completa}{8}
+
+
+\newpage
+\section{Previo}
+
+\subsection{Diseña un circuito recortador positivo}
+
+\subsection{Diseña un circuito recortador negativo}
+
+\subsection{Diseña un circuito duplicador, triplicado y cuadriplicador de tensión}
+
+\newpage
+\section{Desarrollo}
+
+
+\section{Conclusiones}
+
+
+\end{document}

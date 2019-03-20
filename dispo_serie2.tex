@@ -1,0 +1,247 @@
+\documentclass{mylib/reporteCorto}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{amsmath}
+
+\title{Reporte}
+\author{rodrigofranciscopablo }
+
+\subject{Dispositivos y Circuitos Electrónicos}
+\mytitle{Serie 2}
+\mysubTitle{Serie del diodo semiconductor y modelos}
+\students{Francisco Pablo \textsc{Rodrigo}}
+\teacher{Dra. Moumtadi \textsc{Fatima}}
+\group{10}
+\deliverDate{13 de marzo de 2019}
+
+\newcommand{\insertImage}[2]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=#2cm]{#1}
+	\end{figure}
+}
+
+\begin{document}
+
+\coverPage
+
+\tableofcontents
+\newpage
+
+\section{Ejercicios aplicaciones del diodo}
+
+\subsection{Ejercicio 1}
+
+Calcular la corriente, la tensión y la potencia en la carga, así como la potencia del diodo y la potencia total para
+el circuito de la figura. Hacerlo considerando al diodo como :
+
+\begin{enumerate}[label=\Alph*]
+	\item Diodo ideal
+	\item Diodo de sicilio
+\end{enumerate}
+
+\insertImage{img/dispos_serie2/appdiodo1}{15}
+
+% Solucion 1
+
+a) El diodo es ideal por lo que podemos tomar el diodo como un circuito corto, entonces
+
+\begin{gather*}
+	15 V = 470 \Omega * I \rightarrow I = 32 mA \\
+	P_D = 0 W \\
+	V_c = 470 \Omega *32 mA = 15 V \\
+	P_c = 15V * 32 mA = 480 mW \\
+	P_T = 15V * 32 mA = 480 mW
+\end{gather*}
+
+b) El diodo aquí es de 0.7 V
+
+\begin{gather*}
+	15 V = 470 \Omega * I + 0.7 V \rightarrow I = 32 mA \\
+	P_D = 0.7V * 32.42 mA = 21.3 mA \\
+	V_c = 470 \Omega *30.42 mA = 14.3 V \\
+	P_c = 14.3V * 30.42 mA = 435 mW \\
+	P_T = 15V * 30.42 mA = 456.3 mW
+\end{gather*}
+
+\subsection{Ejercicio 2}
+
+Para el siguiente circuito:
+\begin{enumerate}[label=\Alph*]
+	\item Dibuja la señal de salida de $V_o$
+	\item Calcular IL
+\end{enumerate}
+
+\insertImage{img/dispos_serie2/appdiodo2}{15}
+
+Para el inciso a)
+
+\insertImage{img/dispos_serie2/appdiodo2_a}{8}
+
+Para el inciso b)
+
+\begin{gather*}
+	V_p = (\sqrt{2})(RMS) = 28.28 \\
+	V_o = - \dfrac{V_p}{\pi} = \dfrac{-28.28}{\pi} = -9 V \\
+	I_l = \dfrac{V_{CD}}{R} = \dfrac{-9 V}{2 \Omega} = -4.5 mA
+\end{gather*}
+
+\subsection{Ejercicio 3}
+
+Para el siguiente circuito determinar
+la onda de salida v0 que circula por la
+resistencia central , tome en cuenta
+que el circuito es un rectificador de
+onda completa
+El voltaje de entrada es de 14.4 Vp ,
+los diodos son de silicio , el
+voltímetro o v0 está conectado en
+serie a la resitencia del centro del
+circuito.
+Respuesta: El voltaje de salida es 6.85
+Vp tanto en el semiciclo positivo con
+el el negativo
+
+\insertImage{img/dispos_serie2/appdiodo3}{10}
+
+El voltaje de entrada es 14.4 V y se le debe restar 0.7 V por el diodo y lo que tenemos es
+13.7 V y mediante divisor de voltaje se puede resolver utilizando la fórmula
+
+$$ V_x = V_T \left(\dfrac{R_x}{R_T}\right)$$
+
+$V_x =$ Punto propuesto para divisor de voltaje\\
+$V_T =$ Voltaje total (13.7 V)\\
+$R_x =$ Resistencia para el cual se le aplicó el divisor (2 K $\Omega$ )\\
+$R_T =$ Valor de la resistencia del análisis (4K $\Omega$ )\\
+
+$V_o = (13.7 V)(2k\Omega / 4k \Omega) = 6.85$\\
+
+Como es un circuito rectificador de onda completa se sabe que el semiciclo negativo es
+igual al positivo con 6.85 V
+
+$V_o = (-13.7 V)(2k\Omega / 4k \Omega) = -6.85$\\
+
+\subsection{Ejercicio 4}
+
+Calcular la corriente que circula
+a través del diodo zener para la
+siguiente
+configuración
+del
+circuito así como su potencia y
+concluir respecto a esta, si el
+diodo zener no está activo
+cambiar la configuración para
+que este quede activo.
+
+\insertImage{img/dispos_serie2/appdiodo4}{10}
+
+Es necesario utilizar la medición de Thevenin para ver si está activo el diodo.\\
+
+$V_{TH} = V_i (R_L / R_S R_L) = 22(4.7 k\Omega / 5.7 k\Omega) = 18.14 V$
+
+Con leyes de Kirchhof
+
+\insertImage{img/dispos_serie2/sol_appdiodo4}{10}
+
+
+
+\section{Ejercicios de modelo a pequeña señal}
+
+\subsection{Ejercicio 1}
+
+\insertImage{img/dispos_serie2/seg_peque1}{15}
+
+\insertImage{img/dispos_serie2/sol_seg_peque1}{10}
+
+\subsection{Ejercicio 2}
+
+\insertImage{img/dispos_serie2/seg_peque2}{15}
+
+\insertImage{img/dispos_serie2/sol_seg_peque2}{10}
+
+\subsection{Ejercicio 3}
+
+\insertImage{img/dispos_serie2/seg_peque3}{15}
+
+\insertImage{img/dispos_serie2/sol_seg_peque3}{10}
+
+
+
+\section{Ejercicios de gran señal}
+
+\subsection{Ejercicio 1}
+
+\insertImage{img/dispos_serie2/seg_grande1}{15}
+
+\insertImage{img/dispos_serie2/sol_seg_grande1}{10}
+
+\subsection{Ejercicio 2}
+
+\insertImage{img/dispos_serie2/seg_grande2}{15}
+
+\insertImage{img/dispos_serie2/sol_seg_grande2}{10}
+
+
+\subsection{Ejercicio 3}
+
+\insertImage{img/dispos_serie2/seg_grande3}{15}
+
+\insertImage{img/dispos_serie2/sol_seg_grande3}{10}
+
+
+\subsection{Ejercicio 4}
+
+\insertImage{img/dispos_serie2/seg_grande4}{15}
+
+\insertImage{img/dispos_serie2/sol_seg_grande4}{10}
+
+
+\subsection{Ejercicio 5}
+
+\insertImage{img/dispos_serie2/seg_grande5}{15}
+
+\insertImage{img/dispos_serie2/sol_seg_grande5}{10}
+
+
+
+\section{Ejercicios de especificaciones del fabricante}
+
+\subsection{Ejercicio 1}
+
+Determine el voltaje pico inverso repetitivo para cada uno de los diodos 1N4002, 1N4003, 1N4004, 1N4005,  1N4006. 
+
+\subsection{Ejercicio 2}
+
+Si la corriente de polarización en directa es de 800 mA y el votaje de polarización en directa es de 0.75V en un 1N005, ¿excede la potencia nominal=
+
+\subsection{Ejercicio 3}
+
+¿Cuál es $I_{F(AV)}$ para un 1N4001  a temperatura ambiente de $100 ^\circ C$?
+
+\subsection{Ejercicio 4}
+
+¿Cuál es $I_{FSM}$ para un 1N4003 si el cambio súbito de corriente se repite 40 veces a 60 HZ?
+
+\section{Ejercicios con uso de computadora}
+
+\insertImage{img/dispos_serie2/sol_eje_fabricante}{10}
+
+
+\subsection{Ejercicio 1}
+
+Comprobar resultados obtenidos en el problema 1 de diodos el inciso b), incluir captura de pantalla verificando
+y comparando los valores obtenidos.
+
+\insertImage{img/dispos_serie2/dol_comp1}{10}
+
+
+\subsection{Ejercicio 2}
+
+Comprobar resultados obtenidos en el problema 4 (diodo zener), incluir captura de pantalla verificando y
+comparando los valores obtenidos.
+
+\insertImage{img/dispos_serie2/dol_comp2}{10}
+
+
+\end{document}

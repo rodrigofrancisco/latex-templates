@@ -81,13 +81,13 @@ Datos
 		 \hline
 		 C & $V_{CD}$ & $V_{out}Rizo$ & $F_{out}Rizo$ \\
 		 \hline
-		 $1 \mu F$ &  &  & 60 Hz \\
+		 $1 \mu F$ & 21.2 V &  & 60 Hz \\
 		 \hline
-		 $10 \mu F$ &  &  & 60 Hz \\
+		 $10 \mu F$ & 21.2 V &  & 60 Hz \\
 		 \hline
-		 $100 \mu F$ &  &  & 60 Hz \\
+		 $100 \mu F$ & 21.2 V &  & 60 Hz \\
 		 \hline
-		 $1000 \mu F$ &  &  & 60 Hz \\
+		 $1000 \mu F$ & 21.2 V &  & 60 Hz \\
 		 \hline
 	\end{tabu}
 	\end{center}
@@ -103,13 +103,13 @@ Datos
 		 \hline
 		 C & $V_{CD}$ & $V_{out}Rizo$ & $F_{out}Rizo$ \\
 		 \hline
-		 $1 \mu F$ &  &  & 120 Hz \\
+		 $1 \mu F$ & 21.2 V &  & 120 Hz \\
 		 \hline
-		 $10 \mu F$ & &  & 120 Hz \\
+		 $10 \mu F$ & 21.2 V &  & 120 Hz \\
 		 \hline
-		 $100 \mu F$ &  &  & 120 Hz \\
+		 $100 \mu F$ & 21.2 V &  & 120 Hz \\
 		 \hline
-		 $1000 \mu F$ & &  & 120 Hz \\
+		 $1000 \mu F$ & 21.2 V &  & 120 Hz \\
 		 \hline
 	\end{tabu}
 	\end{center}
@@ -120,8 +120,96 @@ Datos
 \newpage
 \section{Desarrollo}
 
+\subsection{Rectificador de media onda}
+
+Para desarrollar esta part de la práctica diseñamos el circuito presentado a continuación y posperioromente fuimos analizando las diferentes capacitancias en él.
+
+\insertImage{img/labdisp_pract4/hwrc}{Circuito con capacitor de $n\mu F$}{12}
+
+\textbf{Para el caso sin capacitor obtuvimos}
+
+\insertImage{img/labdisp_pract4/recm}{Circuito sin capacitor}{10}
+
+\textbf{Para el caso de $C = 1 \mu F$}
+
+\insertImage{img/labdisp_pract4/recm_1mf}{Circuito con $C = 1 \mu F$}{10}
+
+\textbf{Para el caso de $C = 10 \mu F$}
+
+\insertImage{img/labdisp_pract4/recm_10mf}{Circuito con $C = 10 \mu F$}{10}
+
+\textbf{Para el caso de $C = 1000 \mu F$}
+
+\insertImage{img/labdisp_pract4/recm_1000mf}{Circuito con $C = 1000 \mu F$}{10}
+
+Con todos los valores obtenidos pudimos hacer la siguiente tabla.
+
+\begin{center}
+\begin{tabu} to 0.8\textwidth { | X[c] | X[c] | X[c] | X[c] | }
+	 \hline
+	 C & $V_{CD}$ & $V_{out}Rizo$ & $F_{out}Rizo$ \\
+	 \hline
+	 $1 \mu F$ & 21.05 V &  & 60 Hz \\
+	 \hline
+	 $10 \mu F$ & 21.05 V&  & 60 Hz \\
+	 \hline
+	 $100 \mu F$ & 21.05 V &  & 600 Hz \\
+	 \hline
+	 $1000 \mu F$ & 21.05 V &  & 60 Hz \\
+	 \hline
+\end{tabu}
+\end{center}
+
+\subsection{Rectificador de onda completa}	
+
+
+Para desarrollar esta part de la práctica diseñamos el circuito presentado a continuación y posperioromente fuimos analizando las diferentes capacitancias en él.
+
+\insertImage{img/labdisp_pract4/fwrc}{Circuito con capacitor de $n\mu F$}{12}
+
+\textbf{Para el caso sin capacitor obtuvimos}
+
+\insertImage{img/labdisp_pract4/recc}{Circuito sin capacitor}{10}
+
+\textbf{Para el caso de $C = 1 \mu F$}
+
+\insertImage{img/labdisp_pract4/recc_1mf}{Circuito con $C = 1 \mu F$}{10}
+
+\textbf{Para el caso de $C = 10 \mu F$}
+
+\insertImage{img/labdisp_pract4/recc_10mf}{Circuito con $C = 10 \mu F$}{10}
+
+\textbf{Para el caso de $C = 1000 \mu F$}
+
+\insertImage{img/labdisp_pract4/recc_1000mf}{Circuito con $C = 1000 \mu F$}{10}
+
+Con todos los valores obtenidos pudimos hacer la siguiente tabla.
+
+\begin{center}
+\begin{tabu} to 0.8\textwidth { | X[c] | X[c] | X[c] | X[c] | }
+	 \hline
+	 C & $V_{CD}$ & $V_{out}Rizo$ & $F_{out}Rizo$ \\
+	 \hline
+	 $1 \mu F$ & 21.05 V &  & 120 Hz \\
+	 \hline
+	 $10 \mu F$ &21.05 V &  & 120 Hz \\
+	 \hline
+	 $100 \mu F$ &21.05 V &  & 120 Hz \\
+	 \hline
+	 $1000 \mu F$ &21.05 V &  & 120 Hz \\
+	 \hline
+\end{tabu}
+\end{center}
+
 
 \section{Conclusiones}
+
+Observamos que tanto en el rectificador de media onda como en el de onda completa la presencia del capacitor fue notable ya que la señal obtenida con él fue bastante diferente a que si no lo tuviera.
+
+Recordemos que el capacitor es un elemento que guarda energía por lo cuál ayudo a que nuestro circuito no bajará completamente su energía al tener una señal senoidal. Observamos que con el capacitor la energía iba bajando cada vez menos a medida que le poniamos un capacitor de mayor tamaño.
+
+Por otra parte, comprobamos que el recortador de media onda efectivamente hace su trabajo y nos deja con solo la mitad de la señal y que el recortador de onda completa invierte la señal negativa y solo nos deja con la señal positiva, pero, muy importante, aumentando su frencuencia al doble.
+
 
 
 \end{document}

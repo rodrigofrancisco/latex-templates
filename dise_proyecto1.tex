@@ -1,0 +1,76 @@
+\documentclass{mylib/reporte}
+\usepackage{float}
+\title{Reporte}
+\author{rodrigofranciscopablo }
+
+\subject{Diseño Digital Moderno}
+\mytitle{Proyecto 1}
+\mysubTitle{Circuito de NANDs y NORs}
+\students{
+	Francisco Pablo \textsc{Rodrigo}
+}
+\teacher{Ing. Mandujano Wild \textsc{Roberto F.}}
+\group{6}
+\deliverDate{23 de marzo de 2019}
+
+\newcommand{\insertImage}[2]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=#2cm]{#1}
+	\end{figure}
+}
+
+\begin{document}
+
+\coverPage
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+Las Compuertas Lógicas son circuitos electrónicos conformados internamente por transistores que se encuentran con arreglos especiales con los que otorgan señales de voltaje como resultado o una salida de forma booleana, están obtenidos por operaciones lógicas binarias (suma, multiplicación). También niegan, afirman, incluyen o excluyen según sus propiedades lógicas. Estas compuertas se pueden aplicar en otras áreas de la ciencia como mecánica, hidráulica o neumática.\\
+
+\subsection{Compuerta NAND}
+También denominada como AND negada, esta compuerta trabaja al contrario de una AND ya que al no tener entradas en 1 o solamente alguna de ellas, esta concede un 1 en su salida, pero si esta tiene todas sus entradas en 1 la salida se presenta con un 0.
+
+\insertImage{img/dise_proy2/semisum}{6}
+
+\subsection{Compuerta NOR}
+
+Así como vimos anteriormente, la compuerta OR también tiene su versión inversa. Esta compuerta cuando tiene sus entradas en estado 0 su salida estará en 1, pero si alguna de sus entradas pasa a un estado 1 sin importar en qué posición, su salida será un estado 0.
+
+
+\insertImage{img/dise_proy2/fullsum}{6}
+
+\section{Materiales}
+
+\begin{enumerate}
+	\item 2 LEDs
+	\item Alambre de seis colores distintos
+	\item 2 compuertas NAND
+	\item 1 compuerta NOR
+	\item 2 dip-switch (4 posiciones)
+\end{enumerate}	
+
+\section{Planteamiento}
+
+\subsection{Circuito de solo NANDs}
+\subsection{Circuito de solo NORs}
+
+\subsubsection{Diagrama lógico}
+
+\insertImage{img/dise_proy2/compLog}{10}
+
+\section{Patigrama}
+
+\insertImage{img/dise_proy2/patigrama}{11}
+
+\section{Implementación}
+
+Después de algunas cuantas horas de arduo esfuerzo y de algunos cuantos errores obtuvimos el siguiente circuito.
+
+\insertImage{img/dise_proy2/implementacion}{15}
+
+
+\end{document}

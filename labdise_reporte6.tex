@@ -1,0 +1,69 @@
+\documentclass{mylib/reporteConCalif}
+\usepackage{float}
+
+\title{Reporte}
+\author{rodrigofranciscopablo }
+
+\subject{Laboratorio de Diseño Digital}
+\mytitle{Reporte de práctica 6}
+\mysubTitle{Sumador - Multiplicador}
+\students{Francisco Pablo \textsc{Rodrigo}}
+\teacher{M.I. Guevara Rodríguez \textsc{Ma. del Socorro}}
+\group{6}
+\deliverDate{1 de abril de 2019}
+
+\newcommand{\insertImage}[3]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=#3cm]{#1}
+		\caption{#2}
+	\end{figure}
+}
+
+\begin{document}
+
+\coverPage
+
+\section{Objetivos}
+
+\subsection{General}
+
+El alumno diseñará circuitos combinacionales (mediana escala de integración).
+
+\subsection{Particular}
+
+El alumno analizará, diseñará e implementará un multiplicador binario utilizando medio sumador y
+sumador completo.
+
+\section{Introducción}
+
+\subsection{Sumador}
+Los sumadores son circuitos muy importantes para diferentes tipos de sistemas digitales en los que se procesan datos numéricos. Para construir un sumador básico es necesario conocer las reglas de la suma binaria. 
+
+\subsubsection{Medio sumador}
+
+El semisumador suma dos dígitos binarios simples A y B, denominados sumandos, y sus salidas son Suma (S) y Acarreo (C). La señal de acarreo representa un desbordamiento en el siguiente dígito en una adición de varios dígitos. 
+
+\subsubsection{Sumador completo}
+Un sumador completo suma números binarios junto con las cantidades de acarreo. Un sumador completo de un bit añade tres bits, a menudo escritos como A, B y $C_{in}$ siendo A y B son los sumandos y $C_{in}$ es el acarreo que proviene de la anterior etapa menos significativa.
+
+ El sumador completo suele ser un componente de una cascada de sumadores, que suman 8, 16, 32, etc. números binarios de bits. El circuito produce una salida de dos bits, al igual que el semisumador, denominadas acarreo de salida ($C_{out}$) y suma S.
+
+\subsection{Multiplicador}
+La multiplicación consiste en una serie de operaciones AND entre los distintos bits y una serie de sumas.
+
+\insertImage{img/labdise_pract6/mult}{Ejemplo de circuito Multiplicador}{5}
+
+\newpage
+\section{Previo}
+
+\newpage
+\section{Desarrollo}
+
+
+
+\section{Conclusiones}
+
+
+
+\end{document}

@@ -12,6 +12,13 @@
 \group{6}
 \deliverDate{18 de marzo de 2019}
 
+\newcommand{\insertImage}[3]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=#3cm]{#1}
+		\caption{#2}
+	\end{figure}
+}
 
 \begin{document}
 
@@ -53,48 +60,37 @@ es conocida como minitérminos o minterms y como expresión booleana viene a ser
 \newpage
 \section{Desarrollo}
 
-Para realizar un circuito elevador de 3 bits al cuadrado recurrimos al diseño lógico de Xilinx utilizando la sección de código que a mi parecer es más sencillo que arrastrar los componentes, finalemente el código quedó de la siguiente manera.\\
+Para el desarrollo de ésta práctica tuvimos que utilizar 4 variables de entrada (A,B,C,D) lo cual nos permite tener 16 combinaciones distintas que posteriormente nos servirián para controlar nuestro display de 7 segmentos que puede mostrar números del cero al nueve. Es decir, tenemos 16-10 números sin usar por lo cual los tendremos que considerar don't care.\\
 
-\begin{center}
-	\includegraphics[width=15cm]{img/labdise_pract4/r4_img1}
-\end{center}
+Después de obtener las 7 funciones mínimas las ingresamos al programa \textit{Xilin} para poder hacer la simulación. Para meter las funciones utilizamos el modo HDL y nos quedo lo siguiente.\\
 
-Comprobamos que el circuito estuviera bien y para ello realizamos la simulación y probamos para diferentes valores como puede verse a continuación.\\
+\insertImage{img/labdise_pract5/image1}{Funciones en código VHDL}{15}
 
-$000^2 = 00000$
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=15cm]{img/labdise_pract4/r4_img2}
-	\caption{Puede verse que aquí estamos elevando cero al cuadrado y el resultado es cero.}
-\end{figure}
+Luego, para estar seguros de que ibamos por el rumbo correcto procedimos a hacer la simulación y a corroborar cada una de las combinaciones. 
 
-$001^2 = 000001$
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=15cm]{img/labdise_pract4/r4_img3}
-	\caption{Puede verse que aquí estamos elevando uno al cuadrado y el resultado es uno.}
-\end{figure}
+\insertImage{img/labdise_pract5/image2}{Simulación de nuestro circuito.}{15}
 
-$111^2 = 110001$
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=15cm]{img/labdise_pract4/r4_img4}
-	\caption{Puede verse que aquí estamos elevando siete al cuadrado y el resultado es 49.}
-\end{figure}
+\insertImage{img/labdise_pract5/image4}{Simulación de nuestro circuito.}{15}
 
-Luego de que la fase de simulación fue exitosa pasamos nuestro diseño a la \textit{Basys2} para ello tuvimos que generar un archivo con extensión \textit{.bit} y posteriormente mediante una programa llamado \textbf{Adapt} logramos pasar nuestro circuito a la FPGA.
+Una vez que verificamos que todas las combinaciones de las variables de 4 bits son correctas procedemos a cargar nuestro programa a la FPGA. En este caso para ello abrimos el programa llamado \textbf{Digilent Adept} y en la opción de FPGA escogemos el archivo .bit que generamos en Xilinx y le damos click en \textit{PROGRAMAR}.
 
-%Inserta imagen aqui
+\insertImage{img/labdise_pract5/image3}{Cargando el programa a al FPGA}{10}
 
-En la siguiente imagen se puede apreciar a nuestro dieño en funcionamiento. Utilizamos los primeros 6 LEDs y los primeros 3 switches.
+Finalmente podemos corroborar de manera tangible que nuestro circuito funciona y que la tabla de verdad corresponde con las funciones que programamos.
+
+A continuación se presentan algunas fotos ilustrando el funcionamiento del circuito. Mi número de cuenta es 314331122 por lo cual solo muestro que el 3, 1, 4 y 2 funcionan.
+
+\insertImage{img/labdise_pract5/dos}{El número 2 en el display de 7 segmentos}{12}
+
+\insertImage{img/labdise_pract5/tres}{El número 2 en el display de 7 segmentos}{12}
+
+\insertImage{img/labdise_pract5/cuatro}{El número 2 en el display de 7 segmentos}{12}
 
 
 \section{Conclusiones}
 
-Al realizar el diseño del circuito identifique la importancia de saber minimizar con mapas de Karnaugh ya que sino lo hubiera hecho, el número de compuertas a utilizar sería muchisimo más grande que el que ya tenemos.\\
+Obervamos que la mínimización de funciones booleanas es necesaria en el diseño de circuitos lógicos ya que nos ahorra gran cantidad de compuertas si hablamos de elementos físicos o nos ahorra mucho código si hablamos en términos del VHDL y de una FPGA.\\
 
-Se puede notar que para construir un circuito combinacional que solo puede multiplicar hasta el 7 en decimal o hasta el 111 en binario se llevo 8 compuertas (4 ANDs, 2 NOT, 1 OR y 1 XOR). Quiere decir que para hacer una multitplicación de n por n tendremos que tener muchisimas compuertas, lo cual no es optimo.\\
-
-Por otra parte, al utilizar el modo de programación del Xilinx observe que es más rápido hacerlo de esa manera en lugar de ir arrastrando componentes y tener unirlos con cuidado.
+Es importante mencionar que si no tuvieramos la FPGA tendriamos que implementar nuestro circuito usando solo compuertas lógicas (AND, OR, etc.) y un display de 7 segmentos. Además se complicaría ligerante porque tenemos que tener cuidado al momento de conectar las compuertas con el display ya que este puede ser de ánodo o de cátodo. En cambio, al hacer nuestro programa en XIlinx y el la \textit{Basys} sencillamente programamos nuestro circuito y si veíamos que los números se desplegaban al revés (es decir, se apagaban los que debían estar prendidos) lo único que debimos hacer fue negar nuestras funciones y volver a cargar el programa.
 
 \end{document}

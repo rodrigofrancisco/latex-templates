@@ -1,0 +1,57 @@
+\documentclass{mylib/reporteConCalif}
+\usepackage{float}
+
+\title{Reporte}
+\author{rodrigofranciscopablo }
+
+\subject{Laboratorio de Diseño Digital}
+\mytitle{Reporte de práctica 7}
+\mysubTitle{Decodificador BCD a 7 segmentos}
+\students{Francisco Pablo \textsc{Rodrigo}}
+\teacher{M.I. Guevara Rodríguez \textsc{Ma. del Socorro}}
+\group{6}
+\deliverDate{8 de abril de 2019}
+
+\newcommand{\insertImage}[3]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=#3cm]{#1}
+		\caption{#2}
+	\end{figure}
+}
+
+\begin{document}
+
+\coverPage
+
+\section{Objetivos}
+
+\subsection{General}
+
+El alumno diseñará circuitos combinacionales (mediana escala de integración).
+
+\subsection{Particular}
+
+El alumno analizará, diseñará e implementará un decodificador para display de 7 segmentos.
+
+\section{Introducción}
+
+Un decodificador o descodificador es un circuito combinacional, cuya función es inversa a la del codificador, es decir, convierte un código binario de entrada (natural, BCD, etc.) de N bits de entrada y M líneas de salida (N puede ser cualquier entero y M es un entero menor o igual a $2^N$), tales que cada línea de salida será activada para una sola de las combinaciones posibles de entrada.
+
+Además, es un elemento digital que funciona a base de estados lógicos, con los cuales indica una salida determinada basándose en un dato de entrada característico, para el caso del decodificador de BCD a 7 segmentos,su función operacional se basa en la introducción a sus entradas de un número en código binario correspondiente a su equivalente en decimal para mostrar en los siete pines de salida establecidos para el integrado, una serie de estados lógicos que están diseñados para conectarse a un elemento alfanumérico en el que se visualizará el número introducido en las entradas del decodificador.
+
+\insertImage{img/labdise_pract7/decoder_bcd}{Simple bozquejo de como conectar el decodificador a un display de 7 segmentos}{15}
+
+\newpage
+\section{Previo}
+
+\newpage
+\section{Desarrollo}
+
+
+
+\section{Conclusiones}
+
+
+
+\end{document}

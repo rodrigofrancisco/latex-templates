@@ -1,0 +1,197 @@
+\documentclass{mylib/reporteCorto}
+\usepackage{float}
+\usepackage{multirow}
+\title{Reporte}
+\author{rodrigofranciscopablo }
+
+\subject{Administración de proyectos de Software}
+\mytitle{COSMIC}
+\mysubTitle{Ensayo}
+\students{Francisco Pablo \textsc{Rodrigo}}
+\teacher{Ing. Gamboa Beltran \textsc{Jonahan}}
+\group{1}
+\deliverDate{25 de marzo de 2019}
+
+\newcommand{\insertImage}[3]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=#3cm]{#1}
+		\caption{#2}
+	\end{figure}
+}
+
+\begin{document}
+
+\coverPage
+
+% realizar una investigación del método de estimación COSMIC que contenga ORIGEN, MÉTODO, Y UNA COMPARACIÓN CON EL MÉTODO DE ANÁLISIS DE PUNTOS POR FUNCIÓN.
+
+\tableofcontents
+
+\section{Breve historia}
+
+A lo largo de la historia se han planteado distintas métricas para medir el tamaño funcional del software. La primera métrica fue \textit{Source lines of code} (SLOC), se encargada de medir el software por medio del conteo de las lineas del código fuente. SLOC tenía muchas desventajas dentro de las cuales podemos mencionar las siguientes. 
+\begin{itemize}
+	\item No mide el esfuerzo realizado para obtener el software. Por ejemplo, programadores con más expoeriencia podrían escribir menos líneas de código.
+	\item Diferencia entre lenguajes. El número de líneas de código puede cambiar entre distintos lenguajes de programación, esto debido a la forma de implementar nuestra idea en algún lenguaje.
+	\item Los programadores tendian a incrementar su número de líneas con código inecesario.
+\end{itemize}
+
+En 1979 Allan Albrecht propone un método llamado \textit{Function Point Analysis} que posteriormente se convierte en el IFPUG (International Function Point Users Group). El método IFPUG en realidad tiene dos componentes, en primer lugar relacionado con una medida del tamaño funcional y el segundo con una medida de la contribución al tamaño general de 14 factores técnicos y de calidad. El enfoque original de Albrecht se ha refinado significativamente en los últimos 30 años, pero sus conceptos básicos no han cambiado desde mediados de la década de 1970.
+
+El método de análisis de puntos de función del International Functions Points User Groups (IFPUG), ha sido por mucho tiempo el más usado para realizar mediciones funcionales de requerimientos de software, necesario para realizar la medición y estimación de software, sin embargo, puede mejorarse en muchos aspectos, como por ejemplo:
+
+\begin{itemize}
+	\item El método IFPUG depende de los “tipos de funciones” definidos por Albrecht, los cuales eran adecuados para la década de los 70, pero se ha hecho difícil asignárselos a formas modernas de modelar los requerimientos de software, como por ejemplo cuando el software se construye como servicios (SOA) y en áreas como el software de tiempo real o de infraestructura.
+	\item Los tipos de función se les puede asignar únicamente un rango de dimensiones, por lo cual se dificulta la representación de requerimientos muy grandes o muy pequeños).
+\end{itemize}
+
+Para los años 90 la industria estaba demandando un método de análisis de puntos de función estándar, sin embargo, no existía acuerdo para seleccionar algúno de los métodos de medición que existían.
+
+Se estableció un grupo informal de expertos de Norte América, Europa y Australia, quienes en 1998 dieron a la tarea de desarrollar un método de análisis de puntos de función de segunda generación, el grupo se nombró a sí mismo como el Common Software Measurament International Consortiom (COSMIC).
+
+\section{Método COSMIC}
+
+El método COSMIC se diseñó para medir los requisitos de usuario funcional (FUR) de la aplicación empresarial (o ‘gestión sistema de información '), software en tiempo real e infraestructura y algunos tipos de software científico / de ingeniería, en cualquier capa de una arquitectura de software y en cualquier nivel de descomposición.
+
+El proceso de medición COSMIC consta de 3 fases las cuales se explican a continuación
+
+\insertImage{img/admin/cosmic2}{Fases de COSMIC}{12}
+
+\subsection{Estrategia de medición}
+
+Primero debemos definir que debemos medir. El tamaño de una pieza de software depende del punto de vista de quién o qué definimos como sus usuarios funcionales, es decir, los humanos, dispositivos de hardware u otro software que interactúan con el software.
+
+Para medir el tamaño del software debemos definir el propósito de las mediciones ya que esto nos llevará a definir un alcance. Es de vital importancia documentar que parámetros vamos a medir para que la medida resultante se correctamente interpretado por todos los usuarios futuros.
+
+\subsection{Mapeo}
+
+En éste método se realiza un ''mapeo'' con la finalidad de crear un modelo de los requerimiento funcionales del usuario (FUR).
+
+El punto de partida para el mapeo son los artefactos disponibles, como por ejemplo un esquema o especificación de requerimientos detallada, modelos de diseño como por ejemplo los casos de uso, software que está instalado físicamente, entre otros.
+
+Es necesario aclar que para elaborar este modelo, se utilizan los principios del Modelo genérico de software COSMIC (El cual se describe a continucación), aplicados a los requerimientos de software que se van a medir.
+
+\subsubsection{Modelo de requerimientos de software COSMIC}
+
+De acuerdo con un artículo presentado por \textit{cosmicon} el modelo de requerimientos de software COMIC tien 4 principios.
+
+1.- La funcionalidad de software está comprendida de procesos funcionales. La tarea de cada proceso funcional es responder a un evento ocurrido fuera de la frontera del sistema (el  mundo de los usuarios funcionales).
+
+2.- Los procesos funcionales están compuestos de sub-procesos: 
+
+Cada sub-proceso puede mover datos o manipular datos. 
+Los sub-procesos de movimiento de datos que mueven datos de un usuario funcional a un proceso funcional se les llama “Entradas”.
+Los sub-procesos que mueven datos desde un proceso funcional hacia el exterior se les llama salidas. 
+Los sub-procesos que mueven datos hacia un almacén de datos se les llama “Escrituras” mientras que a los que mueven datos desde dichos almacenes se les conoce como "lecturas".
+
+3.- Cada movimiento de datos (Entrada, salida, lectura o escritura) moviliza solamente un grupo de datos, cuyos atributos describen un solo objeto de interés.
+
+4.- Se asume que la manipulación de datos forma parte de las entradas, salidas, lecturas o escrituras, por lo tanto estas no se miden por separado (En la medición solo se cuentan los movimientos de datos).
+
+\insertImage{img/admin/mov_cosmic}{Tipos de sub-procesos definidos en el modelo COSMIC}{12}
+
+Se entiende que un proceso funcional termina su ejecución cuando ha realizado todos los sub-procesos necesarios para responder a los datos que recibió del evento.
+
+
+\subsection{Medición}
+
+\textbf{La unidad de medida del método COSMIC es el ‘Punto de función cósmica’ (CFP). Cada movimiento de datos se mide como 1 CFP.}
+
+Un proceso funcional debe tener al menos dos movimientos de datos (una Entrada más una Salida o una Escritura) para proporcionar un servicio mínimo pero completo. Por lo tanto, el tamaño mínimo de un proceso funcional es 2 CFP. No hay límite superior para el tamaño de un proceso funcional.
+Para medir una mejora del software existente, identificamos todos los movimientos de datos que se agregarán, modificarán y eliminarán, y los sumaremos a todos sus procesos funcionales. El tamaño mínimo de cualquier modificación a un proceso funcional es 1 CFP.
+
+\section{COSMIC vs IFPUG }
+
+Tanto COSMIC como IFPUG reconocen que
+
+\begin{itemize}
+	\item Procesos elementales como unidad funcional a medir.
+	\item Los datos que entran / salen de un proceso contribuyen al tamaño funcional.
+	\item Acceso de datos a datos persistentes como contribución al tamaño funcional.
+	\item Especificamente NO miden algoritmos, lógica de procesamiento, transformaciones de datos,
+cálculos etc.
+\end{itemize}
+
+
+\begin{center}
+    \begin{tabular}{ | p{4cm} | p{4.5cm} |p{4.5cm} |}
+    \hline
+    \multicolumn{3}{|c|}{Comparación de conceptos} \\
+  	\hline
+
+	Concepto & IFPUG & COSMIC \\ \hline
+	
+	Métodos para trabajar con software multi capa &
+	No explicito &
+	Reglas explícitas para tomar en cuenta arquitecturas multi-capa. \\ \hline
+
+	Vista de usuario & 
+	Mide apartir de la vista externa de los usuarios. &
+	Mide desde distintos puntos de vista. \\ \hline
+
+	Calidad y requerimiento técnicos &
+	Sin medirse explicitamente &
+	Se considera en otra capa si hay implementación de software. \\ \hline
+
+    \end{tabular}
+\end{center}
+
+
+\begin{center}
+    \begin{tabular}{ | p{4cm} | p{4.5cm} |p{4.5cm} |}
+    \hline
+    \multicolumn{3}{|c|}{Comparación de procesos} \\
+  	\hline
+
+	Proceso & IFPUG & COSMIC \\ \hline
+	
+	Repetibilidad de agrupamiento Grupos de datos lógicos &
+	Requiere contar experiencia para asegurar la repetibilidad. &
+	Requiere experiencia de modelado de datos para asegurar repetibilidad\\ \hline
+
+	Nivel de detalle & 
+	No requiere muchos detalles porque cuenta con varios `rangos' de complejidad &
+	Requiere de más detalles para identificar cada movimiento de datos y acceso de archivos. \\ \hline
+
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{ | p{4cm} | p{4.5cm} |p{4.5cm} |}
+    \hline
+    \multicolumn{3}{|c|}{Comparación de recursos disponibles} \\
+  	\hline
+
+	Recursos & IFPUG & COSMIC \\ \hline
+	
+	Manuales &
+	Pagas por el maual IFPUG y pagas por la certificación ISO &
+	Lo descargas gratis de su página y pagas por la ISO.\\ \hline
+
+	Entrenamiento & 
+	Muchos vendedores de cursos a lo largo de todo el mundo y con cetificación. &
+	Algunos cursos a lo largo del mundo pero sin certificación \\ \hline
+
+	Caso de estudio & 
+	2 diferentes casos de estudio FUR pero pagas por ellos &
+	5 diferentes casos de estudio que se pueden descargar de manera libre. \\ \hline
+
+    \end{tabular}
+\end{center}
+
+
+
+\section{Referencias y Bibliografía}
+
+\begin{itemize}
+	\item http://www.cosmicon.com/portal/public/Introductionv4.0.pdf
+	\item https://www.spingere.com.mx/single-post/que-es-COSMIC-ISOIEC-19761
+	\item https://cosmic-sizing.org/cosmic-fsm/functional-size-measurement/history/
+	\item https://cosmic-sizing.org/cosmic-fsm/
+	% https://www.totalmetrics.com/function-point-resources/downloads/COSMIC-Versus-IFPUG-Similarities-and-Differences.pdf
+	\item https://www.totalmetrics.com/function-point-resources
+\end{itemize}
+
+
+\end{document}

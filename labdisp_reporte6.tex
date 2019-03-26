@@ -1,0 +1,98 @@
+\documentclass{mylib/reporteConCalif}
+\title{Reporte}
+\author{rodrigofranciscopablo }
+
+\subject{Laboratorio de Dispositivos y circuitos electrónicos}
+\mytitle{Reporte de práctica 6}
+\mysubTitle{Circuitos con diodo Zener}
+\students{Francisco Pablo \textsc{Rodrigo}}
+\teacher{M.I. Guevara Rodríguez \textsc{Ma. del Socorro}}
+\group{8}
+\deliverDate{3 de abril de 2019}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{tabu}
+\newcommand{\insertImage}[3]{
+	\begin{figure}[H]
+		%\centering
+		\includegraphics[width=#3cm]{#1}
+		\caption{#2}
+	\end{figure}
+}
+
+\begin{document}
+
+\coverPage
+
+%\tableofcontents
+%\newpage
+
+\section{Objetivos}
+
+\subsection{General}
+
+Analizar y diseñar circuitos electrónicos que contienen diodos semiconductores.
+
+\subsection{Particular}
+
+Analizar, diseñar, simular e implementar circuitos reguladores con diodo Zener.
+
+\section{Introducción}
+
+El diodo zener se puede utilizar para regular una fuente de voltaje. Este semiconductor se fabrica en una amplia variedad de voltajes y potencias.
+Estos van desde menos de 2 voltios hasta varios cientos de voltios, y la potencia que pueden disipar va desde 0.25 watts hasta 50 watts o más.
+La potencia que disipa un diodo zener es simplemente la multiplicación del voltaje para el que fue fabricado por la corriente que circula por él. Esto es
+
+$$ P_z = V_z \cdot I_z$$
+
+El cálculo del resistor $R_s$ está determinado por la corriente que pedirá la carga (lo que vamos a conectar a esta fuente de voltaje). 
+
+Este resistor se puede calcular con la siguiente fórmula
+
+$$R_s = \frac{V_{in min}- V_z}{1.1 \cdot I_{L max}}$$
+
+En donde:
+\begin{itemize}
+	\item $V_{in min}$ es el valor mínimo del voltaje de entrada.
+	\item $I_{L max}$ es el valor de la máxima corriente que pedirá la carga.
+\end{itemize}	
+
+Una vez conocido Rs, se obtiene la potencia máxima del diodo zener, con ayuda de la siguiente fórmula.
+
+$$P_D = \frac{V_{in min}- V_z}{R_S - I_{L min}} \cdot V_z$$
+
+\newpage
+\section{Previo}
+
+\begin{center}
+    \begin{tabular}{ | p{4cm} | p{4.5cm} |p{4.5cm} |}
+    \hline
+    \multicolumn{3}{|c|}{Voltajes y corrientes del diodo Zener} \\
+  	\hline
+
+	 & $V_{in}$ mínimo (13 V) & $V_{in}$ máximo (20 V) \\ \hline
+	
+	$I_L$ mínima (1mA) & \begin{flalign*} V_Z =  \\ I_Z = \end{flalign*} & \begin{flalign*} V_Z =  \\ I_Z = \end{flalign*} \\ \hline
+	
+	$I_L$ máxima (10mA) & \begin{flalign*} V_Z =  \\ I_Z = \end{flalign*} & \begin{flalign*} V_Z =  \\ I_Z = \end{flalign*}\\ \hline
+	
+    \end{tabular}
+\end{center}
+
+\insertImage{img/labdisp_pract6/one}{Circuito con un $V_{in} = 13 V$ y $I_L = 1 mA$}{8}
+
+\insertImage{img/labdisp_pract6/two}{Circuito con un $V_{in} = 20 V$ y $I_L = 1 mA$}{7}
+
+\insertImage{img/labdisp_pract6/three}{Circuito con un $V_{in} = 13 V$ y $I_L = 10 mA$}{7}
+
+\insertImage{img/labdisp_pract6/four}{Circuito con un $V_{in} = 20 V$ y $I_L = 10 mA$}{7}
+
+\newpage
+\section{Desarrollo}
+
+
+\section{Conclusiones}
+
+
+\end{document}

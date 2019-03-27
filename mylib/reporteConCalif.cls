@@ -18,6 +18,18 @@
 \newcommand{\group}[1]{\renewcommand{\group}{#1}}
 \newcommand{\deliverDate}[1]{\renewcommand{\deliverDate}{#1}}
 
+
+\usepackage{float}
+\usepackage{tabu}
+\newcommand{\insertImage}[3]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#3cm]{#1}
+        \caption{#2}
+    \end{figure}
+}
+
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\footnotesize \faculty-\textbf{\university}} %encabezado izquierda

@@ -1,0 +1,182 @@
+\documentclass{mylib/reporteCorto}
+\graphicspath{ {img/admin/} }
+
+\usepackage{float}
+\usepackage{multirow}
+\title{Reporte}
+\author{rodrigofranciscopablo }
+
+\subject{Administración de proyectos de Software}
+\mytitle{PERT}
+\mysubTitle{Trabajo de investigación}
+\students{Francisco Pablo \textsc{Rodrigo}}
+\teacher{Ing. Gamboa Beltran \textsc{Jonahan}}
+\group{1}
+\deliverDate{1 de abril de 2019}
+
+\begin{document}
+
+\coverPage
+
+% realizar una investigación del program evaluation and review technique
+
+\tableofcontents
+
+\section{Antecedentes}
+
+Hasta antes del método PERT solo se tenían como método principal de planeación el método de Gantt. El diagrama de Gantt: todo un método innovador para la planificación de recursos, que se empezaba a complicar cuando éstos eran muchos y muy diversos, asignados a un gran número de actividades. Y por este motivo, la comunidad de profesionales especializados en la gestión de proyectos celebra el nacimiento de PERT, con un hermano mellizo: CPM (Critical Path Method), el método del camino crítico. Ambos, nacidos para ganar en productividad y ahorro de costes para las empresas e instituciones públicas.
+
+\insertImage{gantt}{Ejemplo de diagrama de Gantt}{10}
+
+\section{Origen}
+
+El origen de los trabajos de la técnica PERT empezaron formalmente en enero de 1957, siendo  paralelo al del CPM, pero su origen fue en el ámbito militar. Se desarrolló en la Oficina de Proyectos Especiales de la Armada de los EEUU, al reconocer el almirante William. F. Raborn que se necesitaba una planificación integrada y un sistema de control fiable para el programa de misiles balísticos Polaris. Con su apoyo se estableció un equipo de investigación para desarrollar el PERT o “Program Evaluation Research Task”. Así, la Oficina de Proyectos Especiales de la Marina de los Estados Unidos de América, en colaboración con la división de Sistemas de Misiles Lockheed (fabricantes de proyectiles balísticos) y la consultora Booz, Allen \& Hamilton (ingenieros consultores), se plantean un nuevo método para solucionar el problema de planificación, programación y control del proyecto de construcción de submarinos atómicos armados con proyectiles «Polaris», donde tendrían que coordinar y controlar, durante un plazo de cinco años a 250 empresas, 9000 subcontratistas y numerosas agencias gubernamentales. En julio de 1958 se publica el primer informe del programa al que denominan “Program Evaluation and Review Technique”, decidiendo su aplicación en octubre del mismo año y consiguiendo un adelanto de dos años sobre los cinco previstos. D. G. Malcolm, J. H. Roseboom, C. E. Clark y W. Fazar, todos del equipo de investigación patrocinado por la Armada, fueron los autores del primer documento publicado sobre el PERT.
+
+\section{Descripción del método}
+
+El método PERT se basa en la descomposición sistemática del proyecto en una serie de tareas parciales o \textit{parciales} con el objetivo de incorporar racionalidad en la planificación, gestión, seguimiento y control de dichas actividades durante la vida del mismo.
+\subsection{Conceptos básico para diagramar actividades con redes}
+
+En realidad para hacer el diagrama de actividades vamos a usar \textit{grafos} que para este contexto a veces son llamadas redes. Las reglas para hacer el diagrama con grafos son
+
+\begin{enumerate}
+	\item Cada actividad se debe representar sí y sólo sí, por un ramal o arco.
+	\insertImage{graf1}{Diagrama con grafos}{5}
+	En donde 1 y 2 son sucesos que están conectados mediante una actividad A.
+	\item Cada actividad debe estar identificada por dos nodos distintos. En el caso de existir actividades concurrentes (que inicien al mismo tiempo, o que el inicio de una actividad dependa de la finalización de 2 o más actividades distintas) se debe recurrir a actividades ficticias (representadas por arcos punteados que no consumen ni tiempo ni recursos) para satisfacer esta regla.
+
+	Por ejemplo,  la actividad C para su inicio requiere que finalicen A y B. Las actividades A y B inician al mismo tiempo.
+	\insertImage{graf2}{Nodos punteados no consumen tiempo ni recursos.}{5}
+
+\end{enumerate}
+
+\subsection{Fases para la planificación de un proyecto en PERT}
+
+\subsubsection{Actividades del proyecto}
+
+La primera fase corresponde a identificar todas las actividades que intervienen en el proyecto, sus interrelaciones, sucesiones, reglas de precedencia. Con la inclusión de cada actividad al proyecto se debe cuestionar respecto a que actividades preceden a esta, y a cuales siguen inmediatamente esta finalice. Además, deberán relacionarse los tiempos estimados para el desarrollo de cada actividad.
+Se asumen tres estimaciones de tiempo por cada actividad, las cuales son:
+
+Tiempo optimista (a): Duración que ocurre cuando el desarrollo de la actividad transcurre de forma perfecta. En la práctica suele acudirse al tiempo récord de desarrollo de una actividad, es decir, el mínimo tiempo en que una actividad de esas características haya sido ejecutada.
+Tiempo más probable (m): Duración que ocurre cuando el desarrollo de la actividad transcurre de forma normal. En la práctica suele tomarse como el tiempo más frecuente de ejecución de una actividad de iguales características.
+Tiempo pesimista (b): Duración que ocurre cuando el desarrollo de la actividad transcurre de forma deficiente, o cuando se materializan los riesgos de ejecución de la actividad.
+
+\insertImage{tabla1}{Tabla de de actividades y tiempos}{12}
+
+\subsubsection{Estimar el tiempo (duración promedio) y la varianza}
+
+Para efectos de determinar la ruta crítica del proyecto se acude al tiempo de duración promedio, también conocido cómo tiempo estimado. Este tiempo es determinado a partir de las estimaciones como
+
+$$ T_e = \frac{a+4m+b}{6}$$
+
+El cálculo del tiempo estimado deberá hacerse entonces cada actividad, por ejemplo, para la actividad A:
+
+$$T_e = \frac{3+4(5.5)+11}{6} = 6$$
+
+Además de calcular el tiempo estimado, deberá calcularse la varianza de cada actividad. El cálculo de esta medida de dispersión se utiliza para determinar la incertidumbre de que se termine el proyecto de acuerdo al programa. Para efectos del algoritmo PERT, el cálculo de la varianza se hará a partir de sus estimaciones tal cómo se muestra a continuación
+
+$$\sigma = \left(\frac{b-a}{6}\right)^2$$
+
+El cálculo de la varianza debeŕa hacerse entonces para cada actividad. Por ejemplo, para la actividad A se tiene que
+
+$$\sigma = \left(\frac{11-3}{6}\right)^2 = 6$$
+
+Si actualización la primera tabla obtendremos lo siguiente.
+
+\insertImage{tabla2}{Tabla con tiempo estimado y varianza}{12}
+
+\subsubsection{Diagrama de red}
+
+Con base en la información obtenida en la fase anterior y haciendo uso de los conceptos básicos para diagramar una red, obtendremos el gráfico del proyecto (los tiempos relacionados con cada actividad en el gráfico corresponden a los tiempos estimados)
+
+\insertImage{graf3}{Grafo del proyecto}{10}
+
+\subsubsection{Cálculo de la red}
+
+Para el cálculo de la red se consideran 3 indicadores,
+
+\begin{itemize}
+	\item Tiempo más temprano o tiempo \textit{early} ($T_1$)
+	\item Tiempo más tardío o tiempo \textit{last} ($T_2$)
+	\item Tiempo de holgura (H)
+\end{itemize}
+
+\noindent
+
+Estos indicadores se calculan en cada evento o nodo, entiéndase nodo entonces como un punto en el cual se completan actividades y se inician las subsiguientes.
+
+\textbf{T1}: Tiempo más temprano de realización de un evento. Para calcular este indicador deberá recorrerse la red de izquierda a derecha y considerando lo siguiente:
+\begin{itemize}
+	\item T1 del primer nodo es igual a 0.
+	\item T1 del nodo n = T1 del nodo n-1 (nodo anterior) + duración de la actividad (tiempo estimado) que finaliza en el nodo n.
+	\item Si en un nodo finaliza más de una actividad, se toma el tiempo de la actividad con mayor valor.
+\end{itemize}
+
+En este caso para el cálculo del T1 en el nodo 8, en el que concurre la finalización de 2 actividades, deberá considerarse el mayor de los T1 resultantes:
+
+T1 (nodo 6) + G = 13 + 6 = 19
+
+T1 (nodo 7) + H = 8 + 4 = 12
+
+Así entonces, el T1 del nodo 8 será igual a 19 (el mayor valor).
+
+\textbf{T2}: Tiempo más tardío de realización del evento. Para calcular este indicador deberá recorrerse la red de derecha a izquierda y considerando lo siguiente:
+
+\begin{itemize}
+	\item T2 del primer nodo (de derecha a izquierda) es igual al T1 de este.
+	\item T2 del nodo n = T2 del nodo n-1 (nodo anterior, de derecha a izquierda) - duración de la actividad que se inicia (tiempo estimado).
+	\item Si en un nodo finaliza más de una actividad, se toma el tiempo de la actividad con menor valor.
+\end{itemize}
+
+En este caso para el cálculo del T2 del nodo 1, en el que concurren el inicio de 2 actividades deberá entonces considerarse lo siguiente:
+
+
+T2 nodo 2 - B = 6 - 6 = 0
+
+T2 nodo 3 - C = 9 - 2 = 7
+
+Así entonces, el T2 del nodo 1 será 0, es decir el menor valor.
+
+\textbf{H}: Tiempo de holgura, es decir la diferencia entre T2 y T1. Esta holgura, dada en unidades de tiempo corresponde al valor en el que la ocurrencia de un evento puede tardarse. Los eventos en los cuales la holgura sea igual a 0 corresponden a la ruta crítica, es decir que la ocurrencia de estos eventos no puede tardarse una sola unidad de tiempo respecto al cronograma establecido, dado que en el caso en que se tardara retrasaría la finalización del proyecto.
+
+Las actividades críticas por definición constituyen la ruta más larga que abarca el proyecto, es decir que la sumatoria de las actividades de una ruta crítica determinará la duración estimada del proyecto. Puede darse el caso en el que se encuentren más de una ruta crítica.
+
+\insertImage{graf5}{Grafo con tiempos y holguras}{12}
+
+Esta ruta se encuentra compuesta por las actividades A, C, E, G, I, J. La duración del proyecto sería de 22 semanas.
+
+\subsubsection{Cálculo de la varianza, desviación estándar y probabilidades}
+
+La varianza y la desviación estándar para la culminación del proyecto se relacionan con las actividades que comprenden la ruta crítica. Así entonces, para calcular la varianza basta con sumar las varianzas de las actividades A, C, E, G, I y J:
+
+\insertImage{var}{varianza del proyecto}{10}
+
+De nuestras clases de probabilidad y estadística recordamos que  la desviación estándar tiene que ser
+
+$$\sigma = \sqrt{\sigma^2}$$
+
+Para nuestro caso tenemos que
+
+$$\sigma = \sqrt{3.67} = 1.92$$
+
+La mayoría de los autores usa \textit{distribución normal} para las diversas probabilidades que tuvieran que reportar.
+
+\subsubsection{Establecer el cronograma}
+
+Para establecer un cronograma deberán considerarse varios factores, el más importante de ellos es la relación de precedencia, y el siguiente corresponde a escalonar las actividades que componen la ruta crítica de tal manera  que se complete el proyecto dentro de la duración estimada.
+
+\insertImage{PERT}{Bosquejo de un diagrama después del análisis con PERT}{10}
+
+\section{Referencias y Bibliografía}
+
+\begin{itemize}
+	\item https://www.ingenieriaindustrialonline.com/herramientas-para-el-ingeniero-industrial\\/investigaci C3 B3n-de-operaciones/pert-tecnica-de-evaluacion-y-revision-de-proyectos/
+	\item https://victoryepes.blogs.upv.es/2015/01/28/los-origenes-del-pert-y-del-cpm/
+	\item https://www.sinnaps.com/blog-gestion-proyectos/quien-invento-pert
+
+	% de aqui no copié nada pero lo pongo -> http://www.investigaciondeoperaciones.net/pert.html
+	%http://ocw.uc3m.es/economia-financiera-y-contabilidad/economia-de-la-empresa/material-de-clase-1/PERT.pdf
+\end{itemize}
+
+
+\end{document}

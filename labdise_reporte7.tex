@@ -1,5 +1,34 @@
 \documentclass{mylib/reporteConCalif}
+\graphicspath{ {img/labdise_pract7/} }
 \usepackage{float}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
 
 \title{Reporte}
 \author{rodrigofranciscopablo }
@@ -11,14 +40,6 @@
 \teacher{M.I. Guevara Rodríguez \textsc{Ma. del Socorro}}
 \group{6}
 \deliverDate{8 de abril de 2019}
-
-\newcommand{\insertImage}[3]{
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=#3cm]{#1}
-		\caption{#2}
-	\end{figure}
-}
 
 \begin{document}
 
@@ -45,6 +66,50 @@ Además, es un elemento digital que funciona a base de estados lógicos, con los
 \newpage
 \section{Previo}
 
+Recordemos que la tabla de verdad para para pasar de código binario a código de 7 segmentos es la siguiente
+
+\insertImage{tabla}{Código BCD}{15}
+
+Recordemos que solo las primeras 10 combinaciones son válidas, del 1010 en adelante se les considera como \textit{don't care}.
+
+Por si las dudas también es importante recordar que el diagrama lógico de la conexión que se debería usando lógica negada.
+
+\insertImage{diagrama}{Diagrama lógico de BCD}{15}
+
+\newpage
+\subsection{Código en forma selectiva de VHDL}
+
+\begin{lstlisting}[language=VHDL]
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity SEVEN_DISPLAY is
+  port (
+    estado    : in  std_logic;
+    display : out std_logic
+    );
+end SEVEN_DISPLAY;
+
+architecture rtl of SEVEN_DISPLAY is
+begin
+
+  WITH estado SELECT
+    display <= "0000001"    WHEN "0000",
+                "1001111"   WHEN "0001",
+                "0010010"   WHEN "0010",
+                "0000110"   WHEN "0011",
+                "1001100"   WHEN "0100",
+                "0100100"   WHEN "0101",
+                "1100000"   WHEN "0110",
+                "0001111"   WHEN "0111",
+                "0000000"   WHEN "1000",
+                "0001100"   WHEN "1001"
+                "1111111"   WHEN OTHERS;
+
+end rtl;
+\end{lstlisting}
+
+
 \newpage
 \section{Desarrollo}
 
@@ -52,6 +117,11 @@ Además, es un elemento digital que funciona a base de estados lógicos, con los
 
 \section{Conclusiones}
 
-
+% https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_VHDL/Arquitectura
+% http://insights.sigasi.com/tech/signal-assignments-vhdl-withselect-whenelse-and-case.html
+% https://sites.google.com/site/electronicadigitalmegatec/home/deccoder-bcd-a-7-segmentos
+% https://ikastaroak.ulhi.net/edu/es/IEA/ELEC/ELEC02/es_IEA_ELEC02_Contenidos/website_541_decodificador_bcd_de_7_segmentos.html
+% https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_VHDL/Arquitectura
+% https://www.overleaf.com/learn/latex/Code_listing
 
 \end{document}

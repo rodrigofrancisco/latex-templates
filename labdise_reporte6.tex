@@ -1,4 +1,5 @@
 \documentclass{mylib/reporteConCalif}
+\graphicspath{ {img/labdise_pract6/} }
 \usepackage{float}
 
 \title{Reporte}
@@ -11,14 +12,6 @@
 \teacher{M.I. Guevara Rodríguez \textsc{Ma. del Socorro}}
 \group{6}
 \deliverDate{1 de abril de 2019}
-
-\newcommand{\insertImage}[3]{
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=#3cm]{#1}
-		\caption{#2}
-	\end{figure}
-}
 
 \begin{document}
 
@@ -38,11 +31,11 @@ sumador completo.
 \section{Introducción}
 
 \subsection{Sumador}
-Los sumadores son circuitos muy importantes para diferentes tipos de sistemas digitales en los que se procesan datos numéricos. Para construir un sumador básico es necesario conocer las reglas de la suma binaria. 
+Los sumadores son circuitos muy importantes para diferentes tipos de sistemas digitales en los que se procesan datos numéricos. Para construir un sumador básico es necesario conocer las reglas de la suma binaria.
 
 \subsubsection{Medio sumador}
 
-El semisumador suma dos dígitos binarios simples A y B, denominados sumandos, y sus salidas son Suma (S) y Acarreo (C). La señal de acarreo representa un desbordamiento en el siguiente dígito en una adición de varios dígitos. 
+El semisumador suma dos dígitos binarios simples A y B, denominados sumandos, y sus salidas son Suma (S) y Acarreo (C). La señal de acarreo representa un desbordamiento en el siguiente dígito en una adición de varios dígitos.
 
 \subsubsection{Sumador completo}
 Un sumador completo suma números binarios junto con las cantidades de acarreo. Un sumador completo de un bit añade tres bits, a menudo escritos como A, B y $C_{in}$ siendo A y B son los sumandos y $C_{in}$ es el acarreo que proviene de la anterior etapa menos significativa.
@@ -60,10 +53,32 @@ La multiplicación consiste en una serie de operaciones AND entre los distintos 
 \newpage
 \section{Desarrollo}
 
+Para esta práctica hicimos uso de todas las herramientas que ofrece Xilinx. Xilinx ofrece la posibilidad de crear nuestros propios componentes a través de un método llamado de flujo de datos, el cual consiste en en crear un componente desde el modo VHDL para posteriormente poder reutilizarlo. \\
 
+Primero creamos el \textit{half-adder}, entonces, al igual que lo hemos hecho al inicio de cada práctica, creamos un archvio de tipo vhd y creamos un archivo como el que tenemos en la parte de abajo.
+
+\insertImage{ha}{Medio sumador}{16}
+
+Posteriormente, creamos el \textit{Full-adder} en otro archivo.
+
+\insertImage{fa}{Sumador completo}{16}
+
+Después de crear ambos componentes tenemos que crear los símbolos esquemáticos de cada uno de nuestros elementos, el \textit{Half-adder} y el \textit{Full-adder}. para ello damos click en la opción \textbf{Create Schematic Symbol}, el cual se encuentra en \textbf{Design Utilities}.
+
+\insertImage{img1}{Creando los simbolos de nuestro Full adder y half adder}{16}
+
+Luego, en modo \textit{Esquemático} procedemos a crear nuestro \textsc{multiplicador}, simplemente tenemos que seguir el modelo que hicimos en el \textit{Previo}
+
+\insertImage{squema}{Diseño de un multiplicador}{16}
+
+Finalmente, tenemos que simular nuestro circuito para ver que las salidas correspondan a la combinación de entradas, es decir, que efectivamente el circuito realice las multiplicaciones.
+
+\insertImage{simulacion}{Simulación del circuito multiplicador}{16}
 
 \section{Conclusiones}
 
+Si intentabamos hacer el multiplicador usando simplemente compuertas lógicas nuestra implementación sería muy grande y díficil de leer, además de que el componente sumador completo y medio sumador se repiten con frecuencia por lo que la opción casi obvia es abstraerlos de manera que podamos implementarlos con mayor facilidad y sin importarnos como es que un circuito esta conformado por dentro.\\
 
+Es importante que esta técnica es empleada en todo tipo de circuitos, aquí lo hicimos en el software Xilinx, sin embargo, se puede hacer en la vida real ya que en lugar de comprar compuertas podemos comprar algunos half adder y otro full adders.
 
 \end{document}

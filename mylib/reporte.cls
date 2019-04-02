@@ -1,10 +1,12 @@
 \LoadClass[a4paper,12pt]{article}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[spanish]{babel} 
-\RequirePackage{graphicx} 
-\RequirePackage{anysize} 
+\RequirePackage[spanish]{babel}
+\RequirePackage{graphicx}
+\RequirePackage{anysize}
 \usepackage{fancyhdr} % Para agregar encabezado y pie de página
 \marginsize{2cm}{2cm}{2cm}{2cm} % Izquierda, derecha, arriba, abajo
+
+\decimalpoint
 
 \newcommand{\university}{UNAM}
 \newcommand{\University}{Universidad Nacional\\ \vspace{5px} Autónoma de México}
@@ -52,56 +54,56 @@
     \includegraphics[width=3cm]{img/logos/unam-10x10.jpg}
     \end{flushright}\end{minipage}
     \vspace*{-1.5cm}
-    
-    \textsc{\huge \University}\\[1.5cm] 
 
-    \textsc{\LARGE \faculty}\\[1.5cm]                                                   
-    \begin{minipage}{0.9\textwidth} 
-    \begin{center}                                                                             
+    \textsc{\huge \University}\\[1.5cm]
+
+    \textsc{\LARGE \faculty}\\[1.5cm]
+    \begin{minipage}{0.9\textwidth}
+    \begin{center}
     \textsc{\LARGE \subject}
     \end{center}
     \end{minipage}\\[0.5cm]
-    
-                                                                                        
-    \vspace*{1cm}                                                                       
-                                                                                        
-    \HRule \\[0.4cm]                                                                    
-    { \huge \bfseries \mytitle}\\[0.4cm]    
-    { \huge \mysubTitle}\\[0.4cm]   
-                                                                                        
-    \HRule \\[1.5cm]                                                                    
-                                                                                                                                                                       
-    \begin{minipage}{0.46\textwidth}                                                    
-    \begin{flushleft} \large                                                            
-    \emph{Alumno(s):}\\ 
+
+
+    \vspace*{1cm}
+
+    \HRule \\[0.4cm]
+    { \huge \bfseries \mytitle}\\[0.4cm]
+    { \huge \mysubTitle}\\[0.4cm]
+
+    \HRule \\[1.5cm]
+
+    \begin{minipage}{0.46\textwidth}
+    \begin{flushleft} \large
+    \emph{Alumno(s):}\\
         \students
-    
-    %\vspace*{2cm}  
-                                                                    
-                                                                    
-    \end{flushleft}                                                                     
-    \end{minipage}      
-     %%% //Es necesario                                                               
-    \begin{minipage}{0.52\textwidth}        
-    \vspace{-0.6cm}                                         
-    \begin{flushright} \large                                                           
-    \emph{Profesor:} \\                                                                 
+
+    %\vspace*{2cm}
+
+
+    \end{flushleft}
+    \end{minipage}
+     %%% //Es necesario
+    \begin{minipage}{0.52\textwidth}
+    \vspace{-0.6cm}
+    \begin{flushright} \large
+    \emph{Profesor:} \\
         \teacher
-                                                        
-    \end{flushright}                                                                    
-    \end{minipage}  
+
+    \end{flushright}
+    \end{minipage}
     \vspace*{1cm}
     %\begin{flushleft}
-        
+
     %\end{flushleft}
     %%%
-    \flushleft{\Large Grupo: \group }\\                                                                   
-    \vspace{2cm}                                                                                
-    \begin{center}                                                                                  
-    {\large \deliverDate}                                                                   
-                \end{center}                                                                        
-    \end{center}                                                                        
-                                                                                        
-    \newpage                                                                        
+    \flushleft{\Large Grupo: \group }\\
+    \vspace{2cm}
+    \begin{center}
+    {\large \deliverDate}
+                \end{center}
+    \end{center}
+
+    \newpage
 %%%%%%%%%%%%%%%%%%%% TERMINA PORTADA %%%%%%%%%%%%%%%%%%%%%%
 }

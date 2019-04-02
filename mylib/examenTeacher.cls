@@ -1,8 +1,10 @@
 \LoadClass[a4paper]{article}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[spanish]{babel}
-\RequirePackage{anysize} 
+\RequirePackage{anysize}
 \marginsize{2cm}{2cm}{1.5cm}{2cm}% Izq, der, arriba, abajo
+
+\decimalpoint
 
 \RequirePackage{amsmath}
 \RequirePackage{graphicx}
@@ -18,7 +20,7 @@
 
 % Getting close to TeX, simulating for and if control secuences.
 \usepackage{forloop}
-\usepackage{ifthen} 
+\usepackage{ifthen}
 
 % I don't remember what is packages are for, but I promise to figure it out :c
 \usepackage{textcomp}
@@ -77,9 +79,9 @@
   % This sections presentes the definition of
   % environments and commands created for the exam
   %*/
-  
+
   %ENVIROMENNTS DEF {
-  
+
     % I don't really know what does this environment do
     % but I promise to check it,just don't delete it.
     \newenvironment{hangingpar}[1]{\begin{list}
@@ -93,18 +95,18 @@
           }
         \setlength{\parindent}{-#1}%%
         \item[]
-    }{\end{list}}     
+    }{\end{list}}
   %}
   %COMMANDS DEF {
 
-  
+
     \newcommand{\startin}[1]{
       \newcounter{num}
       \setcounter{num}{#1}
     }
-    
+
     \startin{1}
-    
+
     % THE QUESTIONS macro definition is this
     %/** the sintaxis is the following
     %   \pregunta{[text]}{[image path | 'null' if you don't have any images]}
@@ -113,7 +115,7 @@
     %     2 is equivalent to the image
     %     Some useful examples
     %     * \pregunta{what's my name?}{null}
-    %     * \pregunta{In the picture, who am I?}{img/pic1}    
+    %     * \pregunta{In the picture, who am I?}{img/pic1}
 
     \newcommand{\idpreg}[2]{
       \begin{flushright}
@@ -133,24 +135,24 @@
       }
       \stepcounter{num}
     }
-    
+
     \newcounter{op}
     \setcounter{op}{1}
     \makeatletter
 
-    \newcommand{\opciones}[2][texto]{ 
+    \newcommand{\opciones}[2][texto]{
       \par\vspace*{2mm}
-      \ifthenelse{ \equal{#1}{imagen}  }{ %if(args[2]==imagen)  
+      \ifthenelse{ \equal{#1}{imagen}  }{ %if(args[2]==imagen)
         \textbf{\Alph{op}.} \\%linebreak
-        \includegraphics[width=2cm]{#2}\\ 
-        \stepcounter{op} 
+        \includegraphics[width=2cm]{#2}\\
+        \stepcounter{op}
         \checknextarg[imagen]
-      }{%else        
+      }{%else
           \begin{hangingpar}
             {1em}\textbf{\Alph{op}.}\,#2
           \end{hangingpar}
           \par\vspace*{2mm}
-          \stepcounter{op} 
+          \stepcounter{op}
           \checknextarg
         }
     }
@@ -159,10 +161,10 @@
       \@ifnextchar\bgroup{
         \gobblenextarg[#1]
       }{ %else
-        \setcounter{op}{1} 
+        \setcounter{op}{1}
       }
     }
-    
+
     \newcommand{\gobblenextarg}[2][texto]{
       \ifthenelse{ \equal{#1}{imagen} }{
         \textbf{\Alph{op}.}\\
@@ -171,18 +173,18 @@
         \@ifnextchar\bgroup{
           \gobblenextarg[imagen]
         }{
-          \setcounter{op}{1} 
+          \setcounter{op}{1}
           }
       }{
         \begin{hangingpar}
           {1em}\textbf{\Alph{op}.}\,#2
         \end{hangingpar}
         \par\vspace*{2mm}
-        \stepcounter{op} 
+        \stepcounter{op}
         \@ifnextchar\bgroup{
           \gobblenextarg
         }{
-          \setcounter{op}{1} 
+          \setcounter{op}{1}
         }
       }
     }

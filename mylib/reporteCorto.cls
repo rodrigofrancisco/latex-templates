@@ -1,10 +1,12 @@
 \LoadClass[a4paper,12pt]{article}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[spanish]{babel} 
-\RequirePackage{graphicx} 
-\RequirePackage{anysize} 
+\RequirePackage[spanish]{babel}
+\RequirePackage{graphicx}
+\RequirePackage{anysize}
 \usepackage{fancyhdr} % Para agregar encabezado y pie de página
 \marginsize{2cm}{2cm}{1.2cm}{2cm} % Izquierda, derecha, arriba, abajo
+
+\decimalpoint
 
 \newcommand{\university}{UNAM}
 \newcommand{\University}{Universidad Nacional\\ \vspace{5px} Autónoma de México}
@@ -43,7 +45,7 @@
     \begin{center}
         \vspace*{1mm}
         \Large{\textsc{\subject} (grupo: \group)}  \\[0.2cm]
-        { \Large \bfseries \mytitle}\\[0.2cm]   
+        { \Large \bfseries \mytitle}\\[0.2cm]
         \large{\students} \\[0.2cm]
         \deliverDate
     \end{center}

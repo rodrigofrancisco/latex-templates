@@ -1,8 +1,11 @@
 \LoadClass[a4paper]{article}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[spanish]{babel}
-\RequirePackage{anysize} 
+\RequirePackage{anysize}
 \marginsize{2cm}{2cm}{2cm}{2cm}% Izq, der, arriba, abajo
+
+\decimalpoint
+
 \RequirePackage{xcolor}
 
 \RequirePackage{libertine} % linux libertine font

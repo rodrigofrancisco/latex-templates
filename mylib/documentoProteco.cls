@@ -1,10 +1,12 @@
 \LoadClass[a4paper]{article}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[spanish]{babel} 
-\RequirePackage{graphicx} 
-\RequirePackage{anysize} 
+\RequirePackage[spanish]{babel}
+\RequirePackage{graphicx}
+\RequirePackage{anysize}
 \usepackage{fancyhdr} % Para agregar encabezado y pie de página
 \marginsize{2cm}{2cm}{2cm}{2cm} % Izquierda, derecha, arriba, abajo
+
+\decimalpoint
 
 \newcommand{\university}{UNAM}
 \newcommand{\University}{Universidad Nacional\\ \vspace{5px} Autónoma de México}

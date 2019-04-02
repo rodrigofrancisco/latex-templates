@@ -1,4 +1,6 @@
 \documentclass{mylib/reporteConCalif}
+\graphicspath{ {img/labdisp_pract6/} }
+
 \title{Reporte}
 \author{rodrigofranciscopablo }
 
@@ -13,13 +15,7 @@
 \usepackage{amsmath}
 \usepackage{float}
 \usepackage{tabu}
-\newcommand{\insertImage}[3]{
-	\begin{figure}[H]
-		%\centering
-		\includegraphics[width=#3cm]{#1}
-		\caption{#2}
-	\end{figure}
-}
+\usepackage{subfig}
 
 \begin{document}
 
@@ -46,7 +42,7 @@ La potencia que disipa un diodo zener es simplemente la multiplicación del volt
 
 $$ P_z = V_z \cdot I_z$$
 
-El cálculo del resistor $R_s$ está determinado por la corriente que pedirá la carga (lo que vamos a conectar a esta fuente de voltaje). 
+El cálculo del resistor $R_s$ está determinado por la corriente que pedirá la carga (lo que vamos a conectar a esta fuente de voltaje).
 
 Este resistor se puede calcular con la siguiente fórmula
 
@@ -56,7 +52,7 @@ En donde:
 \begin{itemize}
 	\item $V_{in min}$ es el valor mínimo del voltaje de entrada.
 	\item $I_{L max}$ es el valor de la máxima corriente que pedirá la carga.
-\end{itemize}	
+\end{itemize}
 
 Una vez conocido Rs, se obtiene la potencia máxima del diodo zener, con ayuda de la siguiente fórmula.
 
@@ -72,11 +68,11 @@ $$P_D = \frac{V_{in min}- V_z}{R_S - I_{L min}} \cdot V_z$$
   	\hline
 
 	 & $V_{in}$ mínimo (13 V) & $V_{in}$ máximo (20 V) \\ \hline
-	
+
 	$I_L$ mínima (1mA) & \begin{flalign*} V_Z =  \\ I_Z = \end{flalign*} & \begin{flalign*} V_Z =  \\ I_Z = \end{flalign*} \\ \hline
-	
+
 	$I_L$ máxima (10mA) & \begin{flalign*} V_Z =  \\ I_Z = \end{flalign*} & \begin{flalign*} V_Z =  \\ I_Z = \end{flalign*}\\ \hline
-	
+
     \end{tabular}
 \end{center}
 
@@ -91,8 +87,67 @@ $$P_D = \frac{V_{in min}- V_z}{R_S - I_{L min}} \cdot V_z$$
 \newpage
 \section{Desarrollo}
 
+\subsection{Experimento 1}
+
+Para el experimento 1 en donde la corriente es la mínima (1 mA) y el voltaje es el mínimo (13 V) obtuvimos los siguientes resultados.
+
+\begin{figure}[H]%
+    \centering
+    \subfloat[$V_z$ = 9.15 V]{{\includegraphics[width=7cm]{image8} }}%
+    \qquad
+    \subfloat[I = 1.19 mA]{{\includegraphics[width=7cm]{image3} }}%
+    \caption{Voltaje y corriente del diodo Zener}%
+    \label{fig:example}%
+\end{figure}
+
+\subsection{Experimento 2}
+
+Para el experimento 2 en donde la corriente es la mínima (1 mA) y el voltaje es el máximo (20 V) obtuvimos los siguientes resultados.
+
+\begin{figure}[H]%
+    \centering
+    \subfloat[$V_z$ = 7.44 V]{{\includegraphics[width=7cm]{image4} }}%
+    \qquad
+    \subfloat[I = 1.19 mA]{{\includegraphics[width=7cm]{image3} }}%
+    \caption{Voltaje y corriente del diodo Zener}%
+    \label{fig:example}%
+\end{figure}
+
+\subsection{Experimento 3}
+
+Para el experimento 3 en donde la corriente es la máxima(10 mA) y el voltaje es el mínimo (13 V) obtuvimos los siguientes resultados.
+
+\begin{figure}[H]%
+    \centering
+    \subfloat[$V_z$ = 10.34 V]{{\includegraphics[width=7cm]{image2} }}%
+    \qquad
+    \subfloat[I = 36.3 mA]{{\includegraphics[width=7cm]{image1} }}%
+    \caption{Voltaje y corriente del diodo Zener}%
+    \label{fig:example}%
+\end{figure}
+
+\subsection{Experimento 4}
+
+Para el experimento 4 en donde la corriente es la máxima(10 mA) y el voltaje es el máximo (20 V) obtuvimos los siguientes resultados.
+
+\begin{figure}[H]%
+    \centering
+    \subfloat[$V_z$ = 10.19 V]{{\includegraphics[width=7cm]{image6} }}%
+    \qquad
+    \subfloat[I = 9.9 mA]{{\includegraphics[width=7cm]{image5} }}%
+    \caption{Voltaje y corriente del diodo Zener}%
+    \label{fig:example}%
+\end{figure}
+
+Observamos que al ir variando el voltaje de la fuente, el diodo Zener intentó conservar su valor de voltaje, al no ser un dispositivo tan preciso lo máximo que pudo hacer fue estar en valores entre 7.30 V y 11 V.
+Esta forma de regular el voltaje se debe a la curva de polizarización del diodo Zener, la cual se presenta a continuación.
+
+\insertImage{zener}{Curva de un diodo semiconductor. En azúl se representa la región en directa y en rojo la región en inversa.}{10}
 
 \section{Conclusiones}
 
+Observamos el diodo Zener se comporta como un regulador de voltaje. De esta práctica aprendimos que debemos de verificar que el diodo que compremos con ciertos valores nominales sean verdaderos, es decir, si nos venden un diodo de 10 V a 1 watt es importante que verificar que efectivamente el diodo regule 10 volts y no menos ya que si regula menos podríamos dañar los componentes que este protegiendo.
+
+Básicamente, se estructura igual que un diodo semiconductor o diodo de pequeña señal. La gran diferencia, es que el diodo zener trabaja en la región de ruptura o Zener. Esta región se da cuando el diodo se polariza en inversa. Por lo tanto, el diodo Zener, se utilizará como un diodo polarizado en inversa y gracias a esto es que podemos usarlo como regulador de voltaje.
 
 \end{document}

@@ -85,8 +85,8 @@ use ieee.std_logic_1164.all;
 
 entity SEVEN_DISPLAY is
   port (
-    estado    : in  std_logic;
-    display : out std_logic
+    estado    : in  std_logic_vector(6 downto 0);
+    display : out std_logic_vector(3 downto 0);
     );
 end SEVEN_DISPLAY;
 
@@ -113,10 +113,35 @@ end rtl;
 \newpage
 \section{Desarrollo}
 
+Lo primero que hicimos fue implementar lo que investigamos en el cuestionario Previo, de manera obtuvimos lo siguiente.
 
+\insertImage{vhd}{Implementación del circuito en VHDL}{15}
+
+Una vez que checamos la sintaxis del código y de que todo salió bien, procedemos a simular. Esta vez la única diferencia es que por defecto tendremos la opción de \textit{circuito combinacional}. La manera de simular los vectores es casi identica a como lo haciamos con simples variables, como se observa en la siguiente imagen.
+
+\insertImage{pre_sim}{Configuración de la simulación}{15}
+
+Después procedemos a generar nuestro archivo de simulación y obtenemos la siguiente respuesta. Observamos que al implemntar nuestro diseño con variables vectores obtenemos una salida más amena. Obtenemos directamente el número en decimal en lugar de binario.
+
+\insertImage{sim}{Simulación del circuito}{15}
+
+Finalmente, cargamos nuestro circuito en la FPGA, para nuestro caso utilizamos un \textit{Basys2}. Como recordatorio, el archivo que cargamos a la FPGA tiene terminación .bit
+
+\insertImage{load}{Con ADEPT cargamos el programa a la tarjeta}{15}
+
+Por último probamos con algunas combinaciones para ver si el resultado es correcto.
+
+\insertImage{cero}{Circuito funcionando para la Configuración cero en binario}{12}
+\insertImage{dos}{Circuito funcionando para la Configuración dos en binario}{12}
+\insertImage{seis}{Circuito funcionando para la Configuración seis en binario}{12}
 
 \section{Conclusiones}
 
+El diseño de cualquier circuito combinacional se hace más sencillo ahora que tenemos dominadas otras herramientas de lenguaje VHDL, los cuales son variables en forma de vectores y sentencias de control de flujo como lo es el "with/select". Dichas herramientas nos ahorran la necesidad de generar decenas de compuertas OR y AND que son las que nos permitirían comunicar nuestro circuito con el display de 7 segmentos.
+
+Observamos que esta práctica estuvo sencilla, sin embargo, a partir de ésta podemos crear cosas con mayor dificultad en cuanto a lógica se refiere.
+
+También recordamos que es necesario saber si nuestro circuito presenta lógica negada o no, dicha información la podemos encontrar en la documenctación de la FPGA.
 % https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_VHDL/Arquitectura
 % http://insights.sigasi.com/tech/signal-assignments-vhdl-withselect-whenelse-and-case.html
 % https://sites.google.com/site/electronicadigitalmegatec/home/deccoder-bcd-a-7-segmentos

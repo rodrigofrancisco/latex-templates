@@ -11,7 +11,7 @@
 \students{Francisco Pablo \textsc{Rodrigo}}
 \teacher{M.I. Guevara Rodríguez \textsc{Ma. del Socorro}}
 \group{6}
-\deliverDate{16 de abril de 2019}
+\deliverDate{23 de abril de 2019}
 
 \begin{document}
 
@@ -26,8 +26,15 @@ El alumno diseñará circuitos combinacionales.
 \subsection{Particular}
 
 El alumno analizará, diseñará e implementará decodificadores en mediana escala de integración.
-
 \section{Introducción}
+
+Un decodificador es un circuito integrado que genera todos los minitérminos correspondientes a n entradas.Cada salida corresponde a un minitérmino, empezando con la salida superior que corresponde al minitérmino 0. Como se muestra en la siguiente figura.
+
+\insertImage{dec1}{Ejemplo de decodificador}{4}
+
+En la practica, la mayoría de los decodificadores tienen las salidas complementadas indicándolo mediante una pequeña burbuja o circulo en la salida, es decir, el decodificador genera maxitérminos(0) en lugar de minitérminos(1).
+
+Una de las aplicaciones de un decodificador es la implementación de funciones Booleanas. Una función Booleana de n variables puede ser implementada fácilmente al unir los minitérminos(maxitérminos) correspondientes a la función utilizando una compuerta OR(NAND).
 
 
 \newpage

@@ -2,7 +2,7 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[spanish]{babel}
 \RequirePackage{anysize}
-\marginsize{2cm}{2cm}{2cm}{2cm}% Izq, der, arriba, abajo
+\marginsize{2.2cm}{4cm}{2cm}{2.5cm}% Izq, der, arriba, abajo
 
 \decimalpoint
 
@@ -50,8 +50,8 @@
 \newcommand{\ptcLogoSeccion}[1]{\renewcommand{\ptcLogoSeccion}{#1}}
 
 \newcommand{\protecoTitle}{
-  \begin{minipage}[t]{0.5\textwidth}
-    \noindent
+  \begin{minipage}[t]{0.6\textwidth}
+    \vspace{0.1cm}
     \Large{\ptcSeccion}\\
     \MONTH\,de\,\the\year\\
     \textbf{\LARGE{\ptcTitulo}}\\
@@ -62,7 +62,9 @@
 \newcommand{\putLogo}{
   \begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
       \centering
-      \includegraphics[width=0.1\textwidth]{\ptcLogoSeccion}
+      \vspace{0.1cm}
+      \includegraphics[width=0.12\textwidth]{\ptcLogoSeccion}
+      \vspace{-110pt} % This removes the white box on the second page
   \end{wrapfigure}
 }
 
@@ -73,7 +75,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\includegraphics[height=1cm]{img/logos/proteco.png} }
-\fancyhead[R]{Desarrollo Multiplataforma}
+\fancyhead[R]{\ptcTitulo}
 \fancyfoot[C]{\footnotesize PROGRAMA DE TECNOLOGÍA EN CÓMPUTO  }
 \fancyfoot[R]{\footnotesize \thepage}  % Pie derecha
 \renewcommand{\footrulewidth}{0.4pt}

@@ -1,0 +1,73 @@
+\documentclass{mylib/reporte}
+\usepackage{float}
+\graphicspath{{img/circ_expo/}}
+\title{Reporte}
+\author{rodrigofranciscopablo }
+
+\subject{Circuitos Eléctricos}
+\mytitle{Visita a subestación eléctrica}
+\mysubTitle{SEAT Estrella}
+\students{
+	Francisco Pablo \textsc{Rodrigo}
+}
+\teacher{Ing. Ramírez Hernández \textsc{Benjamin}}
+\group{2}
+\deliverDate{abril 2019}
+
+\begin{document}
+
+\coverPage
+
+\tableofcontents
+\newpage
+
+\section{Introducción}
+
+La subestación SEAT Estrella proveé de energía eléctrica a las líneas 8 y 12 del metro. Dicha energía viene directamente de Comisión Federal de Electricidad (CFE) y ésta estación se encarga de procesarla para que lleguen los voltajes adecuados a cada estación de las líneas 8 y 12.\\
+
+La subestación eléctrica se encarga de distribuir y monitorear la energía eléctrica de las estaciones. Dicha tarea se realiza las 24 hrs del día los 365 días del año. Ellos son los encargados de coordinar al personal adecuado para arreglar algún desperfecto que puediese ocasionarse en parte del Sistema de Transporte Colectivo Metro.
+
+\section{Ubicación}
+
+El SEAT Estrella se encuentra ubicado en Av. Arneses 34, Minerva, 09810 Ciudad de México, CDMX\\
+
+La estación del metro más cercana a él es Atlalilco.
+
+\insertImage{mapaseat}{Mapa que muestra la ubicación del SEAT}{14}
+
+\section{Desarollo}
+
+Al SEAT llegan dos acometidas de CFE y cada una tiene un voltaje de  \textbf{230 kV}, posterioremente este voltaje es reducido a \textbf{23 kV} para que pueda ser enviado a cada una de las líneas que se encargan de alimentar dicha estación (línea 8 y línea 12).\\
+
+El personal responsable del correcto funcionamiento de la estación se conforma siempre de 3 personas, dichas personas laboran en la \textit{sala de control} de la subestación y están constantemente monitoreando que los transformadores proporcionen energía y que las estaciones y los vagones la estén consumiendo adecuadamente.\\
+
+En la \textit{sala de control} se encuentra un diagrama que permite visualizar muy bien como es que la energía es distribuida. Por ejemplo en el tablero central podemos apreciar como es que las acometidas de CFE llegan al SEAT.
+
+\insertImage{tablero}{Tablero central del SEAT}{14}
+
+En el tablero central observamos que los \textbf{230 kV} de CFE pasan por unos transformadores para que de estos solo queden \textbf{23 kV}, en el recorrido pudimos apreciar los transformadores y son realmente enormes como lo muestra la siguiente imagen.
+
+\insertImage{megatransf}{Transformadores 'principales' del SEAT}{15}
+
+Son dos transformadores por sí uno falla otro puede seguir entregando el mismo potencial, esto también puede apreciarle en la imagen que muestra el tablero central.\\
+
+En caso de que alguno de los transformadores llegará a incendiarse tienen un sistema contra incendios que los rociará con \textit{hexafluoruro de azufre} y agua, dicha combinación producirá una espuma que permitirá que el fuego se extinga dañando lo menos posible el equipo.
+
+Ahora bien, hay dos tableros secundarios, uno en cada lado del tablero central, el tablero de la izquierda controla todo lo referente a la línea 8 y el de la derecha todo lo que tiene que ver con la línea 12. Cada tablero se divide en tres secciones, \textit{tracción 1, tracción 2 y alumbrado}. El alumbrado se refiere a elevadores, torniquetes, taquillas y las lámparas de las estaciones.
+
+Lo interesente realmente son la tracción 1 y la tracción 2, intuitivamente se podría suponer que la tracción 1 es la de ida de la tracción 2 es el riel de venida, pero no es así y ya que en caso de haber alguna falla toda la línea estaría detenida. Lo que se hace es intercalar las alimentaciones que le llegan a las estaciones por medio de tracción 1 y tracción 2, así por ejemplo, la estación \textit{Constitución} debe estar alimentada por tracción 1 y la siguiente estación que es \textit{UAM-I} debe estar alimentada por tracción 2.
+
+\insertImage{tablero1}{Tablero que monitorea y controla la línea 8}{10}
+
+Nos explicaron su instalación tenía una configuración {\large \textbf{Delta}} pero que ellos mandaban la salida en configuración {\large \textbf{Estrella}}.
+
+Como dato curioso, para el caso de la línea 8 a las vías por donde pase el convoy mandan un voltaje de \textbf{590 V} y para el caso de la línea dorada mandan un voltaje de \textbf{1500 v}
+
+\newpage
+\section{Conclusión}
+
+Realmente fue una excelente experiencia porque aprendimos mucho sobre la importancia de tener una buena capacitación en el manejo de los equipos y de siempre tener las precauciones necesarias ya que ellos trabajan en alta tensión y cualquier error les podría costar muy caro, en varios sentidos, tanto economicamente ya que el equipo es extremandamente caro, como en cuestiones humanas.
+
+\insertImage{foto}{Visita al SEAT}{15}
+
+\end{document}

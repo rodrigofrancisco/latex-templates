@@ -29,6 +29,15 @@ El alumno analizará, diseñará e implementará funciones utilizando multiplexo
 
 \section{Introducción}
 
+Los multiplexores son circuitos combinacionales con varias entradas y una única salida de datos. Están dotados de entradas de control capaces de seleccionar una, y solo una, de las entradas de datos para permitir su transmisión desde la entrada seleccionada hacia dicha salida.
+
+Ejemplo: Si utiliza un multiplexor de 4 canales de entrada. Una de los cuatro canales de entrada será escogido para pasar a la salida y ésto se logra con ayuda de las señales de control o selección.
+
+La cantidad de líneas de control que debe de tener el multiplexor depende del número de canales de entrada. En este caso, se tiene que
+
+numero de canales de entrada = $2^n$, en donde n es el número de líneas de selección.
+
+%\insertImage{multiplexor}{Un multiplexor}{12}
 
 \newpage
 \section{Previo}
@@ -36,8 +45,35 @@ El alumno analizará, diseñará e implementará funciones utilizando multiplexo
 \newpage
 \section{Desarrollo}
 
+En esta práctica simulamos que queríamos encender una TV o un monitor o ambos para lo cual fue necesario ocupar el concepto de multiplexor, el cual para varias entradas nos regresa una sola salida, para este caso necesitamos 2 salidas, entonces implementamos 2 multiplexor de la siguiente manera.
+
+\insertImage{1}{Implementación de multiplexores}{14}
+
+Cada multiplexor fue hecho con código VHDL como se puede apreciar en las siguientes imágenes. En la imágenes observamos que la implementación fue hecha aplicando la programación secuencial a la que la mayoría de nosostros estamos acostumbrados, y por ello es que utilizamos la sentencia \textit{PROCESS}.
+
+\insertImage{2}{Multiplexor 4x1}{12}
+\insertImage{3}{Multiplexor 2x1}{12}
+
+Por último comprobamos que la implementación fuera correcta y para ello realizamos la simulación correspondiente.
+
+\insertImage{4}{Simulación del circuito con multiplexores}{14}
+
+Por último, cargamos nuestro circuito a la FPGA, para nuestro caso la BASYS (Spartan3E) y estas son algunas de las salidas que observamos.
+
+\insertImage{0011}{Combinación: 0011, los dos apagados}{10}
+
+\insertImage{0100}{Combinación: 0100, monitor prendido}{10}
+
+\insertImage{1010}{Combinación: 1010, TV prendida}{10}
+
+\insertImage{1100}{Combinación: 1100, TV prendida}{10}
+
+\insertImage{1101}{Combinación: 1101, ambos prendidos}{10}
 
 \section{Conclusiones}
 
+En la práctica vimos cómo funcionaban los multiplexores, los cuales tienen varias entradas y solo una salida de datos, con las entradas de selección se eleige solo una entrada de datos la cual se encarga de transmitir los datos hasta la salida.
+
+Fue interesante simular una manera de controlar que dispositivo prende en determinado circuito ya que aún es sencillo, esto puede ser aplicado en la vida real y es común pedir esto en algún proceso a ser automatizado.
 
 \end{document}

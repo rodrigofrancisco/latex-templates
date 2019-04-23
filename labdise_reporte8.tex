@@ -1,7 +1,8 @@
 \documentclass{mylib/reporteConCalif}
 \graphicspath{ {img/labdise_pract8/} }
 \usepackage{float}
-
+\usepackage{float}
+\usepackage{subfig}
 \title{Reporte}
 \author{rodrigofranciscopablo }
 
@@ -43,8 +44,59 @@ Una de las aplicaciones de un decodificador es la implementación de funciones B
 \newpage
 \section{Desarrollo}
 
+Para esta práctica tuvimos que diseñar dos decodificadores de 3x8 e intentamos conectarlos entre ellos de manera que pudieran funcionar como uno solo para que pudieran controlar un display de 7 segmentos.
+
+Para conectarlos hicimos uso de señal \textit{enable} de cada uno de nuestros decodificadores.
+
+\begin{figure}[H]%
+    \centering
+    \subfloat[Cero]{{\includegraphics[width=7cm]{00} }}%
+    \qquad
+    \subfloat[Uno]{{\includegraphics[width=7cm]{01} }}%
+    \caption{Display de 7 segmento controlado por un decodificador}%
+    \label{fig:example}%
+\end{figure}
+
+\begin{figure}[H]%
+    \centering
+    \subfloat[Dos]{{\includegraphics[width=7cm]{02} }}%
+    \qquad
+    \subfloat[Tres]{{\includegraphics[width=7cm]{03} }}%
+    \caption{Display de 7 segmento controlado por un decodificador}%
+    \label{fig:example}%
+\end{figure}
+
+\begin{figure}[H]%
+    \centering
+    \subfloat[Cuatro]{{\includegraphics[width=7cm]{04} }}%
+    \qquad
+    \subfloat[Cinco]{{\includegraphics[width=7cm]{05} }}%
+    \caption{Display de 7 segmento controlado por un decodificador}%
+    \label{fig:example}%
+\end{figure}
+
+\begin{figure}[H]%
+    \centering
+    \subfloat[Seis]{{\includegraphics[width=7cm]{06} }}%
+    \qquad
+    \subfloat[Siete]{{\includegraphics[width=7cm]{07} }}%
+    \caption{Display de 7 segmento controlado por un decodificador}%
+    \label{fig:example}%
+\end{figure}
+
+\begin{figure}[H]%
+    \centering
+    \subfloat[Ocho]{{\includegraphics[width=7cm]{08} }}%
+    \qquad
+    \subfloat[Nueve]{{\includegraphics[width=7cm]{09} }}%
+    \caption{Display de 7 segmento controlado por un decodificador}%
+    \label{fig:example}%
+\end{figure}
 
 \section{Conclusiones}
 
+Observamos que se puede se puede representar cualquier función booleana, para este caso, el código de 7 segmentos. Dicha función booleana puede ser representada con 1 decodificador de 4x16 pero para hacer más interesante la práctica demostramos que se puede controlar el display con \textbf{dos decodificadores} de 3x8 con señal \textit{enable}.
+
+Para la implementación de este circuito en VHDL usamos el diseño esquemático pero antes tuvimos que crear en código VHDL los decodificadores de 3x8, para ello simplemente utilización la función de minitérminos.
 
 \end{document}

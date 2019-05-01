@@ -1,0 +1,70 @@
+\documentclass{mylib/reporteConCalif}
+\usepackage{amsmath}
+\graphicspath{ {img/labdise_pract11/} }
+\usepackage{float}
+
+\title{Reporte}
+\author{rodrigofranciscopablo }
+
+\subject{Laboratorio de Diseño Digital M.}
+\mytitle{Reporte de práctica 11}
+\mysubTitle{Contadores utilizando Flip-Flop}
+\students{Francisco Pablo \textsc{Rodrigo}}
+\teacher{M.I. Guevara Rodríguez \textsc{Ma. del Socorro}}
+\group{6}
+\deliverDate{13 de mayo de 2019}
+
+\begin{document}
+
+\coverPage
+
+\section{Objetivos}
+
+\subsection{General}
+
+El alumno diseñará circuitos secuenciales.
+
+\subsection{Particular}
+
+Analizar, diseñar, simular e implementar contadores utilizando flip-flop.
+
+\section{Introducción}
+
+Un contador es un circuito digital capaz de
+contar sucesos electrónicos, tales como
+impulsos, avanzando a través de una
+secuencia de estados binarios.
+
+Las características del flip-flop J-K son las siguientes
+
+\begin{enumerate}
+  \item Cuando J=1 y K=1, al ir la entrada de la terminal de reloj C (clock) de 1 a 0 nada ocurre y el flip-flop J-K retiene el estado que poseía anteriormente.
+
+  \item Cuando J=1 y K=0, al ir la entrada C de 1 a 0 el flip-flop J-K tomará el estado Q=1 independientemente del estado en el que se encontraba anteriormente.
+
+  \item Cuando J=0 y K=1, al ir la entrada C de 1 a 0 el flip-flop J-K tomará el estado Q=0 independientemente del estado en el que se encontraba anteriormente.
+
+  \item Cuando J=0 y K=0, al ir la entrada C de 1 a 0 el flip-flop J-K tomará un estado opuesto a aquél en el cual se encontraba anteriormente. Esto quiere decir que si antes de la transición en la terminal C de 1 a 0 el flip-flop J-K se encontraba en el estado Q=1, entonces tomará el estado Q=0 después de la transición. Asimismo, si se encontraba en el estado Q=0 antes de la transición, entonces tomará el estado Q=1 después de la transición.
+
+\end{enumerate}
+
+Como todo el reloj es común, no importa si es flanco de subida o bajada en los Flip-Flops, pero todos los Flip-Flops deben ser iguales. Entonces se debe conectar la señal de reloj a todos los Flip-Flops. Las entradas J y K del Flip-Flop cuya salida en Q0, es decir, J0 y K0 deben ir conectados a Vcc, esto va a permitir que esta salida siempre bascula. Luego se conecta Q0 a las entradas J1 y K1. La siguiente figura muestra la implementación del contador y los oscilogramas que dan como resultado de su funcionamiento.
+
+Para obtener un contador síncrono de 4 bits, se debe usar 4 Flip-Flops J-K. La implementación es igual que la anterior, es decir que el Flip-Flop cuya salida es Q2 tiene en sus entradas J2 y K2 una AND entre Q0 y Q1. La siguiente figura muestra la implementación del contador y los oscilogramas que dan como resultado de su funcionamiento.
+
+\insertImage{contador2}{implementación usando Flip-Flops}{12}
+
+En los oscilogramas, se puede apreciar mismo comportamiento que el contador síncrono de 4 bits, sin embargo, esta implementación tiene una mejora radical. Todos los Flip-Flops actúan en el mismo instante de tiempo, esto indica que el retardo de propagación de un estado a otro siempre es el mismo sin importar el estado en que se encuentre.
+
+\newpage
+\section{Previo}
+
+\newpage
+\section{Desarrollo}
+
+
+\section{Conclusiones}
+
+
+
+\end{document}

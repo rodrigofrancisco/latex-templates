@@ -1,0 +1,72 @@
+\documentclass{mylib/reporteConCalif}
+\usepackage{amsmath}
+\graphicspath{ {img/labdise_pract12/} }
+\usepackage{float}
+
+\title{Reporte}
+\author{rodrigofranciscopablo }
+
+\subject{Laboratorio de Diseño Digital M.}
+\mytitle{Reporte de práctica 12}
+\mysubTitle{Máquinade estados (FSM) Utilizando Direccionamiento por trayectoria}
+\students{Francisco Pablo \textsc{Rodrigo}}
+\teacher{M.I. Guevara Rodríguez \textsc{Ma. del Socorro}}
+\group{6}
+\deliverDate{20 de mayo de 2019}
+
+\begin{document}
+
+\coverPage
+
+\section{Objetivos}
+
+\subsection{General}
+
+El alumno diseñará circuitos secuenciales.
+
+\subsection{Particular}
+
+Analizar, diseñar, implementar maquinas de estados finitos, utilizando direccionamiento por
+trayectoria.
+
+\section{Introducción}
+
+\subsection{Direccionamiento por trayectoria}
+
+Este tipo de direccionamiento guarda el estado siguiente y las salidas de cada
+estado de la carta ASM en una localidad de memoria. La porción de la memoria
+que indica el estado siguiente es llamada “LIGA”, mientras que la porción que
+indica las salidas es llamada “SALIDAS”. Concatenando la liga junto con las
+entradas, en un registro que está conectado a las líneas de dirección de la
+memoria se forma la dirección de memoria que contiene la dirección del estado
+presente.
+
+\insertImage{diagrama}{Direccionamiento por trayectoria}{10}
+
+Para cada estado es necesario considerar todas las posibles combinaciones de las
+variables de entrada, aún cuando algunas de ellas no se utilicen. Por ejemplo, si en
+el estado EST0 la variable Q1 es igual a 1, la máquina de estados pasará al estado
+EST1 independientemente de los valores de las otras variables. Aún así, se deben
+considerar todas las combinaciones de las otras variables de entrada y colocar en las
+localidades de memoria correspondientes los valores adecuados.
+Cuando una salida se activa, el bit correspondiente de memoria se coloca a 1, en
+caso contrario se coloca a 0.
+
+\subsection{FSM}
+
+Una máquina de estados se denomina máquina de estados finitos (FSM por finite state machine) si el conjunto de estados de la máquina es finito, este es el único tipo de máquinas de estados que podemos modelar en un computador en la actualidad; debido a esto se suelen utilizar los términos máquina de estados y máquina de estados finitos de forma intercambiable. Sin embargo un ejemplo de una máquina de estados infinitos sería un computador cuántico esto es debido a que los Qubit que utilizaría este tipo de computadores toma valores continuos, en contraposición los bits toman valores discretos (0 ó 1). Otro buen ejemplo de una máquina de estados infinitos es una Máquina universal de Turing la cual se puede definir teóricamente con una "cinta" o memoria infinita.
+
+\insertImage{mealy}{Máquina Mealy}{10}
+
+\newpage
+\section{Previo}
+
+\newpage
+\section{Desarrollo}
+
+
+\section{Conclusiones}
+
+
+
+\end{document}

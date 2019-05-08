@@ -58,7 +58,7 @@ El alumno diseñará circuitos secuenciales.
 Analizar, diseñar, simular e implementar divisores de tiempo.
 
 \section{Introducción}
-Los circuitos digitales, a no ser que sean asíncronos, van comandados por un reloj cuya frecuencia puede variar según el tipo de sistema digital del que se trate. Desde microprocesador 6502 que funcionaba con un reloj de 1Mhz hasta los actuales, que funcionan en el orden de los gigahercios, no han pasado ni cuatro décadas. En un sistema digital complejo es habitual que necesitemos obtener diferentes frecuencia de reloj para diferentes subsistemas. Un ejemplo muy claro puede ser el de un reloj digital que tiene que contar los segundos, por lo tanto, necesita un reloj de 1Hz (un pulso por segundo). 
+Los circuitos digitales, a no ser que sean asíncronos, van comandados por un reloj cuya frecuencia puede variar según el tipo de sistema digital del que se trate. Desde microprocesador 6502 que funcionaba con un reloj de 1Mhz hasta los actuales, que funcionan en el orden de los gigahercios, no han pasado ni cuatro décadas. En un sistema digital complejo es habitual que necesitemos obtener diferentes frecuencia de reloj para diferentes subsistemas. Un ejemplo muy claro puede ser el de un reloj digital que tiene que contar los segundos, por lo tanto, necesita un reloj de 1Hz (un pulso por segundo).
 
 \insertImage{freqdiv}{Frecuencias de operación de un reloj}{8}
 
@@ -73,15 +73,29 @@ Para esta práctica tuvimos que conocer las características internas de la FPGA
 Para implementar un divisor de tiempo debemos recordar $F = \frac{1}{T}$
 
 \begin{gather*}
-T = \frac{1}{50 MGHz}\\
+T = \frac{1}{50 MHz}\\
 T = 20 ns \\
 \frac{1.51 seg}{20 \;n seg} = 75 500 000
 \end{gather*}
 
-En donde 1.51 seg es el tiempo propuesto. 
+En donde 1.51 seg es el tiempo propuesto.
 
 Ahora bien, tenemos que encontrar una forma de que el número 75 500 000 pueda ser usado como contador, para ello utilizamos el número en su forma hexadecimal 48009E0, y posteriormente podemos pasarlo a su forma binaria la cual es, 0100 1000 0000 0000 1001 1110 0000, este número se representa con 27 bits, entonces usaremos el bit 26 para representar el flanco ascendente como se muestra en el siguiente código.
 
+Ahora bien, para fines prácticos y como ejercicio para nosostros, implementamos un contador que llegara hasta la suma de los dígitos de nuestor número de cuenta \\
+
+Número de cuenta: 314331122 \\
+Suma de los dígitos de mi número de cuenta es 20 \\
+
+Para este ejercicio tuvimos que identificar 3 cosas
+
+\begin{enumerate}
+  \item El bit de "encendido"
+  \item Cuando reiniciar nuestro contador
+  \item Cómo imprimir las variables de salida
+\end{enumerate}
+
+Finalmente, obtuvimos el siguiente código.
 
 \begin{lstlisting}[language=VHDL]
 
@@ -114,17 +128,22 @@ BEGIN
 			else
 				cuenta:=cuenta+1;
 			end if;
-		end if;	
+		end if;
 		CLK<=cuenta(3);
-		
+
 end process;
 
 \end{lstlisting}
 
 Simular este tipo de circuitos resulta particularmente interesante por la manera en la que se debe hacer.
 
+\insertImage{Captura1}{Preparación para la simulación}{14}
+\insertImage{Captura2}{Simulación de nuestro primer contador}{15}
 
 \section{Conclusiones}
+
+Las FPGA son tarjetas muy poderosas que hasta ahora nos habían permitido hacer una cantidad muy grande circuitos combinacionales, el problema comienza cuando intentamos hacer circuitos secuenciales debido a que la mayoría de ellos utiliza un reloj para poder funcionar, como vimos en ésta práctica, el error recae en la frecuencia de operación de esto dispositivos que más o menos es 50 MHz, es decir, tiene un periodo de 20 ns, lo cual es imperceptible para el ojo humano. Dicho problema lo pudimos solucionar con un divisor de tiempo y aunque no es del todo exacto, podemos trabajar nuestras futuras prácticas con él.
+
 
 
 \end{document}

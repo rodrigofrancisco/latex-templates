@@ -3,6 +3,34 @@
 \graphicspath{ {img/labdise_pract11/} }
 \usepackage{float}
 
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
+
 \title{Reporte}
 \author{rodrigofranciscopablo }
 
@@ -62,9 +90,145 @@ En los oscilogramas, se puede apreciar mismo comportamiento que el contador sín
 \newpage
 \section{Desarrollo}
 
+Para estra práctica utilizamos un 2 flip flop JK y 2 flip flop tipo D por lo cual tuvimos que implementar cada uno de ellos en VHDL.
+
+\subsection{Implementación de FF D}
+
+\begin{lstlisting}[language=VHDL]
+
+----------------------------------------------------------------------------------
+-- Company:
+-- Engineer:
+--
+-- Create Date:    15:46:59 05/06/2019
+-- Design Name:
+-- Module Name:    d_ff - Behavioral
+-- Project Name:
+-- Target Devices:
+-- Tool versions:
+-- Description:
+--
+-- Dependencies:
+--
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+--
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+---- Uncomment the following library declaration if instantiating
+---- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity d_ff is
+    Port ( D : in  STD_LOGIC;
+           CLOCK : in  STD_LOGIC;
+           Q : out  STD_LOGIC;
+			  QB: out STD_LOGIC);
+end d_ff;
+
+architecture Behavioral of d_ff is
+
+begin
+
+process(CLOCK)
+begin
+	if(CLOCK='1' and CLOCK'EVENT) then
+		Q <= D;
+		QB <= NOT D;
+	end if;
+end process;
+
+end Behavioral;
+
+\end{lstlisting}
+
+
+\subsection{Implementación de FF JK}
+
+\begin{lstlisting}[language=VHDL]
+
+----------------------------------------------------------------------------------
+-- Company:
+-- Engineer:
+--
+-- Create Date:    15:49:02 05/06/2019
+-- Design Name:
+-- Module Name:    JK_FF - Behavioral
+-- Project Name:
+-- Target Devices:
+-- Tool versions:
+-- Description:
+--
+-- Dependencies:
+--
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+--
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+---- Uncomment the following library declaration if instantiating
+---- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity JK_FF is
+    Port ( J : in  STD_LOGIC;
+           K : in  STD_LOGIC;
+           CLOCK : in  STD_LOGIC;
+           Q : out  STD_LOGIC;
+           QB : out  STD_LOGIC);
+end JK_FF;
+
+architecture Behavioral of JK_FF is
+
+begin
+
+PROCESS(CLOCK)
+variable TMP: std_logic;
+begin
+	if(CLOCK='1' and CLOCK'EVENT) then
+		if(J='0' and K='0')then
+			TMP:=TMP;
+		elsif(J='1' and K='1')then
+			TMP:= not TMP;
+		elsif(J='0' and K='1')then
+			TMP:='0';
+		else
+			TMP:='1';
+		end if;
+	end if;
+	Q<=TMP;
+	QB <=not TMP;
+
+end PROCESS;
+
+end Behavioral;
+
+\end{lstlisting}
+
+\subsection{Contador de 4 bits}
+
+Al tener las implementación en VHDL de ambos flip flops procedimos a pasarlos al modo esquemático, lo que nos permitió usar estos diseños como componentes.\\
+
+A partir de la tabla de exitación del analisis del contador realizados en el previo pudimos crear el siguiente diagrama lógico.
+
+\insertImage{count4}{Contador de 4 bits}{15}
 
 \section{Conclusiones}
 
+ Los elementos de memoria que se utilizan en los circuito secuenciales de reloj se llama Flip Flop estos circuitos son celdas binarias capaces de almacenar un bit de información, un Flip Flop tiene dos salidas, una para valor normal y otra para valores complementario del bit almacenando en él , los Flip Flop poseen dos valores estables , uno nivel alto 1logico y el otro a nivel bajo cero lógico. Flip flop son muy importantes debido a que estos componentes electrónico ayudan en la industrias , como divisores de frecuencia , como circuito de enclave como contadores (son muy poco usados) como memoria temporal y sobre todo acopladores o acondicionadores de señal entre tarjetas y máquinas.\\
 
+No pudimos realizar la simulación de la nuestro circuito porque no entendimos bien como configurar XILINX, hay que recordar que en el caso de los contadores se va a requerir trabaar con un reloj y esto le agrega un poco de complejidad a cómo operar XILINX. Sin embargo, considero que la implementación del contador esta bien diseñado.
 
 \end{document}

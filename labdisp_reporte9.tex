@@ -63,8 +63,43 @@ A continuación se presentan las curvas características del drenaje de JFET
   \newpage
 \section{Desarrollo}
 
+Debido a que no hemos visto el funcionamiento de los FET en nuestras clases de teoría tuvimos que empezar con lo básico del FET que fue hacer $V_{G} = 0$ \\, una vez que hicimos esto obtuvimos los siguientes valores para 5,10 y 15 Volts en el voltaje $V_{DD}$
+
+\textbf{$V_{DD} = 5 V$}
+\begin{itemize}
+  \item $I_D = 1.2 mA$
+  \item $I_S = 1.2 mA$
+\end{itemize}
+
+\textbf{$V_{DD} = 10 V$}
+\begin{itemize}
+  \item $I_D = 3.1 mA$
+  \item $I_S = 3.4 mA$
+\end{itemize}
+
+\textbf{$V_{DD} = 15 V$}
+\begin{itemize}
+  \item $I_D = 9.2 mA$
+  \item $I_S = 9.1 mA$
+\end{itemize}
+
+Despues de entender que si el voltaje del gate es cero se comprobó que la corriente en drain y en source son practicamente iguales, ahora bien, comprobaremos que a medida que se incrementa el voltaje en el gate la corriente $I_D$ tenderá a disminuir hasta el punto que sea extremadamente pequeña o inclusive, igual a cero.
+
+\insertImage{tablallena}{Tabla experimental del FET}{12}
+\newpage
+Entonces, podemos usar esta tabla para obtener la curva de caracterización del FET
+\vspace{8cm}
 
 \section{Conclusiones}
+
+El transistor de efecto de campo de juntura o unión es un tipo de dispositivo electrónico de tres terminales que puede ser usado como interruptor electrónicamente controlado, amplificador o resistencia controlada por voltaje.\\
+
+De la misma manera que los BJT, los FET tienen tres regiones de operación y por lo tanto tenemos que tener cuidado de en cual estamos trabajando ya que la región nos dirá como se comportará en transistor y por ende que función realizará.
+
+\insertImage{curva}{Curva caracterìstica del FET}{8}
+
+Se puede ver que para un determinado valor de voltaje de la puerta, la corriente es casi constante en un amplio rango de voltajes Fuente-Drenador. Cuando la puerta se hace más negativa, drena los portadores mayoritarios de la gran área de drenaje alrededor de la puerta. Esto reduce el flujo de corriente para un determinado valor de voltaje Fuente-Drenador. Modulando el voltaje de la puerta, se modula el flujo de corriente a través del dispositivo.
+
 
 
 \end{document}

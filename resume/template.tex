@@ -1,0 +1,124 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Twenty Seconds Resume/CV
+% LaTeX Template
+% Version 1.0 (14/7/16)
+%
+% Original author:
+% Carmine Spagnuolo (cspagnuolo@unisa.it) with major modifications by
+% Vel (vel@LaTeXTemplates.com) and Harsh (harsh.gadgil@gmail.com)
+%
+% License:
+% The MIT License (see included LICENSE file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[letterpaper]{twentysecondcv} % a4paper for A4
+
+% Command for printing skill overview bubbles
+\newcommand\skills{
+~
+	\smartdiagram[bubble diagram]{
+        \textbf{Mobile}\\\textbf{Developer},
+        \textbf{Full Stack}\\\textbf{Dev},
+        \textbf{~~~~~~~~OOP~~~~~~~~~},
+        \textbf{~~~~~~Machine~~~~~~}\\\textbf{~~Learning~~},
+        \textbf{~~~~~DevOps~~~~~}
+    }
+}
+
+% Programming skill bars
+\programming{{C $\textbullet$ Java / 3}, {JavaScript $\textbullet$ $\textbullet$ \large \LaTeX / 3.5}, {Kotlin $\textbullet$ Python / 5}}
+
+% Projects text
+\education{
+\textbf{Computer Engineer} \\
+National Autonomous University of Mexico \\
+2016 - | CDMX, México
+
+}
+
+%----------------------------------------------------------------------------------------
+%	 PERSONAL INFORMATION
+%----------------------------------------------------------------------------------------
+% If you don't need one or more of the below, just remove the content leaving the command, e.g. \cvnumberphone{}
+
+\cvname{Rodrigo \\Francisco} % Your name
+\cvjobtitle{Mobile Developer} % Job
+% title/career
+
+\cvlinkedin{/in/someone}
+\cvgithub{rhofp}
+\cvnumberphone{55 7729 9882} % Phone number
+
+\cvmail{rhodfra@gmail.com} % Email address
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\makeprofile % Print the sidebar
+
+%----------------------------------------------------------------------------------------
+%	 EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\section{Experience}
+
+\begin{twenty} % Environment for a list with descriptions
+	\twentyitem
+    {Sep 2015 -}
+		{Present}
+        {Developer}
+        {\href{http://www.ludmatics.org/}{Ludomatics}}
+        {}
+        {
+        {\begin{itemize}
+        \item Focused on creating educational material on \LaTeX such as math notes and exams.
+        \item Developed the HOREDI (Hoja de respuestas digital) system in order to make faster the exams qualification process.
+        \item Developed frontend website for the company.
+    \end{itemize}}
+        }
+    \\
+    \twentyitem
+   		{Sep 2017 -}
+		{May 2019}
+        {Instructor and developer}
+        {\href{http://www.proteco.mx}{PROTECO}}
+        {}
+        {
+        {\begin{itemize}
+        \item GNU/Linux instructor
+				\item Android instructor, this course was given with Kotlin language and the topics covered can be found in \href{http://www.proteco.mx}{http://www.proteco.mx}
+        \item Teached in
+				\item Coordinated
+    \end{itemize}}
+        }
+
+	%\twentyitem{<dates>}{<title>}{<location>}{<description>}
+\end{twenty}
+
+
+\section{Projects}
+
+\textbf{Quine-McCluskey method}
+\begin{itemize}
+	\item Quine-McCluskey is an algorithm that
+\end{itemize}
+
+%---------------------------------------------------------
+\section{Software and Tools}
+
+\begin{itemize}
+	\item Unix/Bash
+	\item Git
+	\item Django
+	\item React Native
+\end{itemize}
+
+
+
+\end{document}

@@ -1,0 +1,101 @@
+\documentclass{mylib/reporte}
+\graphicspath{ {img/dise_proy3/} }
+\usepackage{multicol}
+\usepackage{float}
+\title{Reporte}
+
+\subject{Diseño Digital Moderno}
+\mytitle{Proyecto 3}
+\mysubTitle{Contador BCD - GRAY}
+\students{
+	Flores Martínez \textsc{Emanuel}\\
+	Francisco Pablo \textsc{Rodrigo}\\
+	García Ruíz \textsc{Andrea}
+}
+\teacher{Ing. Mandujano Wild \textsc{Roberto F.}}
+\group{6}
+\deliverDate{4 de Junio 2019}
+
+\begin{document}
+
+\coverPage
+
+\section{Introducción}
+
+
+Un contador es un circuito digital capaz de
+contar sucesos electrónicos, tales como
+impulsos, avanzando a través de una
+secuencia de estados binarios.
+
+\section{Materiales}
+
+\begin{enumerate}
+	\item 1 74LS86
+	\item 1 74LS08
+	\item 2 74LS157
+	\item 2 74LS73
+	\item 4 LED'S
+	\item C.I. 555
+	\item 1 dip-switch (4 posiciones)
+	\item Alambre calibre 22
+\end{enumerate}
+
+\section{Códigos}
+
+\begin{multicols}{2}
+
+
+
+	\subsection{Código BCD}
+
+	\begin{tabular}{c c}
+	Decimal & BCD \\
+	\hline
+	0 & 0000 \\
+	1 & 0001 \\
+	2 & 0010 \\
+	3 & 0011 \\
+	4 & 0100 \\
+	5 & 0101 \\
+	6 & 0101 \\
+	6 & 0110 \\
+	7 & 0111 \\
+	8 & 1000 \\
+	9 & 1001 \\
+	\end{tabular}
+
+	\subsection{Código Gray}
+
+	\begin{tabular}{c c}
+	Decimal & GRAY \\
+	\hline
+	0 & 0000 \\
+	1 & 0001 \\
+	3 & 0011 \\
+	2 & 0010 \\
+	6 & 0110 \\
+	7 & 0111 \\
+	5 & 0101 \\
+	4 & 0100 \\
+	12 & 1100 \\
+	13 & 1101 \\
+	\end{tabular}
+
+\end{multicols}
+
+\section{Descripción de la solución}
+
+Para realizar el proyecto tuvimos que adaptar el contador BCD up/down de 3 bits
+de la siguiente imagen
+
+\insertImage{contador}{Contador up/down de 3 bits}{12}
+
+Los contadores de n bits son fácil de implementar, pues solo tenemos que agregar
+la misma estructura al final del último flip-flop.
+Para hacer que cuente en GRAy, lo que hicimos fue traducir de código BCD a código GRAY
+mediante compuertsa XOR. Finalmente para que el usuario pudiera decidir en entre usar
+código GRAY o BCD, usamos multiplexores.
+
+
+\end{document}

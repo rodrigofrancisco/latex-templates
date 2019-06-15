@@ -6,6 +6,7 @@
 %\usepackage{draftwatermark}
 \usepackage{background}
 \usepackage{graphicx}
+\usepackage{fancyhdr}
 \marginsize{2cm}{2cm}{1.5cm}{2cm}% Izq, der, arriba, abajo
 
 \newcommand{\coverPage}{
@@ -19,9 +20,7 @@
     \end{center}
 }
 
-\newcommand{\puntaje}[1]{
-
-\section*{#1 \line(1,0){20}}
+\newcommand{\puntaje}{
 	\begin{enumerate}
 		\item Habilidad Matemática \line(1,0){15}
 		\item Biología \line(1,0){15}
@@ -38,6 +37,12 @@
 }
 
 
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize CURSO COMIPEMS} %encabezado izquierda
+\fancyhead[R]{\footnotesize LUDOMATICS}   % dereecha
+\renewcommand{\footrulewidth}{0.4pt}
+
 %\SetWatermarkText{\includegraphics[scale=0.4]{img/logos/logo}}
 %\SetWatermarkAngle{0}
 
@@ -46,40 +51,34 @@
 \begin{document}
 
 \coverPage
+\vspace{5mm}
+
+\begin{multicols}{2}
+
+
+\begin{enumerate}
+  \item Examen diagnóstico \line(1,0){15}
+    \puntaje
+  \item Examen mitad de Curso \line(1,0){15}
+  \item Simulación I \line(1,0){15}
+  \item Simulación II \line(1,0){15}
+  \item Simulación III \line(1,0){15}
+  \item Simulación IV \line(1,0){15}
+
+  \vfill\null\columnbreak
+
+  \item Examen Final \line(1,0){15}
+    \puntaje
+\end{enumerate}
+
+
+\end{multicols}
 
 \vspace{1cm}
 
-\begin{multicols}{2}
-	\puntaje{Examen diagnóstico}
-	\puntaje{Examen mitad curso}
-\end{multicols}
+\begin{flushright}
+  \textbf{Promedio FINAL \line(1,0){20}}
 
-\vspace{2cm}
-
-\begin{multicols}{2}
-	\puntaje{Simulación I}
-	\puntaje{Simulación II}
-\end{multicols}
-
-\newpage
-
-\begin{multicols}{2}
-	\puntaje{Simulación III}
-	\puntaje{Simulación IV}
-\end{multicols}
-
-
-\vspace{2cm}
-
-\begin{multicols*}{2}
-	\puntaje{Simulación V}
-
-	\vfill\null\columnbreak
-
-	\textbf{PUNTAJE FINAL \line(1,0){20}}
-
-\end{multicols*}
-
-
+\end{flushright}
 
 \end{document}

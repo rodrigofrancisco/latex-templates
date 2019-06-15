@@ -1,0 +1,85 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{anysize}
+\usepackage{multicol}
+%\usepackage{draftwatermark}
+\usepackage{background}
+\usepackage{graphicx}
+\marginsize{2cm}{2cm}{1.5cm}{2cm}% Izq, der, arriba, abajo
+
+\newcommand{\coverPage}{
+    \begin{center}
+        {\Large\textbf{Reporte de evaluaciones}} \\[0.5cm]
+        \begin{flushleft}
+					Nombre: \line(1,0){400} \\[0.3cm]
+          Curso: \line(1,0){320}
+          Generación: \line(1,0){31}\\
+        \end{flushleft}
+    \end{center}
+}
+
+\newcommand{\puntaje}[1]{
+
+\section*{#1 \line(1,0){20}}
+	\begin{enumerate}
+		\item Habilidad Matemática \line(1,0){15}
+		\item Biología \line(1,0){15}
+		\item Español \line(1,0){15}
+		\item Química \line(1,0){15}
+		\item Historia \line(1,0){15}
+		\item Matemáticas \line(1,0){15}
+		\item Habilidad Verbal \line(1,0){15}
+		\item Geografía \line(1,0){15}
+		\item Física \line(1,0){15}
+		\item Formación Cívica \line(1,0){15}
+	\end{enumerate}
+
+}
+
+
+%\SetWatermarkText{\includegraphics[scale=0.4]{img/logos/logo}}
+%\SetWatermarkAngle{0}
+
+\backgroundsetup{contents={\includegraphics[scale=0.08]{img/logos/logo}}}
+
+\begin{document}
+
+\coverPage
+
+\vspace{1cm}
+
+\begin{multicols}{2}
+	\puntaje{Examen diagnóstico}
+	\puntaje{Examen mitad curso}
+\end{multicols}
+
+\vspace{2cm}
+
+\begin{multicols}{2}
+	\puntaje{Simulación I}
+	\puntaje{Simulación II}
+\end{multicols}
+
+\newpage
+
+\begin{multicols}{2}
+	\puntaje{Simulación III}
+	\puntaje{Simulación IV}
+\end{multicols}
+
+
+\vspace{2cm}
+
+\begin{multicols*}{2}
+	\puntaje{Simulación V}
+
+	\vfill\null\columnbreak
+
+	\textbf{PUNTAJE FINAL \line(1,0){20}}
+
+\end{multicols*}
+
+
+
+\end{document}

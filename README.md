@@ -7,14 +7,14 @@ En este repositorio se encuentran algunas plantillas de LaTeX que pueden usarse 
 
 ![reporte](img/screenshots/reporte.png)
 
-### Reporte de laboratorio 
+### Reporte corto
 
 ![reporte](img/screenshots/sreporte.png)
 
-### Reporte de laboratorio 
+### Temario de curso
 
 ![reporte](img/screenshots/temario.png)
 
-### Reporte de laboratorio 
+### Publicación o ensayo
 
 ![reporte](img/screenshots/pub.png)

@@ -5,16 +5,16 @@ En este repositorio se encuentran algunas plantillas de LaTeX que pueden usarse 
 
 ### Reporte de laboratorio
 
-![reporte](ss/screenshots/reporte.png)
+![reporte](ss/reporte.png)
 
 ### Reporte corto
 
-![reporte](ss/screenshots/sreporte.png)
+![reporte](ss/sreporte.png)
 
 ### Temario de curso
 
-![reporte](ss/screenshots/temario.png)
+![reporte](ss/temario.png)
 
 ### Publicación o ensayo
 
-![reporte](ss/screenshots/pub.png)
+![reporte](ss/pub.png)

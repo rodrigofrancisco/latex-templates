@@ -36,7 +36,7 @@
   scale=1,
   opacity=0.3,
   contents={%
-    \includegraphics{img/bg/square}
+    \includegraphics{libs/img/bg/square}
   }%
 }
 
@@ -69,7 +69,7 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\includegraphics[height=1cm]{img/logos/proteco.png} }
+\fancyhead[L]{\includegraphics[height=1cm]{libs/img/logos/proteco.png} }
 \fancyhead[R]{\ptcTitulo}
 \fancyfoot[C]{\footnotesize PROGRAMA DE TECNOLOGÍA EN CÓMPUTO  }
 \fancyfoot[R]{\footnotesize \thepage}  % Pie derecha

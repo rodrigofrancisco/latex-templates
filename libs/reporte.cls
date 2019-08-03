@@ -32,10 +32,10 @@
 
     \begin{center}
       \begin{minipage}{0.48\textwidth} \begin{flushleft}
-      \includegraphics[width=3cm]{img/logos/escudofi_negro.jpg}
+      \includegraphics[width=3cm]{libs/img/logos/escudofi_negro.jpg}
       \end{flushleft}\end{minipage}
       \begin{minipage}{0.48\textwidth} \begin{flushright}
-      \includegraphics[width=3cm]{img/logos/unam-10x10.jpg}
+      \includegraphics[width=3cm]{libs/img/logos/unam-10x10.jpg}
       \end{flushright}\end{minipage}
       \vspace*{-1.5cm}
 

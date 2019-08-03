@@ -3,18 +3,18 @@ En este repositorio se encuentran algunas plantillas de LaTeX que pueden usarse 
 
 ## Algunos ejemplos
 
-### Reporte de laboratorio 
+### Reporte de laboratorio
 
-![reporte](img/screenshots/reporte.png)
+![reporte](ss/screenshots/reporte.png)
 
 ### Reporte corto
 
-![reporte](img/screenshots/sreporte.png)
+![reporte](ss/screenshots/sreporte.png)
 
 ### Temario de curso
 
-![reporte](img/screenshots/temario.png)
+![reporte](ss/screenshots/temario.png)
 
 ### Publicación o ensayo
 
-![reporte](img/screenshots/pub.png)
+![reporte](ss/screenshots/pub.png)

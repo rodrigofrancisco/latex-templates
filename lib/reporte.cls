@@ -24,6 +24,7 @@
 \newcommand{\students}[1]{\renewcommand{\students}{#1}}
 \newcommand{\teacher}[1]{\renewcommand{\teacher}{#1}}
 \newcommand{\group}[1]{\renewcommand{\group}{#1}}
+\newcommand{\semester}[1]{\renewcommand{\semester}{#1}}
 \newcommand{\deliverDate}[1]{\renewcommand{\deliverDate}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%% PORTADA %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -37,11 +38,11 @@
       \begin{minipage}{0.48\textwidth} \begin{flushright}
       \includegraphics[width=3cm]{lib/img/logos/unam-10x10.jpg}
       \end{flushright}\end{minipage}
-      \vspace*{-1.5cm}
+      \vspace*{-2.5cm}
 
-      \textsc{\huge \University}\\[1.5cm]
-
-      \textsc{\LARGE \faculty}\\[1.5cm]
+      \textsc{\huge \University}\\[1cm]
+      \textsc{\LARGE \faculty}\\[1cm]
+      \textsc{\LARGE \semester}\\[1cm]
       \begin{minipage}{0.9\textwidth}
       \begin{center}
       \textsc{\LARGE \subject}

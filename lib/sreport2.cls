@@ -77,9 +77,8 @@
         \end{flushright}
       \end{minipage}
 
-      \vspace*{1cm}
+      %\vspace*{0.5cm}
 
     \end{center}
 
-    \newpage
 }

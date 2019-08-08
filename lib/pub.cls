@@ -1,5 +1,5 @@
 \LoadClass[a4paper,12pt]{article}
-\input{libs/common/tipreqs.cls}
+\input{lib/common/tipreqs.cls}
 
 \RequirePackage{xcolor}
 
@@ -36,7 +36,7 @@
   scale=1,
   opacity=0.3,
   contents={%
-    \includegraphics{libs/img/bg/square}
+    \includegraphics{lib/img/bg/square}
   }%
 }
 
@@ -69,7 +69,7 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\includegraphics[height=1cm]{libs/img/logos/proteco.png} }
+\fancyhead[L]{\includegraphics[height=1cm]{lib/img/logos/proteco.png} }
 \fancyhead[R]{\ptcTitulo}
 \fancyfoot[C]{\footnotesize PROGRAMA DE TECNOLOGÍA EN CÓMPUTO  }
 \fancyfoot[R]{\footnotesize \thepage}  % Pie derecha

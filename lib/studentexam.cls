@@ -1,6 +1,6 @@
 \LoadClass[a4paper,12pt]{article}
-\input{libs/common/tipreqs.cls}
-\input{libs/common/tipexam.cls}
+\input{lib/common/tipreqs.cls}
+\input{lib/common/tipexam.cls}
 
 
 %%%%%%%%%%%% Catching some variables %%%%%%%%%%%
@@ -33,11 +33,8 @@
     \end{center}
 }
 
-
 %%%%%%% COMANDO PARTICULAR DE ESTA PLANTILLA %%%%%%%%%%%%%%
 
 \newcommand{\idpreg}[2]{
-  \begin{flushright}
-    \textbf{Id:} #1 \textbf{Resp.:} #2
-  \end{flushright}
+
 }

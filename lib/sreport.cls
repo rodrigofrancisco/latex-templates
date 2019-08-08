@@ -1,6 +1,6 @@
 \LoadClass[a4paper,12pt]{article}
-\input{libs/common/tipreqs.cls}
-\input{libs/common/commands.cls}
+\input{lib/common/tipreqs.cls}
+\input{lib/common/commands.cls}
 
 %%%%%%%%%%%%%%%%%%%% ENCABEZADO %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagestyle{fancy}

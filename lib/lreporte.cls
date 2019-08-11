@@ -25,6 +25,7 @@
 \newcommand{\students}[1]{\renewcommand{\students}{#1}}
 \newcommand{\teacher}[1]{\renewcommand{\teacher}{#1}}
 \newcommand{\group}[1]{\renewcommand{\group}{#1}}
+\newcommand{\grouplab}[1]{\renewcommand{\grouplab}{#1}}
 \newcommand{\semester}[1]{\renewcommand{\semester}{#1}}
 \newcommand{\deliverDate}[1]{\renewcommand{\deliverDate}{#1}}
 
@@ -76,7 +77,10 @@
       \end{minipage}
       \vspace*{1cm}
 
-      \flushleft{ \Large Grupo: \group }\\
+      \flushleft{
+        \Large Grupo Teoría: \group  \\
+             Grupo Laboratorio: \grouplab
+      }\\
       \vspace{2cm}
       \begin{center}
         { \large \deliverDate }

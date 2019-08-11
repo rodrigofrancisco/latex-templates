@@ -3,7 +3,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{anysize}
 \RequirePackage{fancyhdr} % Para agregar encabezado y pie de página
-
+\RequirePackage{hyperref}
 \RequirePackage{float}
 \RequirePackage{tabu}
 

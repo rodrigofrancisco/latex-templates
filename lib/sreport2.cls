@@ -24,6 +24,7 @@
 \newcommand{\students}[1]{\renewcommand{\students}{#1}}
 \newcommand{\teacher}[1]{\renewcommand{\teacher}{#1}}
 \newcommand{\group}[1]{\renewcommand{\group}{#1}}
+\newcommand{\semester}[1]{\renewcommand{\semester}{#1}}
 \newcommand{\deliverDate}[1]{\renewcommand{\deliverDate}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%% PORTADA %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,7 +63,6 @@
         \end{flushright}
       \end{minipage}
 
-
       \begin{minipage}{0.46\textwidth}
         \begin{flushleft} \large
           \students
@@ -72,6 +72,14 @@
        %%% //Es necesario
       \begin{minipage}{0.52\textwidth}
         \vspace{-0.6cm}
+        \begin{flushright} \large
+          \emph{ Semestre: }\semester
+        \end{flushright}
+      \end{minipage}
+
+
+      \begin{minipage}{0.99\textwidth}
+        \vspace{-0.2cm}
         \begin{flushright} \large
           \emph{ FE: }\deliverDate
         \end{flushright}

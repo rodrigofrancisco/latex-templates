@@ -1,7 +1,6 @@
 \LoadClass[a4paper,12pt]{article}
 \input{lib/common/tipreqs.cls}
 \input{lib/common/commands.cls}
-\input{lib/common/code.cls}
 
 %%%%%%%%%%%%%%%%%%%% ENCABEZADO %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagestyle{fancy}
@@ -34,54 +33,60 @@
 
     \begin{center}
       \begin{minipage}{0.48\textwidth} \begin{flushleft}
-      \includegraphics[width=3cm]{lib/img/logos/escudofi_negro.jpg}
+        \includegraphics[width=2.2cm]{lib/img/logos/escudofi_negro.jpg}
       \end{flushleft}\end{minipage}
       \begin{minipage}{0.48\textwidth} \begin{flushright}
-      \includegraphics[width=3cm]{lib/img/logos/unam-10x10.jpg}
+        \includegraphics[width=2.2cm]{lib/img/logos/unam-10x10.jpg}
       \end{flushright}\end{minipage}
       \vspace*{-2.5cm}
 
-      \textsc{\huge \University}\\[1cm]
-      \textsc{\LARGE \faculty}\\[1cm]
-      \textsc{\LARGE \semester}\\[1cm]
+      \textsc{\LARGE \University}\\[0.5cm]
+
+      \textsc{\large \faculty}\\[0.5cm]
       \begin{minipage}{0.9\textwidth}
       \begin{center}
-      \textsc{\LARGE \subject}
+      \textsc{\Large \bfseries \mytitle}
       \end{center}
       \end{minipage}\\[0.5cm]
 
-
-      \vspace*{1cm}
-
-      \HRule \\[0.4cm]
-      { \huge \bfseries \mytitle } \\[0.4cm]
-      { \huge \mysubTitle } \\[0.4cm]
-
-      \HRule \\[1.5cm]
-
       \begin{minipage}{0.46\textwidth}
         \begin{flushleft} \large
-          \emph{ Alumno(s): }\\
-              \students
-          %\vspace*{2cm}
+          \subject
+          \vspace*{0.2cm}
         \end{flushleft}
       \end{minipage}
        %%% //Es necesario
       \begin{minipage}{0.52\textwidth}
         \vspace{-0.6cm}
         \begin{flushright} \large
-          \emph{Profesor:} \\
-            \teacher
-          \end{flushright}
+            \emph{ Gpo: } \group
+        \end{flushright}
       \end{minipage}
-      \vspace*{1cm}
 
-      \flushleft{ \Large Grupo: \group }\\
-      \vspace{2cm}
-      \begin{center}
-        { \large \deliverDate }
-      \end{center}
+
+      \begin{minipage}{0.46\textwidth}
+        \begin{flushleft} \large
+          \emph{Semestre: }
+          \vspace{0.6cm}
+          \semester
+        \end{flushleft}
+      \end{minipage}
+       %%% //Es necesario
+      \begin{minipage}{0.52\textwidth}
+        \vspace{-0.8cm}
+        \begin{flushright} \large
+          \emph{Fe: } \deliverDate
+        \end{flushright}
+      \end{minipage}
+
+      \vspace{-0.8cm}
+
+      \begin{flushleft} \large
+        \emph{Alumno(s): }
+        \students
+      \end{flushleft}
+
+
     \end{center}
 
-    \newpage
 }

@@ -1,0 +1,172 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{anysize}
+\usepackage{fancyhdr} 
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{tabu}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+%%
+% #1: nombre de la imagen
+% #2: pie de la imagen
+% #3: tamaño de la imagen
+\newcommand{\insertImage}[3]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#3cm]{#1}
+        \caption{#2}
+    \end{figure}
+}
+
+\marginsize{2cm}{2cm}{2cm}{2cm}             % {left}{right}{above}{below}
+\decimalpoint
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                   Code fences style                       %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                        Header Style                       %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize \faculty-\textbf{\university}} %encabezado izq.
+\fancyhead[R]{\footnotesize \nouppercase{\leftmark}} % encabezado der.
+\fancyfoot[R]{\footnotesize \thepage}  % Pie der.
+%\fancyfoot[C]{hola}  % Pie centrado
+\fancyfoot[L]{\footnotesize \subject-\textbf{\mytitle}}  %Pie izq.
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                        Cover page                         %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\coverPage}{
+    \thispagestyle{empty}
+
+    \begin{center}
+      \begin{minipage}{0.48\textwidth} \begin{flushleft}
+      \includegraphics[width=3cm]{escudofi_negro.jpg}
+      \end{flushleft}\end{minipage}
+      \begin{minipage}{0.48\textwidth} \begin{flushright}
+      \includegraphics[width=3cm]{unam-10x10.jpg}
+      \end{flushright}\end{minipage}
+      \vspace*{-2.5cm}
+
+      \textsc{\huge \University}\\[1cm]
+      \textsc{\LARGE \faculty}\\[1cm]
+      \textsc{\LARGE \semester}\\[1cm]
+      \begin{minipage}{0.9\textwidth}
+      \begin{center}
+      \textsc{\LARGE \subject}
+      \end{center}
+      \end{minipage}\\[0.5cm]
+
+
+      \vspace*{1cm}
+
+      \HRule \\[0.4cm]
+      { \huge \bfseries \mytitle } \\[0.4cm]
+      { \huge \mysubTitle } \\[0.4cm]
+
+      \HRule \\[1.5cm]
+
+      \begin{minipage}{0.46\textwidth}
+        \begin{flushleft} \large
+          \emph{ Alumno(s): }\\
+              \students
+          %\vspace*{2cm}
+        \end{flushleft}
+      \end{minipage}
+       %%% //Es necesario
+      \begin{minipage}{0.52\textwidth}
+        \vspace{-0.6cm}
+        \begin{flushright} \large
+          \emph{Profesor:} \\
+            \teacher
+          \end{flushright}
+      \end{minipage}
+      \vspace*{1cm}
+
+      \flushleft{ \Large Grupo: \group }\\
+      \vspace{2cm}
+      \begin{center}
+        { \large \deliverDate }
+      \end{center}
+    \end{center}
+
+    \newpage
+}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                Variables definition                       %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{ {assets/logos} }
+
+\newcommand{\university}{UNAM}
+\newcommand{\University}{Universidad Nacional\\ 
+  \vspace{5px} Autónoma de México
+}
+\newcommand{\faculty}{Facultad de Ingeniería}
+
+\newcommand{\subject}{Materia}
+\newcommand{\mytitle}{Título}
+\newcommand{\mysubTitle}{Subtitulo}
+\newcommand{\students}{Francisco Pablo \textsc{Rodrigo}}
+\newcommand{\teacher}{Ing. Paterno Materno \textsc{Nombre}}
+\newcommand{\group}{6}
+\newcommand{\semester}{2020-1}
+\newcommand{\deliverDate}{12 de marzo de 2019}
+\coverPage
+
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                        Contents                           %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%     ADD YOUR CONTENT HERE    %%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{anysize}
+\usepackage{fancyhdr} 
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{tabu}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                        Header Style                       %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\includegraphics[scale=0.07]{proteco}} 
+\fancyhead[R]{ {\color{blue}\Huge \mytitle }\\[2mm] 
+{\color{green}\LARGE \mysubTitle } \\[2mm] \deliverDate}   
+\fancyfoot[R]{\includegraphics[scale=0.08]{unamazul}}  
+\fancyfoot[L]{\includegraphics[scale=0.5]{escudofiazul}}  
+\fancyfoot[C]{\vspace{-1cm} {\color{blue}\org}}
+\renewcommand{\footrulewidth}{0.4pt}
+\begin{document}
+
+\vspace*{2mm}
+\fontfamily{qag}\selectfont
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                Variables definition                       %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{assets/logos/}}
+\newcommand{\org}{\fontfamily{qag}\selectfont{
+  PROGRAMA DE TECNOLOGÍA EN CÓMPUTO}
+}
+\newcommand{\mytitle}{\fontfamily{qag}\selectfont{Temario Curso}}
+\newcommand{\mysubTitle}{\fontfamily{qag}\selectfont{Intersemestral 2020-1}}
+\newcommand{\deliverDate}{\fontfamily{qag}\selectfont{junio de 2019}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                        Contents                           %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Tema I}
+
+%%%%%%%%%%%%%%%%%%%%%%%%     ADD YOUR CONTENT HERE    %%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

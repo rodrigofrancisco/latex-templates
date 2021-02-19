@@ -1,0 +1,234 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{anysize}
+\usepackage{fancyhdr} 
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{tabu}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\usepackage{multicol}
+\usepackage{enumitem}
+
+\usepackage[document]{ragged2e}             % For centering 
+\usepackage[pages=all]{background}          % Background image
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{forloop}
+\usepackage{ifthen}	
+
+%\usepackage{lib/cfg}
+
+\backgroundsetup{
+  scale=1,
+  color=black,
+  opacity=0.4,
+  angle=0,
+  contents={%
+    \includegraphics[scale=0.5]{logo}
+  }%
+}	
+
+\marginsize{2cm}{2cm}{2cm}{2cm}             % {left}{right}{above}{below}
+\decimalpoint
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+%%
+% #1: nombre de la imagen
+% #2: pie de la imagen
+% #3: tamaño de la imagen
+\newcommand{\insertImage}[3]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#3cm]{#1}
+        \caption{#2}
+    \end{figure}
+}
+
+\marginsize{2cm}{2cm}{2cm}{2cm}             % {left}{right}{above}{below}
+\decimalpoint
+
+% COMMENT THE CONTENTS OF THIS MACRO FOR STUDENTS VERSION
+\newcommand{\idpreg}[2]{
+  \begin{flushright}
+    \textbf{Id:} #1 \textbf{Resp.:} #2
+  \end{flushright}
+}
+
+%\newcommand{\marcaagua}{
+% \SetWatermarkText{\textsc{Ludomatics}} 
+%	\SetWatermarkText{\includegraphics[scale=0.20]{logo}} 
+%		\SetWatermarkScale{3} 
+%		\SetWatermarkColor[rgb]{.80,.80,.80}			
+%		\SetWatermarkAngle{0}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                Macos for questions template               %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{hangingpar}[1]{\begin{list}
+  {}
+  {
+  \setlength{\itemindent}{-#1}%%'
+    \setlength{\leftmargin}{#1}%%'
+  \setlength{\itemsep}{0pt}%%'
+    \setlength{\parsep}{\parskip}%%'
+    \setlength{\topsep}{\parskip}%%'
+  }
+  \setlength{\parindent}{-#1}%%
+    \item[]
+}{\end{list}}			
+
+\newcommand{\startin}[1]{
+  \newcounter{num}
+  \setcounter{num}{#1}
+}
+
+\startin{1}
+
+% THE QUESTIONS macro definition is this
+%/** the sintaxis is the following
+%		\pregunta{[text]}{[image path | 'null' if you don't have any images]}
+%		i.e. args are:
+%			1 is equivalent to the question
+%			2 is equivalent to the image
+% 		Some useful examples
+%			* \pregunta{what's my name?}{null}
+%			* \pregunta{In the picture, who am I?}{img/pic1}		
+\newcommand{\pregunta}[2]{
+  \justify\textbf{\thenum. #1}
+  \ifthenelse{ \equal{#2}{null} }{ %if(args[2] == null)
+    % Here is empty
+  } %else
+  {
+    \begin{center}
+      \includegraphics[width=5cm]{#2}
+    \end{center}
+  }
+  \stepcounter{num}
+}
+
+\newcounter{op}
+\setcounter{op}{1}
+\makeatletter
+
+\newcommand{\opciones}[2][texto]{ 
+  \par\vspace*{2mm}
+  \ifthenelse{ \equal{#1}{imagen}  }{ %if(args[2]==imagen)  
+    \textbf{\Alph{op}.} \\%linebreak
+    \includegraphics[width=4cm]{#2}\\ 
+    \stepcounter{op} 
+    \checknextarg[imagen]
+  }{%else		  	 
+      \begin{hangingpar}
+        {1em}\textbf{\Alph{op}.}\,#2
+      \end{hangingpar}
+      \par\vspace*{2mm}
+      \stepcounter{op} 
+      \checknextarg
+    }
+}
+\newcommand{\checknextarg}[1][texto]{
+  \@ifnextchar\bgroup{
+    \gobblenextarg[#1]
+  }{ %else
+    \setcounter{op}{1} 
+  }
+}
+
+\newcommand{\gobblenextarg}[2][texto]{
+  \ifthenelse{ \equal{#1}{imagen} }{
+    \textbf{\Alph{op}.}\\
+    \includegraphics[width=4cm]{#2}\\
+    \stepcounter{op}
+    \@ifnextchar\bgroup{
+      \gobblenextarg[imagen]
+    }{
+      \setcounter{op}{1} 
+      }
+  }{
+    \begin{hangingpar}
+      {1em}\textbf{\Alph{op}.}\,#2
+    \end{hangingpar}
+    \par\vspace*{2mm}
+    \stepcounter{op} 
+    \@ifnextchar\bgroup{
+      \gobblenextarg
+    }{
+      \setcounter{op}{1} 
+    }
+  }
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                        Header Style                       %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize \org} %encabezado izq.
+\fancyhead[R]{\footnotesize \subject}   % encabezado der.
+\fancyfoot[L]{\footnotesize \context} % Pie izq.
+\fancyfoot[R]{\footnotesize \thepage}  % Pie der.
+\renewcommand{\footrulewidth}{0.4pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                        Cover page                         %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\coverPage}{
+    \begin{center}
+        {\Large\textbf{\myexam}}  \\[0.5cm]
+        \begin{flushleft}
+          Nombre: \line(1,0){320}\;
+          Fecha: \line(1,0){50}\\
+        \end{flushleft}
+    \end{center}
+}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                Variables definition                       %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{assets/logos/}}
+\newcommand{\org}{Organización}
+\newcommand{\context}{Curso I}
+\newcommand{\subject}{Materia}
+\newcommand{\examDay}{}
+\newcommand{\myexam}{Examen \#}
+
+\coverPage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                        Contents                           %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%SECCION DE PREGUNTAS
+\begin{multicols*}{2}
+
+	\pregunta{Investigador que le asigno el nombre a la celula}{null}
+	\opciones{Rudolf Virchow}
+		{Robert Brown}
+		{Pasteur}
+		{Robert Hooke}
+	\idpreg{2019-unam-area3-preg-4}{A}
+
+	\pregunta{Investigador que le asigno el nombre a la celula}{null}
+	\opciones{Rudolf Virchow}
+		{Robert Brown}
+		{Pasteur}
+		{Robert Hooke}
+	\idpreg{2018-unam-area2-preg-4}{B}
+
+\end{multicols*}
+
+\end{document}

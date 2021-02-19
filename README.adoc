@@ -1,0 +1,78 @@
+= LaTeX templates
+Creado por Rodrigo Francisco <rhodfra@gmail.com>
+Version 1.0, 19.02.2021
+:description: LaTeX templates for several purposes
+//:keywords: 
+//:sectnums: 
+// Configuracion de la tabla de contenidos
+:toc: 
+:toc-placement!:
+:toclevels: 4                                          
+//:toc-title: Contenido
+
+// Ruta base de las imagenes
+:imagesdir: ./README.assets/ 
+
+// Resaltar sintaxis
+:source-highlighter: pygments
+
+// Iconos para entorno local
+ifndef::env-github[:icons: font]
+
+// Iconos para entorno github
+ifdef::env-github[]
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+
+LaTeX templates for several purposes
+
+toc::[]
+
+This repository has some templates of my own and can be use in several
+scenarios, mainly in school matter such as reports, notes or list of topics for
+some courses. The applications are up to you.
+
+== Usage
+
+In general, you just have to make sure you have the right assets, which are in
+this repository and are mainly logos from school or other institution, so can be
+replace with yours. Compile it as you may know. I recommend using the litte
+script given in this repository (_compile.sh_) since it provides a more
+organized structure for your files in compare to some IDEs
+
+If something doesn't display write try a double compilation.
+
+== Screenshots
+
+Here are some screenshots that shows what ca you spect from this templates.
+
+The following subtitles does no force you to use the template for that scenario.
+Fell free to use your imagination.
+
+=== Exams template
+
+image::exams.png[width=500]
+
+=== Syllabus template
+
+image::syllabus.png[width=500]
+
+=== Notes template
+
+image::notes.png[width=500]
+
+=== Publication template
+
+image::publication.png[width=500]
+
+=== Report template
+
+image::report.png[width=500]
+
+=== Short report template
+
+image::short-report.png[width=500]

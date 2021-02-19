@@ -55,23 +55,43 @@ Fell free to use your imagination.
 
 === Exams template
 
+This template provides and interface to create a teacher and students version of
+an exam. The teachers version offers the correct answer and the reference of the
+resource from the question taken, as you may see in the picture below.
+
+Check the comments in the source code to know how to use it.
+
 image::exams.png[width=500]
 
 === Syllabus template
+
+Use it as you may wish. Initially was a syllabus for my former internship in
+which we offer several courses.
 
 image::syllabus.png[width=500]
 
 === Notes template
 
+Beautifull and simple coverpage for notes or even report for school projects.
+The cicles were generated using tikz package.
+
 image::notes.png[width=500]
 
 === Publication template
+
+Use this template as you want. It was create to write an school article but it
+can be easily adapt for other things
 
 image::publication.png[width=500]
 
 === Report template
 
+The coverpage for many report I delivered in school, it was a nice format. This
+is version 0. It's formal but may be overwhelm with many features.
+
 image::report.png[width=500]
+
+This is just a latex compile document with a heading title and thats all.
 
 === Short report template
 

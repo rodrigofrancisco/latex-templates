@@ -84,15 +84,28 @@ can be easily adapt for other things
 
 image::publication.png[width=500]
 
-=== Report template
+=== Report template v0
 
 The coverpage for many report I delivered in school, it was a nice format. This
 is version 0. It's formal but may be overwhelm with many features.
 
 image::report.png[width=500]
 
-=== Short report template
+=== Short report template v0
 
 This is just a latex compile document with a heading title and thats all.
 
 image::short-report.png[width=500]
+
+=== Report template v1
+
+The coverpage for many report I delivered in school, it was a nice format. This
+is version 0. It's formal but may be overwhelm with many features.
+
+image::report-v1.png[width=500]
+
+=== Short report template v1
+
+This is just a latex compile document with a heading title and thats all.
+
+image::short-report-v1.png[width=500]

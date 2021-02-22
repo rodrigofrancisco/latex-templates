@@ -97,7 +97,7 @@
     \,% Adding space between titles and logo    
     \rule[-1.75\baselineskip]{0pt}{0pt}
     % Strut to ensure a 1/4 \baselineskip between image and header rule
-    \includegraphics[height=3\baselineskip,valign=c]{unam}
+    \includegraphics[height=3\baselineskip,valign=c]{unam-negro}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -107,12 +107,12 @@
 \newcommand{\coverPage}{
 \thispagestyle{empty}
   \begin{minipage}[t][5cm][t]{0.2\linewidth}
-    \includegraphics[width=2.5cm]{unam.jpg}
+    \includegraphics[width=2.5cm]{unam-negro}
 
     \vspace{10cm}
     % The following space is mandatory to display correct layout
 
-    \includegraphics[width=2.5cm]{fiblack}
+    \includegraphics[width=2.5cm]{fi-negro}
   \end{minipage}
   %
   \begin{minipage}[t]{0.7\linewidth}
@@ -175,7 +175,7 @@
 \newcommand{\fechaEntrega}{}
 
 \newcommand{\codedir}{codigo}
-\graphicspath{{assets/logos/}{bdd_proyecto.assets/}{modelo}}
+\graphicspath{ {latex/assets/}{bdd_proyecto.assets/}{modelo} }
 
 \coverPage%
 

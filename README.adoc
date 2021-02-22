@@ -103,6 +103,7 @@ The coverpage for many report I delivered in school, it was a nice format. This
 is version 0. It's formal but may be overwhelm with many features.
 
 image::report-v1.png[width=500]
+image::report-v1_02.png[width=500]
 
 === Short report template v1
 

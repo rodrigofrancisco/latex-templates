@@ -4,19 +4,32 @@
 \usepackage{graphicx}
 \usepackage{anysize}
 \usepackage{fancyhdr} 
-\usepackage[export]{adjustbox}
 \usepackage{titlesec}
+\usepackage{longtable}
+\usepackage{array}                    % Align fix size columns in tables
+\usepackage[export]{adjustbox}
 \usepackage{listings}
 \usepackage{xcolor}
 
-\marginsize{2.2cm}{2.2cm}{1.2cm}{1.5cm}          % {left}{right}{up}{down}
-\renewcommand{\familydefault}{\sfdefault}
 \decimalpoint%
 
 \setlength{\parindent}{0in}
-\titleformat*{\section}{\large\bfseries}
 
-% Para insert código
+\renewcommand{\familydefault}{\sfdefault}
+\titleformat*{\section}{\large\bfseries}
+\marginsize{1.6cm}{2.2cm}{1.2cm}{1.5cm}          % {left}{right}{up}{down}
+\lstset{upquote=true}                     % For display quotes and double 
+                                          % quoutes in a better style
+
+% Defining column content alignment for fix size columns
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                        Code style                         %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -43,75 +56,218 @@
 
 \lstset{style=mystyle}
 
-\graphicspath{ {latex/assets/} {investigacion3.assets/} }
-\newcommand{\materia}{Recursos y necesidades de México}
-\newcommand{\clave}{2080}
-\newcommand{\profesor}{Ing. Eduardo Alejandro Hernández González}
-\newcommand{\grupo}{5}
-\newcommand{\semestre}{2021-1}
 
-\newcommand{\alumno}{Francisco Pablo \textsc{Rodrigo}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                        Header Style                       %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\actividad}{Investigación V}
-\newcommand{\titulo}{Recursos y Necesidades de México: Un dilema}
-
-\newcommand{\fechaEntrega}{28 de enero de 2021}
-
-%%%%%%%%%%%%%%%%%%%% ENCABEZADO %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 % \setlength{\headsep}{0.3in}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%              Cover page generator command                 %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\coverPage}{
+  \begin{minipage}[t]{0.7\linewidth}
+      \vspace{-1cm}
+      % \large{\textbf{UNAM}} \large{\textbf{FI}} \\
+      \normalsize{\textbf{\materia}}\\
+      \normalsize{\textbf{Grupo \grupo}}\\
+      % \large{\textbf{Profesor:} \profesor}\\ [1.5cm]
+      \normalsize{\textbf{Alumno:} \alumno} \\
+      \textbf{Fecha:} \fechaEntrega%
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.2\linewidth}
+      \vspace{-1.2cm}
+      \begin{flushright}
+          % \includegraphics[width=2cm]{fi-negro}
+          \includegraphics[width=2cm]{unam-negro}\\
+          % \vspace{10cm}
+          \semestre    
+      \end{flushright}
+  \end{minipage}
+  % \vspace{2mm}
+  \begin{center}
+    \textbf{\actividad: \textit{\titulo}} \\ 
+  \end{center}
+}
+
+\usepackage{amsmath}
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%% DATOS MINI PORTADA %%%%%%%%%%%%%%%%%%%%%%%%
-\begin{minipage}[t]{0.7\linewidth}
-    \vspace{-1cm}
-    % \large{\textbf{UNAM}} \large{\textbf{FI}} \\
-    \large{\textbf{\materia}}\\
-    \large{\textbf{Grupo \grupo}}\\
-    % \large{\textbf{Profesor:} \profesor}\\ [1.5cm]
-    \large{\textbf{Alumno:} \alumno} \\
-    \textbf{Fecha:} \fechaEntrega%
-\end{minipage}\hfill
-\begin{minipage}[t]{0.2\linewidth}
-    \vspace{-1.2cm}
-    \begin{flushright}
-        % \includegraphics[width=2cm]{fi-negro}
-        \includegraphics[width=2cm]{unam-negro}\\
-        % \vspace{10cm}
-        \large{\semestre}    
-    \end{flushright}
-\end{minipage}
-% \vspace{2mm}
-%%%%%%%%%%%%%%%%%%% CONTENIDO %%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                Variables definition                       %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{ {latex/assets/} {arq-tarea03.assets/} }
+\newcommand{\materia}{Organización y arqitectura de computadoras}
+\newcommand{\clave}{1867}
+\newcommand{\profesor}{M.I. Pedro Ignacio Rincón Gómez}
+\newcommand{\grupo}{4}
+\newcommand{\semestre}{2021-2}
+
+\newcommand{\alumno}{Francisco Pablo \textsc{Rodrigo}}
+
+\newcommand{\actividad}{Tarea 03}
+\newcommand{\titulo}{Direccionamiento de entrada estado}
+
+\newcommand{\fechaEntrega}{07 de marzo 2021}
+
+\coverPage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                        Contents                           %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textit{Diseñe una carta ASM con hasta 16 estados, 4, entradas (X,Y,Z,W) Y
+4 salidas (S0,S1,S2,S3) y determine la tabla de verdad por el método
+de Direccionamiento por Entrada-Estado.}\\
+
 \begin{center}
-\large{
-    \textbf{\actividad}\\
-    \textbf{\titulo} \\ 
-}
+  \includegraphics[width=0.8\linewidth]{arq-tarea03.png}
 \end{center}
 
-Existen una conste lucha entre las necesidades y los recursos que provocan ina
-de interrogante: ¿Los recursos de nuestro país son suficientes para cubrir las
-necesidades del mismo? Cono todo lo aprendido de la geografía de México, los
-climas y otros recursos naturales tal vez en primera instancia uno pensaría que
-es fácil responder con una afirmación. Sin embargo, es correcto detenerse a
-analizar más a fondo y observar la realidad de muchos estados de la república
-como Oaxaca, Chiapas o Guerrero.\\
+\textbf{Convención}\\
 
-Por otra parte hay que dejar de pensar en 2D y avanzar hacia la siguiente
-dimensión, los recursos, como hemos visto, no solo se tratan de lo que la
-naturaleza ha dispuesto en la región en la que nos encontramos sino que va
-muchísimo más allá. Involucra capital humano, tiempo, organización, etc.
-Dicho lo anterior, se puede intentar explicar en que sentido va la contienda
-entre recursos y necesidades, no es un tema de recursos naturales, mas tiene que
-ver con recursos de otro tipo, organizaciones por ejemplo. De esta manera se
-alcanza a ver el problema que tienen muchos estados. Su falta de organización
-y/o planeación ha sido una de las causas principales de los problemas que
-enfrenta no el estado, sino directamente la población: falta de educación,
-vivienda, comida, etc.\\
+\includegraphics[width=0.1\linewidth]{convecion}
+
+{
+  \setlength\tabcolsep{3.5mm}
+  \def\arraystretch{2}          % Do not define globally (for that reason we
+                                % enclose table inside brackets)
+  \begin{longtable}{
+    C{0.3cm}
+    C{0.3cm}
+    C{0.3cm}
+    C{0.3cm}|
+    C{0.3cm}
+    C{0.3cm}
+    C{0.3cm}
+    C{0.3cm}
+    C{0.3cm}
+    C{0.3cm}
+    C{0.3cm}
+    C{0.3cm}
+    C{0.3cm}
+    C{0.3cm}
+    C{0.3cm}
+    C{0.3cm}
+    C{0.3cm}
+    C{0.3cm}
+  }
+  % Start: Table header 
+  \textbf{$P_3$} &
+  \textbf{$P_2$} &
+  \textbf{$P_1$} &
+  \textbf{$P_0$} &
+  \textbf{$K_1$} &
+  \textbf{$K_0$} &
+  \textbf{$V_3$} &
+  \textbf{$V_2$} &
+  \textbf{$V_1$} &
+  \textbf{$V_0$} &
+  \textbf{$F_3$} &
+  \textbf{$F_2$} &
+  \textbf{$F_1$} &
+  \textbf{$F_0$} &
+  \textbf{$S_3$} &
+  \textbf{$S_2$} &
+  \textbf{$S_1$} &
+  \textbf{$S_0$} 
+  \\ \hline
+  % End: Table header 
+    0 & 0 & 0 & 0 &
+    0 & 0 &
+    0 & 0 & 0 & 1 &
+    0 & 0 & 1 & 1 &
+    0 & 0 & 0 & 1
+    \\ \hline
+    0 & 0 & 0 & 1 &
+    * & * &
+    0 & 0 & 1 & 0 &
+    0 & 0 & 1 & 0 &
+    0 & 0 & 0 & 1
+    \\ \hline
+    0 & 0 & 1 & 0 &
+    0 & 1 &
+    0 & 1 & 0 & 1 &
+    0 & 0 & 0 & 0 &
+    0 & 0 & 1 & 0
+    \\ \hline
+    0 & 0 & 1 & 1 &
+    1 & 0 &
+    0 & 1 & 0 & 0 &
+    0 & 0 & 1 & 1 &
+    0 & 1 & 0 & 0
+    \\ \hline
+    0 & 1 & 0 & 0 &
+    1 & 0 &
+    0 & 1 & 1 & 0 &
+    1 & 0 & 0 & 0 &
+    1 & 1 & 0 & 0
+    \\ \hline
+    0 & 1 & 0 & 1 &
+    * & * &
+    0 & 1 & 1 & 0 &
+    0 & 1 & 1 & 0 &
+    0 & 0 & 0 & 0
+    \\ \hline
+    0 & 1 & 1 & 0 &
+    1 & 1 &
+    0 & 1 & 0 & 0 &
+    0 & 1 & 1 & 1 &
+    1 & 0 & 0 & 1
+    \\ \hline
+    0 & 1 & 1 & 1 &
+    0 & 0 &
+    0 & 0 & 1 & 0 &
+    0 & 1 & 0 & 1 &
+    1 & 0 & 1 & 0
+    \\ \hline
+    1 & 0 & 0 & 0 &
+    * & * &
+    0 & 1 & 1 & 0 &
+    0 & 1 & 1 & 0 &
+    0 & 1 & 0 & 0
+    \\ \hline
+    1 & 0 & 0 & 1 &
+    * & * &
+    0 & 0 & 0 & 0 &
+    0 & 0 & 0 & 0 &
+    0 & 0 & 0 & 0
+    \\ \hline
+    1 & 0 & 1 & * &
+    * & * &
+    0 & 0 & 0 & 0 &
+    0 & 0 & 0 & 0 &
+    0 & 0 & 0 & 0
+    \\ \hline
+    1 & 1 & * & * &
+    * & * &
+    0 & 0 & 0 & 0 &
+    0 & 0 & 0 & 0 &
+    0 & 0 & 0 & 0
+  \end{longtable}
+}
+
+\textit{Determine el número de bits de memoria que se ahorran al
+implementar una carta ASM que posee 4 entradas (X,Y,Z,W), 20
+estados, 8 salidas (S0-S7), mediante el método de ``direccionamiento
+entrada-estado'' respecto al método ``direccionamiento por trayectoria''.}\\
+
+Ahorro = ``direccionamiento por trayectoria'' - ``direccionamiento
+entrada-estado''\\ 
+
+%\begin{equation}
+  %\text{Ahorra} = $(2^{\text{bits para edos+ entradas}})(bits de liga+salidas)$
+%\end{equation}
+
+\includegraphics[width=\linewidth]{parte-02}
 
 
 \end{document}

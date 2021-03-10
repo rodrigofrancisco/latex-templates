@@ -36,6 +36,14 @@ This repository has some templates of my own and can be use in several
 scenarios, mainly in school matter such as reports, notes or list of topics for
 some courses. The applications are up to you.
 
+== Wanna write good LaTeX code? 
+
+**Check this out!**
+
+https://www.read.seas.harvard.edu/~kohler/latex.html
+
+image::latex.png[]
+
 == Usage
 
 In general, you just have to make sure you have the right assets, which are in
@@ -109,4 +117,5 @@ image::report-v1_02.png[width=500]
 
 This is just a latex compile document with a heading title and thats all.
 
-image::short-report-v1.png[width=500]
+//image::short-report-v1.png[width=500]
+image::short-report-v1-01.png[width=500]

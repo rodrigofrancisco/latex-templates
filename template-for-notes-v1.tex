@@ -25,12 +25,16 @@
 
 \usepackage{scrextend}                      % For pages and NewEnviron command
 \usepackage[strict]{changepage}             % to get the right page 
+\usepackage{ifthen}                         % Use if and boolean commands
 
 \usepackage{xcolor}
 \usepackage{amsmath}
 
 % JUST FOR TESTING
 \usepackage{lipsum}
+
+\newboolean{isTeacher}
+\setboolean{isTeacher}{true}
 
 % Adjusting book margins
 \addtolength{\topmargin}{-8mm}
@@ -49,6 +53,7 @@
 
 % Defining some colors
 \definecolor{darkblue}{RGB}{0, 0, 102}
+\definecolor{darkOrange}{RGB}{204, 102, 0}
 \definecolor{gray75}{gray}{0.75}
 
 % 20pt horizontal space
@@ -85,6 +90,15 @@
     \node[draw=darkblue,circle,inner sep=1pt,minimum size=3ex](C) {#1.};
   \end{tikzpicture}
 }
+\NewEnviron{widebox}[1]{
+  \checkoddpage
+    %TODO:- Get ride of hardcode value
+  \ifoddpage {} \else \begin{addmargin}[-3.5cm]{0em} \fi
+    \parbox[t]{#1\paperwidth}{
+      \BODY
+    }
+  \ifoddpage {} \else \end{addmargin} \fi
+}
 
 \newcounter{activityCount}[chapter]
 \NewEnviron{activity}[1]{
@@ -109,6 +123,29 @@
   \ifoddpage {} \else \end{addmargin} \fi
 }
 
+\newcounter{cheatSheetCount}[chapter]
+\NewEnviron{cheatSheet}[1]{
+  \refstepcounter{cheatSheetCount}
+  \checkoddpage
+    %TODO:- Get ride of hardcode value
+  \ifoddpage {} \else \begin{addmargin}[-3.5cm]{0em} \fi
+    \parbox[t]{#1\paperwidth}{
+      \begin{mdframed}[
+        frametitle={\color{darkblue}Formulario~\thecheatSheetCount},
+        frametitlerule=true,
+        topline=false,
+        bottomline=false,
+        rightline=false,
+        leftline=false,
+        innerrightmargin=2pt,
+        innerleftmargin=2pt,
+      ]
+      \BODY
+      \end{mdframed} 
+    }
+  \ifoddpage {} \else \end{addmargin} \fi
+}
+
 \newcounter{definitionCount}[chapter]
 \newenvironment{definition}{
   \refstepcounter{definitionCount}
@@ -119,6 +156,25 @@
   ]
 }{
   \end{mdframed} 
+}
+
+\NewEnviron{answer}{%
+  \color{darkOrange}
+  \noindent
+  \rotatebox[origin=c]{180}{%
+    \noindent
+    \begin{minipage}[t]{\linewidth}
+      \BODY
+      \vspace{3mm}
+    \end{minipage}%
+  }%
+}%
+
+\NewEnviron{teachers}{
+  \color{gray}
+  \ifthenelse{\boolean{isTeacher}}{
+    \BODY
+  }{}
 }
 
 
@@ -147,6 +203,8 @@
 
 \chapter{\materia}
 
+\lipsum[1]
+
 \section{Ángulos}
 
 \textit{Diseñe una carta ASM con hasta 16 estados, 4, entradas (X,Y,Z,W) Y
@@ -158,7 +216,7 @@ vertical offset to the line it is typeseted.}
 
 \subsection{Sistema sexagesimal}
 
-\begin{activity}{0.8}
+\begin{activity}{0.78}
   \lipsum[1]
 \end{activity}
 
@@ -177,9 +235,9 @@ entrada-estado''\\
 \lipsum
 
 \marginnote{This is a margin note using the geometry package, set at 3cm
-vertical offset to the line it is typeseted.}[-2cm]
+vertical offset to the line it is typeseted.}[-6cm]
 
-\begin{activity}{0.8}
+\begin{activity}{0.78}
   Convierte los siguientes ángulos a \textit{solo} grados
   \begin{multicols}{4}
     \begin{enumerate}[label=\protect\circItem{\arabic*}]
@@ -218,6 +276,9 @@ vertical offset to the line it is typeseted.}[-2cm]
       \item $769^\circ$
     \end{enumerate}
   \end{multicols}
+  \begin{answer}
+    1.C, 2.B,3C
+  \end{answer}
 \end{activity}
 
 \lipsum
@@ -228,14 +289,32 @@ vertical offset to the line it is typeseted.}[-2cm]
 
 \textit{\lipsum[8]}\\
 
-\begin{activity}{0.8}
+\begin{activity}{0.78}
   \lipsum[3]
+  \begin{teachers}
+  \begin{answer}
+    1.C, 2.B,3C
+  \end{answer}
+  \end{teachers}
 \end{activity}
 
 Testing new environment
 
 \begin{definition}
-  \lipsum[3]
+  \lipsum[3] 
+  \begin{teachers}\begin{center} Hola soy profe \end{center}\end{teachers}
 \end{definition}
+
+\begin{widebox}{0.78}
+  \lipsum[3]
+\end{widebox}
+\vspace{2mm}
+
+\lipsum[2]
+
+\begin{cheatSheet}{0.79}
+  \lipsum[3]
+\end{cheatSheet}
+
 
 \end{document}

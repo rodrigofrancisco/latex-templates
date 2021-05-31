@@ -1,0 +1,260 @@
+\documentclass[12pt]{book}
+\usepackage[T1]{fontenc}                    % UTF-8 output
+\usepackage[utf8]{inputenc}                 % Use UTF-8 codification
+\usepackage[spanish]{babel}                 % Get symbols and hyphenation for
+                                            %spanish
+
+\usepackage{graphicx}                       % Add images or other graphics
+\usepackage{geometry}                       % For margins
+
+\usepackage{fancyhdr}                       % Style header and footer
+\usepackage{array}                          % Align fix size columns in tables
+\usepackage[export]{adjustbox}              % Fix table sizes
+
+\usepackage{marginnote}                     % Adds notes at the margins
+\usepackage{float}                          % For better placement figures
+\usepackage{titlesec}                       % Style sections and subsections
+\usepackage{longtable}                      % Create page splitable tables
+\usepackage{multicol}                       % Multicols library
+
+\usepackage{tikz}                           % Create figures 
+\usepackage[framemethod=TikZ]{mdframed}     % Frames and border boxes
+\usepackage{enumitem}                       % Changes item style
+\usepackage{environ}                        % Creating environments that have
+                                            % issues with parentesis
+
+\usepackage{scrextend}                      % For pages and NewEnviron command
+\usepackage[strict]{changepage}             % to get the right page 
+
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+% JUST FOR TESTING
+\usepackage{lipsum}
+
+% Adjusting book margins
+\addtolength{\topmargin}{-8mm}
+\addtolength{\textheight}{20mm}
+\addtolength{\textwidth}{-18mm}
+\addtolength{\marginparwidth}{14mm}
+\addtolength{\marginparsep}{4mm}
+\addtolength{\evensidemargin}{18mm}
+\addtolength{\oddsidemargin}{-6mm}
+\setlength{\parindent}{0in}                 % Not left margin at each paragraph 
+\setlength{\headsep}{0.5in}                 % Changing headsep length
+                                            % headsep is the vertical length 
+                                            % between header an text area
+\addtolength{\headwidth}{115pt}             % Increase header length
+\decimalpoint%                              % Using dot instead of comma
+
+% Defining some colors
+\definecolor{darkblue}{RGB}{0, 0, 102}
+\definecolor{gray75}{gray}{0.75}
+
+% 20pt horizontal space
+\newcommand{\hsp}{\hspace{20pt}}
+
+\renewcommand{\familydefault}{\sfdefault}   % Changing font family 
+% Redefine header chapter
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\thechapter.\ #1}}{}}
+
+% Style chapters title
+\titleformat{\chapter}[hang]{\Huge\bfseries}
+{\color{darkblue}\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}
+{\color{darkblue}\Huge\bfseries}
+
+% Changing section style
+\titleformat*{\section}
+  {\color{darkblue}\LARGE\bfseries} 
+% Changing subsection style
+\titleformat*{\subsection}
+  {\color{darkblue}\Large\bfseries}
+
+% Defining column content alignment for fix size columns
+\newcolumntype{L}[1]
+  {>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]
+  {>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]
+  {>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}  
+
+% Style item as a circle
+\newcommand*\circItem[1]{%
+  \begin{tikzpicture}[baseline=(C.base)]
+    %\node[draw,circle,inner sep=1pt,minimum size=3ex](C) {#1};
+    \node[draw=darkblue,circle,inner sep=1pt,minimum size=3ex](C) {#1.};
+  \end{tikzpicture}
+}
+
+\newcounter{activityCount}[chapter]
+%TODO:- Improve if statement
+\NewEnviron{wideBox}[1]{
+  \refstepcounter{activityCount}
+  \checkoddpage
+  \ifoddpage
+    \parbox[t]{#1\paperwidth}{
+      \begin{mdframed}[
+        frametitle={\color{darkblue}Actividad~\theactivityCount},
+        frametitlerule=true,
+        topline=false,
+        bottomline=false,
+        rightline=false,
+        leftline=false,
+        innerrightmargin=2pt,
+        innerleftmargin=2pt,
+      ]
+      \BODY
+      \end{mdframed} 
+    }
+  \else
+    %TODO:- Get ride of hardcode value
+    \begin{addmargin}[-3.5cm]{0em}
+    \parbox[t]{#1\paperwidth}{
+      \begin{mdframed}[
+        frametitle={\color{darkblue}Actividad~\theactivityCount},
+        frametitlerule=true,
+        topline=false,
+        bottomline=false,
+        rightline=false,
+        leftline=false,
+        innerrightmargin=2pt,
+        innerleftmargin=2pt,
+      ]
+      EVEN page
+      \BODY
+      \end{mdframed} 
+    }
+    \end{addmargin}
+  \fi
+}
+
+\newcounter{definitionCount}[chapter]
+\newenvironment{definition}{
+  \refstepcounter{definitionCount}
+  \begin{mdframed}[
+    frametitle={\color{darkblue}Definición~\thedefinitionCount},
+    frametitlerule=true,
+    roundcorner=10pt
+  ]
+}{
+  \end{mdframed} 
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                        Header Style                       %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[LE]{\nouppercase\leftmark}% LE -> Left part on Even pages
+\fancyhead[RO]{\nouppercase\rightmark}% RO -> Right part on Odd pages
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                Variables definition                       %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{ {latex/assets/} }
+\newcommand{\materia}{Trigonometría}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                        Contents                           %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{\materia}
+
+\section{Ángulos}
+
+\textit{Diseñe una carta ASM con hasta 16 estados, 4, entradas (X,Y,Z,W) Y
+4 salidas (S0,S1,S2,S3) y determine la tabla de verdad por el método
+de Direccionamiento por Entrada-Estado.}\\
+
+\marginnote{This is a margin note using the geometry package, set at 3cm
+vertical offset to the line it is typeseted.}
+
+\subsection{Sistema sexagesimal}
+
+\begin{wideBox}{0.8}
+  \lipsum[1]
+\end{wideBox}
+
+\textit{Determine el número de bits de memoria que se ahorran al
+implementar una carta ASM que posee 4 entradas (X,Y,Z,W), 20
+estados, 8 salidas (S0-S7), mediante el método de ``direccionamiento
+entrada-estado'' respecto al método ``direccionamiento por trayectoria''.}\\
+
+Ahorro = ``direccionamiento por trayectoria'' - ``direccionamiento
+entrada-estado''\\ 
+
+%\begin{equation}
+  %\text{Ahorra} = $(2^{\text{bits para edos+ entradas}})(bits de liga+salidas)$
+%\end{equation}
+
+\lipsum
+
+\marginnote{This is a margin note using the geometry package, set at 3cm
+vertical offset to the line it is typeseted.}[-2cm]
+
+\begin{wideBox}{0.6}
+  Convierte los siguientes ángulos a \textit{solo} grados
+  \begin{multicols}{4}
+    \begin{enumerate}[label=\protect\circItem{\arabic*}]
+      \setlength\itemsep{4mm}
+      \item $40^\circ 10' 15''$
+      \item $61^\circ 42' 21''$
+      \item $1^\circ 2' 3''$
+      \item $73^\circ 40' 40''$
+      \item $9^\circ 9' 9''$
+      \item $98^\circ 22' 45''$
+      \item $23^\circ 24' 25''$
+      \item $320^\circ 20' 17''$
+      \item $322^\circ 50' 59''$
+      \item $9^\circ 2' 1''$
+      \item $9^\circ 2' 1''$
+      \item $9^\circ 2' 1''$
+    \end{enumerate}
+  \end{multicols}
+
+  Convierte los siguientes ángulos a su equivalente en grados, minutos y
+  segundos.
+  \begin{multicols}{4}
+    \begin{enumerate}[label=\protect\circItem{\arabic*}]
+      \setlength\itemsep{4mm}
+      \item $40.32^\circ$
+      \item $61.24^\circ$
+      \item $18.255^\circ$
+      \item $29.411^\circ$
+      \item $19.99^\circ$
+      \item $44.01^\circ$
+      \item $32.123^\circ$
+      \item $34.98^\circ$
+      \item $32.29^\circ$
+      \item $32.29^\circ$
+      \item $32.29^\circ$
+      \item $769^\circ$
+    \end{enumerate}
+  \end{multicols}
+\end{wideBox}
+
+\lipsum
+
+\section{Razones trigonométricas}
+
+\lipsum[1-6]
+
+\textit{\lipsum[8]}\\
+
+\begin{wideBox}{0.8}
+  \lipsum[3]
+\end{wideBox}
+
+Testing new environment
+
+\begin{definition}
+  \lipsum[3]
+\end{definition}
+
+\end{document}

@@ -87,28 +87,11 @@
 }
 
 \newcounter{activityCount}[chapter]
-%TODO:- Improve if statement
-\NewEnviron{wideBox}[1]{
+\NewEnviron{activity}[1]{
   \refstepcounter{activityCount}
   \checkoddpage
-  \ifoddpage
-    \parbox[t]{#1\paperwidth}{
-      \begin{mdframed}[
-        frametitle={\color{darkblue}Actividad~\theactivityCount},
-        frametitlerule=true,
-        topline=false,
-        bottomline=false,
-        rightline=false,
-        leftline=false,
-        innerrightmargin=2pt,
-        innerleftmargin=2pt,
-      ]
-      \BODY
-      \end{mdframed} 
-    }
-  \else
     %TODO:- Get ride of hardcode value
-    \begin{addmargin}[-3.5cm]{0em}
+  \ifoddpage {} \else \begin{addmargin}[-3.5cm]{0em} \fi
     \parbox[t]{#1\paperwidth}{
       \begin{mdframed}[
         frametitle={\color{darkblue}Actividad~\theactivityCount},
@@ -120,12 +103,10 @@
         innerrightmargin=2pt,
         innerleftmargin=2pt,
       ]
-      EVEN page
       \BODY
       \end{mdframed} 
     }
-    \end{addmargin}
-  \fi
+  \ifoddpage {} \else \end{addmargin} \fi
 }
 
 \newcounter{definitionCount}[chapter]
@@ -177,9 +158,9 @@ vertical offset to the line it is typeseted.}
 
 \subsection{Sistema sexagesimal}
 
-\begin{wideBox}{0.8}
+\begin{activity}{0.8}
   \lipsum[1]
-\end{wideBox}
+\end{activity}
 
 \textit{Determine el número de bits de memoria que se ahorran al
 implementar una carta ASM que posee 4 entradas (X,Y,Z,W), 20
@@ -198,7 +179,7 @@ entrada-estado''\\
 \marginnote{This is a margin note using the geometry package, set at 3cm
 vertical offset to the line it is typeseted.}[-2cm]
 
-\begin{wideBox}{0.6}
+\begin{activity}{0.8}
   Convierte los siguientes ángulos a \textit{solo} grados
   \begin{multicols}{4}
     \begin{enumerate}[label=\protect\circItem{\arabic*}]
@@ -237,7 +218,7 @@ vertical offset to the line it is typeseted.}[-2cm]
       \item $769^\circ$
     \end{enumerate}
   \end{multicols}
-\end{wideBox}
+\end{activity}
 
 \lipsum
 
@@ -247,9 +228,9 @@ vertical offset to the line it is typeseted.}[-2cm]
 
 \textit{\lipsum[8]}\\
 
-\begin{wideBox}{0.8}
+\begin{activity}{0.8}
   \lipsum[3]
-\end{wideBox}
+\end{activity}
 
 Testing new environment
 

@@ -90,6 +90,12 @@
     \node[draw=darkblue,circle,inner sep=1pt,minimum size=3ex](C) {#1.};
   \end{tikzpicture}
 }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                        Environments                       %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \NewEnviron{widebox}[1]{
   \checkoddpage
     %TODO:- Get ride of hardcode value
@@ -146,13 +152,38 @@
   \ifoddpage {} \else \end{addmargin} \fi
 }
 
+\newcounter{exampleCount}[chapter]
+\NewEnviron{example}[1]{
+  \refstepcounter{exampleCount}
+  \checkoddpage
+    %TODO:- Get ride of hardcode value
+  \ifoddpage {} \else \begin{addmargin}[-3.5cm]{0em} \fi
+    \parbox[t]{#1\paperwidth}{
+      \begin{mdframed}[
+        frametitle={\color{darkblue}Ejemplo~\thecheatSheetCount},
+        frametitlerule=true,
+        topline=false,
+        bottomline=false,
+        rightline=false,
+        leftline=false,
+        %innerrightmargin=2pt,
+        %innerleftmargin=2pt,
+        roundcorner=6pt,
+        backgroundcolor=gray!15
+      ]
+      \BODY
+      \end{mdframed} 
+    }
+  \ifoddpage {} \else \end{addmargin} \fi
+}
+
 \newcounter{definitionCount}[chapter]
 \newenvironment{definition}{
   \refstepcounter{definitionCount}
   \begin{mdframed}[
     frametitle={\color{darkblue}Definición~\thedefinitionCount},
     frametitlerule=true,
-    roundcorner=10pt
+    roundcorner=6pt
   ]
 }{
   \end{mdframed} 
@@ -316,5 +347,11 @@ Testing new environment
   \lipsum[3]
 \end{cheatSheet}
 
+\newpage
+\begin{example}{0.79}
+  \lipsum[3]
+\end{example}
+
+\lipsum[1]
 
 \end{document}

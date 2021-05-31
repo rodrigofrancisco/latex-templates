@@ -119,3 +119,13 @@ This is just a latex compile document with a heading title and thats all.
 
 //image::short-report-v1.png[width=500]
 image::short-report-v1-01.png[width=500]
+
+=== Notes template as a book layout v1
+
+This template allow us to create a book that has mathematics content. Note that
+I can easily adapt to create a coding booking (or any techologie)
+
+image:book-v1-01.png[width=500]
+image:book-v1-02.png[width=500]
+image:book-v1-03.png[width=500]
+image:book-v1-04.png[width=500]
